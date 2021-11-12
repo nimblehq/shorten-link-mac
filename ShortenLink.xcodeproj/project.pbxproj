@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -113,12 +113,11 @@
 		3173B69A273E44DE005A0A8B /* ShortenLink */ = {
 			isa = PBXGroup;
 			children = (
-				3173B69B273E44DE005A0A8B /* AppDelegate.swift */,
-				3173B69D273E44DE005A0A8B /* ViewController.swift */,
+				3173B6CA273E48F0005A0A8B /* Application */,
+				3173B6C9273E48E1005A0A8B /* Utils */,
+				3173B6C8273E48DA005A0A8B /* Extensions */,
+				3173B6C7273E48D2005A0A8B /* Scenes */,
 				3173B69F273E44E0005A0A8B /* Assets.xcassets */,
-				3173B6A1273E44E0005A0A8B /* Main.storyboard */,
-				3173B6A4273E44E0005A0A8B /* Info.plist */,
-				3173B6A5273E44E0005A0A8B /* ShortenLink.entitlements */,
 			);
 			path = ShortenLink;
 			sourceTree = "<group>";
@@ -141,6 +140,47 @@
 			path = ShortenLinkUITests;
 			sourceTree = "<group>";
 		};
+		3173B6C7273E48D2005A0A8B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3173B6CB273E4912005A0A8B /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		3173B6C8273E48DA005A0A8B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3173B6C9273E48E1005A0A8B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3173B6CA273E48F0005A0A8B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3173B6A4273E44E0005A0A8B /* Info.plist */,
+				3173B69B273E44DE005A0A8B /* AppDelegate.swift */,
+				3173B6A1273E44E0005A0A8B /* Main.storyboard */,
+				3173B6A5273E44E0005A0A8B /* ShortenLink.entitlements */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3173B6CB273E4912005A0A8B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3173B69D273E44DE005A0A8B /* ViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		6DEDF76E5F620A11BA714ACE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +191,6 @@
 				227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */,
 				573E0765A4F8EF40EC6432BB /* Pods-ShortenLinkTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -571,12 +610,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ShortenLink/ShortenLink.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ShortenLink/Application/ShortenLink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4TWS7E2EPE;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = ShortenLink/Info.plist;
+				INFOPLIST_FILE = ShortenLink/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -593,12 +632,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ShortenLink/ShortenLink.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ShortenLink/Application/ShortenLink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4TWS7E2EPE;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = ShortenLink/Info.plist;
+				INFOPLIST_FILE = ShortenLink/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
