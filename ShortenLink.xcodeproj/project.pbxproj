@@ -10,6 +10,8 @@
 		096C3142273E7C50009497A5 /* ShortenLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C3141273E7C50009497A5 /* ShortenLinkViewController.swift */; };
 		096C3146273E7C8B009497A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 096C3148273E7C8B009497A5 /* Localizable.strings */; };
 		096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C314B273E7CBF009497A5 /* ClearableTextField.swift */; };
+		096C315D273E83B1009497A5 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C315C273E83B0009497A5 /* Strings+Generated.swift */; };
+		096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C315E273E84FF009497A5 /* XCAssets+Generated.swift */; };
 		3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69B273E44DE005A0A8B /* AppDelegate.swift */; };
 		3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69D273E44DE005A0A8B /* ViewController.swift */; };
 		3173B6A0273E44E0005A0A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3173B69F273E44E0005A0A8B /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		096C3141273E7C50009497A5 /* ShortenLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortenLinkViewController.swift; sourceTree = "<group>"; };
 		096C3147273E7C8B009497A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		096C314B273E7CBF009497A5 /* ClearableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearableTextField.swift; sourceTree = "<group>"; };
+		096C315C273E83B0009497A5 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		096C315E273E84FF009497A5 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		1BEBB435D8200CA5998242A6 /* Pods-ShortenLink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink/Pods-ShortenLink.release.xcconfig"; sourceTree = "<group>"; };
 		227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLinkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +131,31 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		096C3159273E83B0009497A5 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				096C315A273E83B0009497A5 /* Helpers */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		096C315A273E83B0009497A5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				096C315B273E83B0009497A5 /* Swiftgen */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		096C315B273E83B0009497A5 /* Swiftgen */ = {
+			isa = PBXGroup;
+			children = (
+				096C315E273E84FF009497A5 /* XCAssets+Generated.swift */,
+				096C315C273E83B0009497A5 /* Strings+Generated.swift */,
+			);
+			path = Swiftgen;
+			sourceTree = "<group>";
+		};
 		3173B68F273E44DE005A0A8B = {
 			isa = PBXGroup;
 			children = (
@@ -152,11 +181,12 @@
 		3173B69A273E44DE005A0A8B /* ShortenLink */ = {
 			isa = PBXGroup;
 			children = (
-				096C3143273E7C7B009497A5 /* Resources */,
 				3173B6CA273E48F0005A0A8B /* Application */,
-				3173B6C9273E48E1005A0A8B /* Utils */,
 				3173B6C8273E48DA005A0A8B /* Extensions */,
+				096C3143273E7C7B009497A5 /* Resources */,
 				3173B6C7273E48D2005A0A8B /* Scenes */,
+				096C3159273E83B0009497A5 /* Supports */,
+				3173B6C9273E48E1005A0A8B /* Utils */,
 				096C314A273E7CAF009497A5 /* Views */,
 			);
 			path = ShortenLink;
@@ -253,6 +283,7 @@
 			buildConfigurationList = 3173B6BE273E44E1005A0A8B /* Build configuration list for PBXNativeTarget "ShortenLink" */;
 			buildPhases = (
 				14BF76209BA7B11D7D38F197 /* [CP] Check Pods Manifest.lock */,
+				096C3158273E813B009497A5 /* Swiftgen Localize */,
 				3173B694273E44DE005A0A8B /* Sources */,
 				3173B695273E44DE005A0A8B /* Frameworks */,
 				3173B696273E44DE005A0A8B /* Resources */,
@@ -376,6 +407,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		096C3158273E813B009497A5 /* Swiftgen Localize */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftgen Localize";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+		};
 		102B8CD24CEED98D86506120 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,8 +532,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096C315D273E83B1009497A5 /* Strings+Generated.swift in Sources */,
 				096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */,
 				096C3142273E7C50009497A5 /* ShortenLinkViewController.swift in Sources */,
+				096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */,
 				3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */,
 				3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */,
 			);

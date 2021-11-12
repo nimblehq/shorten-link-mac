@@ -29,7 +29,7 @@ class ClearableTextField: NSTextField {
 
     private func setUpViews() {
         clearButton.bezelStyle = .inline
-        clearButton.image = NSImage(named: "clear")
+        clearButton.image = Asset.clear.image
         clearButton.action = #selector(clear)
     }
 

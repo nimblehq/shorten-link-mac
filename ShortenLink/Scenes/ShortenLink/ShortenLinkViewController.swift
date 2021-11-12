@@ -51,13 +51,13 @@ extension ShortenLinkViewController {
     }
 
     private func setUpViews() {
-        urlTextField.placeholderString = NSLocalizedString("shortenlink.urltextfield.placeholder", comment: "")
+        urlTextField.placeholderString = L10n.Shortenlink.Urltextfield.placeholder
 
         shortenButton.bezelStyle = .rounded
         shortenButton.setButtonType(.momentaryPushIn)
-        shortenButton.title = NSLocalizedString("shortenlink.shortenbutton.title", comment: "")
+        shortenButton.title = L10n.Shortenlink.Shortenbutton.title
 
-        instructionText.string = NSLocalizedString("shortenlink.instructiontext.title", comment: "")
+        instructionText.string = L10n.Shortenlink.Instructiontext.title
         instructionText.backgroundColor = .clear
         instructionText.isEditable = false
         instructionText.sizeToFit()
