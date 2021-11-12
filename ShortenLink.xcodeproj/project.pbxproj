@@ -1,0 +1,781 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69B273E44DE005A0A8B /* AppDelegate.swift */; };
+		3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69D273E44DE005A0A8B /* ViewController.swift */; };
+		3173B6A0273E44E0005A0A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3173B69F273E44E0005A0A8B /* Assets.xcassets */; };
+		3173B6A3273E44E0005A0A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3173B6A1273E44E0005A0A8B /* Main.storyboard */; };
+		3173B6AF273E44E0005A0A8B /* ShortenLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B6AE273E44E0005A0A8B /* ShortenLinkTests.swift */; };
+		3173B6BA273E44E0005A0A8B /* ShortenLinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B6B9273E44E0005A0A8B /* ShortenLinkUITests.swift */; };
+		423284F150FD316B1BED5D1D /* Pods_ShortenLink_ShortenLinkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4375B7EBBBE7AF216DF3B5C /* Pods_ShortenLink_ShortenLinkUITests.framework */; };
+		B8591375BB16EAAC3ED4812A /* Pods_ShortenLinkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */; };
+		DE09E76917B074D87CEA401A /* Pods_ShortenLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B33B7A932A2DE961E534AEC /* Pods_ShortenLink.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3173B6AB273E44E0005A0A8B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3173B690273E44DE005A0A8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3173B697273E44DE005A0A8B;
+			remoteInfo = ShortenLink;
+		};
+		3173B6B6273E44E0005A0A8B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3173B690273E44DE005A0A8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3173B697273E44DE005A0A8B;
+			remoteInfo = ShortenLink;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1BEBB435D8200CA5998242A6 /* Pods-ShortenLink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink/Pods-ShortenLink.release.xcconfig"; sourceTree = "<group>"; };
+		227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLinkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3173B698273E44DE005A0A8B /* ShortenLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortenLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3173B69B273E44DE005A0A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3173B69D273E44DE005A0A8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3173B69F273E44E0005A0A8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3173B6A2273E44E0005A0A8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3173B6A4273E44E0005A0A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3173B6A5273E44E0005A0A8B /* ShortenLink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShortenLink.entitlements; sourceTree = "<group>"; };
+		3173B6AA273E44E0005A0A8B /* ShortenLinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShortenLinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3173B6AE273E44E0005A0A8B /* ShortenLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenLinkTests.swift; sourceTree = "<group>"; };
+		3173B6B0273E44E0005A0A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3173B6B5273E44E0005A0A8B /* ShortenLinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShortenLinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3173B6B9273E44E0005A0A8B /* ShortenLinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenLinkUITests.swift; sourceTree = "<group>"; };
+		3173B6BB273E44E0005A0A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		573E0765A4F8EF40EC6432BB /* Pods-ShortenLinkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.release.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B33B7A932A2DE961E534AEC /* Pods_ShortenLink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B836F492CB4DFFA87F959FFA /* Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CCAD9BD5A0BB193B3BE3C297 /* Pods-ShortenLink-ShortenLinkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink-ShortenLinkUITests.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D4375B7EBBBE7AF216DF3B5C /* Pods_ShortenLink_ShortenLinkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLink_ShortenLinkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E871F46B6A579B115DDDA2D6 /* Pods-ShortenLink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLink/Pods-ShortenLink.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3173B695273E44DE005A0A8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE09E76917B074D87CEA401A /* Pods_ShortenLink.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3173B6A7273E44E0005A0A8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8591375BB16EAAC3ED4812A /* Pods_ShortenLinkTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3173B6B2273E44E0005A0A8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				423284F150FD316B1BED5D1D /* Pods_ShortenLink_ShortenLinkUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3173B68F273E44DE005A0A8B = {
+			isa = PBXGroup;
+			children = (
+				3173B69A273E44DE005A0A8B /* ShortenLink */,
+				3173B6AD273E44E0005A0A8B /* ShortenLinkTests */,
+				3173B6B8273E44E0005A0A8B /* ShortenLinkUITests */,
+				3173B699273E44DE005A0A8B /* Products */,
+				6DEDF76E5F620A11BA714ACE /* Pods */,
+				800D2D4B68913478F84DF372 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3173B699273E44DE005A0A8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3173B698273E44DE005A0A8B /* ShortenLink.app */,
+				3173B6AA273E44E0005A0A8B /* ShortenLinkTests.xctest */,
+				3173B6B5273E44E0005A0A8B /* ShortenLinkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3173B69A273E44DE005A0A8B /* ShortenLink */ = {
+			isa = PBXGroup;
+			children = (
+				3173B6CA273E48F0005A0A8B /* Application */,
+				3173B6C9273E48E1005A0A8B /* Utils */,
+				3173B6C8273E48DA005A0A8B /* Extensions */,
+				3173B6C7273E48D2005A0A8B /* Scenes */,
+				3173B69F273E44E0005A0A8B /* Assets.xcassets */,
+			);
+			path = ShortenLink;
+			sourceTree = "<group>";
+		};
+		3173B6AD273E44E0005A0A8B /* ShortenLinkTests */ = {
+			isa = PBXGroup;
+			children = (
+				3173B6AE273E44E0005A0A8B /* ShortenLinkTests.swift */,
+				3173B6B0273E44E0005A0A8B /* Info.plist */,
+			);
+			path = ShortenLinkTests;
+			sourceTree = "<group>";
+		};
+		3173B6B8273E44E0005A0A8B /* ShortenLinkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3173B6B9273E44E0005A0A8B /* ShortenLinkUITests.swift */,
+				3173B6BB273E44E0005A0A8B /* Info.plist */,
+			);
+			path = ShortenLinkUITests;
+			sourceTree = "<group>";
+		};
+		3173B6C7273E48D2005A0A8B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3173B6CB273E4912005A0A8B /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		3173B6C8273E48DA005A0A8B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3173B6C9273E48E1005A0A8B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3173B6CA273E48F0005A0A8B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3173B6A4273E44E0005A0A8B /* Info.plist */,
+				3173B69B273E44DE005A0A8B /* AppDelegate.swift */,
+				3173B6A1273E44E0005A0A8B /* Main.storyboard */,
+				3173B6A5273E44E0005A0A8B /* ShortenLink.entitlements */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3173B6CB273E4912005A0A8B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3173B69D273E44DE005A0A8B /* ViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6DEDF76E5F620A11BA714ACE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E871F46B6A579B115DDDA2D6 /* Pods-ShortenLink.debug.xcconfig */,
+				1BEBB435D8200CA5998242A6 /* Pods-ShortenLink.release.xcconfig */,
+				B836F492CB4DFFA87F959FFA /* Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig */,
+				CCAD9BD5A0BB193B3BE3C297 /* Pods-ShortenLink-ShortenLinkUITests.release.xcconfig */,
+				227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */,
+				573E0765A4F8EF40EC6432BB /* Pods-ShortenLinkTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		800D2D4B68913478F84DF372 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B33B7A932A2DE961E534AEC /* Pods_ShortenLink.framework */,
+				D4375B7EBBBE7AF216DF3B5C /* Pods_ShortenLink_ShortenLinkUITests.framework */,
+				2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3173B697273E44DE005A0A8B /* ShortenLink */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3173B6BE273E44E1005A0A8B /* Build configuration list for PBXNativeTarget "ShortenLink" */;
+			buildPhases = (
+				14BF76209BA7B11D7D38F197 /* [CP] Check Pods Manifest.lock */,
+				3173B694273E44DE005A0A8B /* Sources */,
+				3173B695273E44DE005A0A8B /* Frameworks */,
+				3173B696273E44DE005A0A8B /* Resources */,
+				E289F380C70EDEAE5C777E29 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShortenLink;
+			productName = ShortenLink;
+			productReference = 3173B698273E44DE005A0A8B /* ShortenLink.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3173B6A9273E44E0005A0A8B /* ShortenLinkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3173B6C1273E44E1005A0A8B /* Build configuration list for PBXNativeTarget "ShortenLinkTests" */;
+			buildPhases = (
+				102B8CD24CEED98D86506120 /* [CP] Check Pods Manifest.lock */,
+				3173B6A6273E44E0005A0A8B /* Sources */,
+				3173B6A7273E44E0005A0A8B /* Frameworks */,
+				3173B6A8273E44E0005A0A8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3173B6AC273E44E0005A0A8B /* PBXTargetDependency */,
+			);
+			name = ShortenLinkTests;
+			productName = ShortenLinkTests;
+			productReference = 3173B6AA273E44E0005A0A8B /* ShortenLinkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3173B6B4273E44E0005A0A8B /* ShortenLinkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3173B6C4273E44E1005A0A8B /* Build configuration list for PBXNativeTarget "ShortenLinkUITests" */;
+			buildPhases = (
+				DE82FC92B3DD188C3302C059 /* [CP] Check Pods Manifest.lock */,
+				3173B6B1273E44E0005A0A8B /* Sources */,
+				3173B6B2273E44E0005A0A8B /* Frameworks */,
+				3173B6B3273E44E0005A0A8B /* Resources */,
+				121BD02BE323C939132FCCEB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3173B6B7273E44E0005A0A8B /* PBXTargetDependency */,
+			);
+			name = ShortenLinkUITests;
+			productName = ShortenLinkUITests;
+			productReference = 3173B6B5273E44E0005A0A8B /* ShortenLinkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3173B690273E44DE005A0A8B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					3173B697273E44DE005A0A8B = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					3173B6A9273E44E0005A0A8B = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 3173B697273E44DE005A0A8B;
+					};
+					3173B6B4273E44E0005A0A8B = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 3173B697273E44DE005A0A8B;
+					};
+				};
+			};
+			buildConfigurationList = 3173B693273E44DE005A0A8B /* Build configuration list for PBXProject "ShortenLink" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3173B68F273E44DE005A0A8B;
+			productRefGroup = 3173B699273E44DE005A0A8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3173B697273E44DE005A0A8B /* ShortenLink */,
+				3173B6A9273E44E0005A0A8B /* ShortenLinkTests */,
+				3173B6B4273E44E0005A0A8B /* ShortenLinkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3173B696273E44DE005A0A8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3173B6A0273E44E0005A0A8B /* Assets.xcassets in Resources */,
+				3173B6A3273E44E0005A0A8B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3173B6A8273E44E0005A0A8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3173B6B3273E44E0005A0A8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		102B8CD24CEED98D86506120 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShortenLinkTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		121BD02BE323C939132FCCEB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14BF76209BA7B11D7D38F197 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShortenLink-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE82FC92B3DD188C3302C059 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShortenLink-ShortenLinkUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E289F380C70EDEAE5C777E29 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShortenLink/Pods-ShortenLink-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShortenLink/Pods-ShortenLink-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShortenLink/Pods-ShortenLink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3173B694273E44DE005A0A8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */,
+				3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3173B6A6273E44E0005A0A8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3173B6AF273E44E0005A0A8B /* ShortenLinkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3173B6B1273E44E0005A0A8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3173B6BA273E44E0005A0A8B /* ShortenLinkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3173B6AC273E44E0005A0A8B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3173B697273E44DE005A0A8B /* ShortenLink */;
+			targetProxy = 3173B6AB273E44E0005A0A8B /* PBXContainerItemProxy */;
+		};
+		3173B6B7273E44E0005A0A8B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3173B697273E44DE005A0A8B /* ShortenLink */;
+			targetProxy = 3173B6B6273E44E0005A0A8B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3173B6A1273E44E0005A0A8B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3173B6A2273E44E0005A0A8B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3173B6BC273E44E1005A0A8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3173B6BD273E44E1005A0A8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		3173B6BF273E44E1005A0A8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E871F46B6A579B115DDDA2D6 /* Pods-ShortenLink.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShortenLink/Application/ShortenLink.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4TWS7E2EPE;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = ShortenLink/Application/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.ShortenLink;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3173B6C0273E44E1005A0A8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BEBB435D8200CA5998242A6 /* Pods-ShortenLink.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShortenLink/Application/ShortenLink.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4TWS7E2EPE;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = ShortenLink/Application/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.ShortenLink;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3173B6C2273E44E1005A0A8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4TWS7E2EPE;
+				INFOPLIST_FILE = ShortenLinkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.ShortenLinkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShortenLink.app/Contents/MacOS/ShortenLink";
+			};
+			name = Debug;
+		};
+		3173B6C3273E44E1005A0A8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 573E0765A4F8EF40EC6432BB /* Pods-ShortenLinkTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4TWS7E2EPE;
+				INFOPLIST_FILE = ShortenLinkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.ShortenLinkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShortenLink.app/Contents/MacOS/ShortenLink";
+			};
+			name = Release;
+		};
+		3173B6C5273E44E1005A0A8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B836F492CB4DFFA87F959FFA /* Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4TWS7E2EPE;
+				INFOPLIST_FILE = ShortenLinkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.ShortenLinkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ShortenLink;
+			};
+			name = Debug;
+		};
+		3173B6C6273E44E1005A0A8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCAD9BD5A0BB193B3BE3C297 /* Pods-ShortenLink-ShortenLinkUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4TWS7E2EPE;
+				INFOPLIST_FILE = ShortenLinkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.ShortenLinkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ShortenLink;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3173B693273E44DE005A0A8B /* Build configuration list for PBXProject "ShortenLink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3173B6BC273E44E1005A0A8B /* Debug */,
+				3173B6BD273E44E1005A0A8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3173B6BE273E44E1005A0A8B /* Build configuration list for PBXNativeTarget "ShortenLink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3173B6BF273E44E1005A0A8B /* Debug */,
+				3173B6C0273E44E1005A0A8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3173B6C1273E44E1005A0A8B /* Build configuration list for PBXNativeTarget "ShortenLinkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3173B6C2273E44E1005A0A8B /* Debug */,
+				3173B6C3273E44E1005A0A8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3173B6C4273E44E1005A0A8B /* Build configuration list for PBXNativeTarget "ShortenLinkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3173B6C5273E44E1005A0A8B /* Debug */,
+				3173B6C6273E44E1005A0A8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3173B690273E44DE005A0A8B /* Project object */;
+}
