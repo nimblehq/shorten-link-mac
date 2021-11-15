@@ -38,3 +38,5 @@
 Pods/
 *.xcuserstate
 xcuserdata/
+
+**Generated.swift

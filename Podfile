@@ -9,6 +9,7 @@ target 'ShortenLink' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'RxSwift'
   pod 'RxAlamofire'
+  pod 'SwiftGen' 
 
   target 'ShortenLinkTests' do
     inherit! :search_paths
