@@ -8,3 +8,5 @@
 "shortenlink.urltextfield.placeholder" = "Type your link here";
 "shortenlink.instructiontext.title" = "Or use ⇧+⌘+L to shorten your copied link";
 "shortenlink.shortenbutton.title" = "Shorten";
+
+"linksPopOver.titletext.title" = "Nimble Link";

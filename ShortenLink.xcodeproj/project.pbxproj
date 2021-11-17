@@ -18,6 +18,9 @@
 		3173B6A3273E44E0005A0A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3173B6A1273E44E0005A0A8B /* Main.storyboard */; };
 		3173B6AF273E44E0005A0A8B /* ShortenLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B6AE273E44E0005A0A8B /* ShortenLinkTests.swift */; };
 		3173B6BA273E44E0005A0A8B /* ShortenLinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B6B9273E44E0005A0A8B /* ShortenLinkUITests.swift */; };
+		31EDD46727455623002C4148 /* LinksPopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EDD46627455623002C4148 /* LinksPopOverViewController.swift */; };
+		31EDD46927455660002C4148 /* LinksPopOverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EDD46827455660002C4148 /* LinksPopOverViewModel.swift */; };
+		31EDD46C274556FA002C4148 /* NSView+AddSubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EDD46B274556FA002C4148 /* NSView+AddSubViews.swift */; };
 		423284F150FD316B1BED5D1D /* Pods_ShortenLink_ShortenLinkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4375B7EBBBE7AF216DF3B5C /* Pods_ShortenLink_ShortenLinkUITests.framework */; };
 		B8591375BB16EAAC3ED4812A /* Pods_ShortenLinkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */; };
 		DE09E76917B074D87CEA401A /* Pods_ShortenLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B33B7A932A2DE961E534AEC /* Pods_ShortenLink.framework */; };
@@ -62,6 +65,9 @@
 		3173B6B5273E44E0005A0A8B /* ShortenLinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShortenLinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3173B6B9273E44E0005A0A8B /* ShortenLinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenLinkUITests.swift; sourceTree = "<group>"; };
 		3173B6BB273E44E0005A0A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31EDD46627455623002C4148 /* LinksPopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksPopOverViewController.swift; sourceTree = "<group>"; };
+		31EDD46827455660002C4148 /* LinksPopOverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksPopOverViewModel.swift; sourceTree = "<group>"; };
+		31EDD46B274556FA002C4148 /* NSView+AddSubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+AddSubViews.swift"; sourceTree = "<group>"; };
 		573E0765A4F8EF40EC6432BB /* Pods-ShortenLinkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.release.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B33B7A932A2DE961E534AEC /* Pods_ShortenLink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B836F492CB4DFFA87F959FFA /* Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 		096C3159273E83B0009497A5 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				31EDD46A274556D9002C4148 /* Extensions */,
 				096C315A273E83B0009497A5 /* Helpers */,
 			);
 			path = Supports;
@@ -182,11 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				3173B6CA273E48F0005A0A8B /* Application */,
-				3173B6C8273E48DA005A0A8B /* Extensions */,
 				096C3143273E7C7B009497A5 /* Resources */,
 				3173B6C7273E48D2005A0A8B /* Scenes */,
 				096C3159273E83B0009497A5 /* Supports */,
-				3173B6C9273E48E1005A0A8B /* Utils */,
 				096C314A273E7CAF009497A5 /* Views */,
 			);
 			path = ShortenLink;
@@ -213,24 +218,11 @@
 		3173B6C7273E48D2005A0A8B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				31EDD465274555F0002C4148 /* LinksPopOver */,
 				3173B6CB273E4912005A0A8B /* Home */,
 				096C3140273E7C3F009497A5 /* ShortenLink */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		3173B6C8273E48DA005A0A8B /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		3173B6C9273E48E1005A0A8B /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		3173B6CA273E48F0005A0A8B /* Application */ = {
@@ -250,6 +242,23 @@
 				3173B69D273E44DE005A0A8B /* ViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		31EDD465274555F0002C4148 /* LinksPopOver */ = {
+			isa = PBXGroup;
+			children = (
+				31EDD46627455623002C4148 /* LinksPopOverViewController.swift */,
+				31EDD46827455660002C4148 /* LinksPopOverViewModel.swift */,
+			);
+			path = LinksPopOver;
+			sourceTree = "<group>";
+		};
+		31EDD46A274556D9002C4148 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31EDD46B274556FA002C4148 /* NSView+AddSubViews.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		6DEDF76E5F620A11BA714ACE /* Pods */ = {
@@ -532,12 +541,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31EDD46727455623002C4148 /* LinksPopOverViewController.swift in Sources */,
 				096C315D273E83B1009497A5 /* Strings+Generated.swift in Sources */,
 				096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */,
 				096C3142273E7C50009497A5 /* ShortenLinkViewController.swift in Sources */,
 				096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */,
 				3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */,
+				31EDD46927455660002C4148 /* LinksPopOverViewModel.swift in Sources */,
 				3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */,
+				31EDD46C274556FA002C4148 /* NSView+AddSubViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
