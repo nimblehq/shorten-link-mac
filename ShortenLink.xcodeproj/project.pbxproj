@@ -12,6 +12,10 @@
 		096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C314B273E7CBF009497A5 /* ClearableTextField.swift */; };
 		096C315D273E83B1009497A5 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C315C273E83B0009497A5 /* Strings+Generated.swift */; };
 		096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C315E273E84FF009497A5 /* XCAssets+Generated.swift */; };
+		09A81F0E27460FF3008CBEBD /* NetworkAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F0327460FF2008CBEBD /* NetworkAPIProtocol.swift */; };
+		09A81F0F27460FF3008CBEBD /* RequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F0427460FF2008CBEBD /* RequestConfiguration.swift */; };
+		09A81F1027460FF3008CBEBD /* NetworkAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F0527460FF2008CBEBD /* NetworkAPIError.swift */; };
+		09A81F1327460FF3008CBEBD /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F0A27460FF2008CBEBD /* NetworkAPI.swift */; };
 		3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69B273E44DE005A0A8B /* AppDelegate.swift */; };
 		3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69D273E44DE005A0A8B /* ViewController.swift */; };
 		3173B6A0273E44E0005A0A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3173B69F273E44E0005A0A8B /* Assets.xcassets */; };
@@ -49,6 +53,10 @@
 		096C314B273E7CBF009497A5 /* ClearableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearableTextField.swift; sourceTree = "<group>"; };
 		096C315C273E83B0009497A5 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		096C315E273E84FF009497A5 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		09A81F0327460FF2008CBEBD /* NetworkAPIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAPIProtocol.swift; sourceTree = "<group>"; };
+		09A81F0427460FF2008CBEBD /* RequestConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConfiguration.swift; sourceTree = "<group>"; };
+		09A81F0527460FF2008CBEBD /* NetworkAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAPIError.swift; sourceTree = "<group>"; };
+		09A81F0A27460FF2008CBEBD /* NetworkAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		1BEBB435D8200CA5998242A6 /* Pods-ShortenLink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink/Pods-ShortenLink.release.xcconfig"; sourceTree = "<group>"; };
 		227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLinkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +171,65 @@
 			path = Swiftgen;
 			sourceTree = "<group>";
 		};
+		09A81EFE27460FF2008CBEBD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				09A81EFF27460FF2008CBEBD /* NetworkAPI */,
+				09A81F0B27460FF2008CBEBD /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		09A81EFF27460FF2008CBEBD /* NetworkAPI */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F0027460FF2008CBEBD /* Interceptors */,
+				09A81F0227460FF2008CBEBD /* Core */,
+				09A81F0627460FF2008CBEBD /* Models */,
+				09A81F0827460FF2008CBEBD /* RequestConfigurations */,
+				09A81F0A27460FF2008CBEBD /* NetworkAPI.swift */,
+			);
+			path = NetworkAPI;
+			sourceTree = "<group>";
+		};
+		09A81F0027460FF2008CBEBD /* Interceptors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interceptors;
+			sourceTree = "<group>";
+		};
+		09A81F0227460FF2008CBEBD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F0327460FF2008CBEBD /* NetworkAPIProtocol.swift */,
+				09A81F0427460FF2008CBEBD /* RequestConfiguration.swift */,
+				09A81F0527460FF2008CBEBD /* NetworkAPIError.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		09A81F0627460FF2008CBEBD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		09A81F0827460FF2008CBEBD /* RequestConfigurations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RequestConfigurations;
+			sourceTree = "<group>";
+		};
+		09A81F0B27460FF2008CBEBD /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		3173B68F273E44DE005A0A8B = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				3173B6CA273E48F0005A0A8B /* Application */,
+				09A81EFE27460FF2008CBEBD /* Data */,
 				096C3143273E7C7B009497A5 /* Resources */,
 				3173B6C7273E48D2005A0A8B /* Scenes */,
 				096C3159273E83B0009497A5 /* Supports */,
@@ -543,13 +611,17 @@
 			files = (
 				31EDD46727455623002C4148 /* LinksPopOverViewController.swift in Sources */,
 				096C315D273E83B1009497A5 /* Strings+Generated.swift in Sources */,
+				09A81F1027460FF3008CBEBD /* NetworkAPIError.swift in Sources */,
 				096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */,
+				09A81F0F27460FF3008CBEBD /* RequestConfiguration.swift in Sources */,
+				09A81F0E27460FF3008CBEBD /* NetworkAPIProtocol.swift in Sources */,
 				096C3142273E7C50009497A5 /* ShortenLinkViewController.swift in Sources */,
 				096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */,
 				3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */,
 				31EDD46927455660002C4148 /* LinksPopOverViewModel.swift in Sources */,
 				3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */,
 				31EDD46C274556FA002C4148 /* NSView+AddSubViews.swift in Sources */,
+				09A81F1327460FF3008CBEBD /* NetworkAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
