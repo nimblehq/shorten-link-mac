@@ -11,7 +11,6 @@ target 'ShortenLink' do
   pod 'RxCocoa'
   pod 'RxAlamofire'
   pod 'SwiftGen' 
-  pod 'JSONMapper', :git => 'https://github.com/nimblehq/JSONMapper.git', :commit => '711b194'
 
   target 'ShortenLinkTests' do
     inherit! :search_paths

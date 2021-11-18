@@ -23,7 +23,9 @@
 		09A81F252746173A008CBEBD /* LinksRequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F242746173A008CBEBD /* LinksRequestConfiguration.swift */; };
 		09A81F272746177D008CBEBD /* APIShortenLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F262746177D008CBEBD /* APIShortenLink.swift */; };
 		09A81F2927461901008CBEBD /* APIRequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F2827461901008CBEBD /* APIRequestConfiguration.swift */; };
-		09A81F2B2746249C008CBEBD /* JSONAPIDecoder+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F2A2746249C008CBEBD /* JSONAPIDecoder+Default.swift */; };
+		09A81F2B2746249C008CBEBD /* JSONDecoder+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F2A2746249C008CBEBD /* JSONDecoder+Default.swift */; };
+		09A81F3827468FFA008CBEBD /* DateFormatter+Formats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F3327468FFA008CBEBD /* DateFormatter+Formats.swift */; };
+		09A81F3C2746911C008CBEBD /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F3B2746911C008CBEBD /* String+Date.swift */; };
 		3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69B273E44DE005A0A8B /* AppDelegate.swift */; };
 		3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69D273E44DE005A0A8B /* ViewController.swift */; };
 		3173B6A0273E44E0005A0A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3173B69F273E44E0005A0A8B /* Assets.xcassets */; };
@@ -72,7 +74,9 @@
 		09A81F242746173A008CBEBD /* LinksRequestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksRequestConfiguration.swift; sourceTree = "<group>"; };
 		09A81F262746177D008CBEBD /* APIShortenLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIShortenLink.swift; sourceTree = "<group>"; };
 		09A81F2827461901008CBEBD /* APIRequestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestConfiguration.swift; sourceTree = "<group>"; };
-		09A81F2A2746249C008CBEBD /* JSONAPIDecoder+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONAPIDecoder+Default.swift"; sourceTree = "<group>"; };
+		09A81F2A2746249C008CBEBD /* JSONDecoder+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Default.swift"; sourceTree = "<group>"; };
+		09A81F3327468FFA008CBEBD /* DateFormatter+Formats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Formats.swift"; sourceTree = "<group>"; };
+		09A81F3B2746911C008CBEBD /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
 		1BEBB435D8200CA5998242A6 /* Pods-ShortenLink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink/Pods-ShortenLink.release.xcconfig"; sourceTree = "<group>"; };
 		227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLinkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,6 +312,40 @@
 			path = CreateShortenLink;
 			sourceTree = "<group>";
 		};
+		09A81F2C27468FED008CBEBD /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F3227468FFA008CBEBD /* DateFormatter */,
+				09A81F392746900A008CBEBD /* JSONDecoder+Default */,
+				09A81F3A27469105008CBEBD /* String */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		09A81F3227468FFA008CBEBD /* DateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F3327468FFA008CBEBD /* DateFormatter+Formats.swift */,
+			);
+			path = DateFormatter;
+			sourceTree = "<group>";
+		};
+		09A81F392746900A008CBEBD /* JSONDecoder+Default */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F2A2746249C008CBEBD /* JSONDecoder+Default.swift */,
+			);
+			path = "JSONDecoder+Default";
+			sourceTree = "<group>";
+		};
+		09A81F3A27469105008CBEBD /* String */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F3B2746911C008CBEBD /* String+Date.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		3173B68F273E44DE005A0A8B = {
 			isa = PBXGroup;
 			children = (
@@ -403,8 +441,8 @@
 		31EDD46A274556D9002C4148 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				09A81F2C27468FED008CBEBD /* Foundation */,
 				31EDD46B274556FA002C4148 /* NSView+AddSubViews.swift */,
-				09A81F2A2746249C008CBEBD /* JSONAPIDecoder+Default.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -694,7 +732,7 @@
 				09A81F1027460FF3008CBEBD /* NetworkAPIError.swift in Sources */,
 				096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */,
 				09A81F272746177D008CBEBD /* APIShortenLink.swift in Sources */,
-				09A81F2B2746249C008CBEBD /* JSONAPIDecoder+Default.swift in Sources */,
+				09A81F2B2746249C008CBEBD /* JSONDecoder+Default.swift in Sources */,
 				09A81F0F27460FF3008CBEBD /* RequestConfiguration.swift in Sources */,
 				09A81F0E27460FF3008CBEBD /* NetworkAPIProtocol.swift in Sources */,
 				09A81F2927461901008CBEBD /* APIRequestConfiguration.swift in Sources */,
@@ -709,7 +747,9 @@
 				3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */,
 				31EDD46C274556FA002C4148 /* NSView+AddSubViews.swift in Sources */,
 				09A81F1327460FF3008CBEBD /* NetworkAPI.swift in Sources */,
+				09A81F3C2746911C008CBEBD /* String+Date.swift in Sources */,
 				09A81F23274616C5008CBEBD /* CreateShortenLinkRepository.swift in Sources */,
+				09A81F3827468FFA008CBEBD /* DateFormatter+Formats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

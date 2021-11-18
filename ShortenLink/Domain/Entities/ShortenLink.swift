@@ -11,7 +11,7 @@ protocol ShortenLink {
 
     var id: Int { get }
     var alias: String { get }
-//    var createdAt: Date { get }
-//    var updatedAt: Date { get }
+    var createdAtDate: Date? { get }
+    var updatedAtDate: Date? { get }
     var originalUrl: String { get }
 }
