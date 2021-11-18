@@ -8,6 +8,7 @@ target 'ShortenLink' do
   # Pods for ShortenLink
   pod 'SnapKit', '~> 5.0.0'
   pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'RxAlamofire'
   pod 'SwiftGen' 
 
