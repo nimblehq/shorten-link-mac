@@ -4,13 +4,14 @@
 
 import Alamofire
 import Foundation
+import JSONMapper
 import RxSwift
 
 final class NetworkAPI: NetworkAPIProtocol {
 
     private let decoder: JSONDecoder
 
-    init(decoder: JSONDecoder = JSONDecoder()) {
+    init(decoder: JSONDecoder = JSONAPIDecoder.default) {
         self.decoder = decoder
     }
 
