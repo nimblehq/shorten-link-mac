@@ -18,7 +18,7 @@ extension NetworkAPIProtocol {
         configuration: RequestConfiguration,
         decoder: JSONDecoder
     ) -> Single<T> {
-        return session.rx.request(
+        session.rx.request(
             configuration.method,
             configuration.url,
             parameters: configuration.parameters,
