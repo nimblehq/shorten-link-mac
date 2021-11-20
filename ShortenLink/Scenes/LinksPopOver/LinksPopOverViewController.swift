@@ -12,6 +12,8 @@ final class LinksPopOverViewController: NSViewController {
 
     private let titleField = NSTextField()
     private let settingButton = NSButton()
+    private let tableView = NSTableView()
+    private let scrollView = NSScrollView()
     private let viewModel: LinksPopOverViewModelType!
 
     init(viewModel: LinksPopOverViewModelType) {
@@ -37,10 +39,11 @@ final class LinksPopOverViewController: NSViewController {
 extension LinksPopOverViewController {
 
     private func setUpLayout() {
-        view.addSubviews(titleField, settingButton)
+        view.addSubviews(titleField, settingButton, scrollView)
 
-        titleField.translatesAutoresizingMaskIntoConstraints = false
-        settingButton.translatesAutoresizingMaskIntoConstraints = false
+        LayoutUtility.disableTranslateAutoresizingMaskIntoConstraints(
+            for: titleField, settingButton, scrollView
+        )
 
         titleField.snp.makeConstraints {
             $0.centerX.equalTo(view.snp.centerX)
@@ -52,6 +55,13 @@ extension LinksPopOverViewController {
             $0.trailing.equalToSuperview().inset(8.5)
             $0.size.equalTo(CGSize(width: 20.0, height: 20.0))
         }
+
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(titleField.snp.bottom).inset(10)
+            $0.trailing.leading.bottom.equalToSuperview()
+        }
+
+        tableView.frame = scrollView.bounds
     }
 
     private func setUpViews() {
@@ -65,5 +75,12 @@ extension LinksPopOverViewController {
         settingButton.bezelStyle = .shadowlessSquare
         settingButton.isBordered = false
         settingButton.imagePosition = .imageOnly
+
+        scrollView.documentView = tableView
+        scrollView.backgroundColor = .clear
+
+        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "column"))
+        tableView.addTableColumn(column)
+
     }
 }
