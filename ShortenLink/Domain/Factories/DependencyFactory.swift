@@ -31,7 +31,10 @@ final class DependencyFactory {
 extension DependencyFactory {
 
     func userUseCase() -> UserUseCaseProtocol {
-        UserUseCase(loginRepository: loginRepository())
+        UserUseCase(
+            loginRepository: loginRepository(),
+            userSessionRepository: userSessionRepository()
+        )
     }
 }
 
@@ -41,5 +44,9 @@ extension DependencyFactory {
 
     func loginRepository() -> LoginRepositoryProtocol {
         LoginRepository(networkAPI: networkAPI)
+    }
+
+    func userSessionRepository() -> UserSessionRepositoryProtocol {
+        UserSessionRepository(keychain: keychain)
     }
 }

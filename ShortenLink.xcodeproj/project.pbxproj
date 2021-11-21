@@ -47,6 +47,8 @@
 		901178BC274A7AEF00A0868E /* UserRequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178BB274A7AEF00A0868E /* UserRequestConfiguration.swift */; };
 		901178BF274A7C2600A0868E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178BE274A7C2600A0868E /* Constants.swift */; };
 		901178C2274A7FEB00A0868E /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178C1274A7FEB00A0868E /* DependencyFactory.swift */; };
+		901178C4274A8A8D00A0868E /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178C3274A8A8D00A0868E /* UserSessionRepository.swift */; };
+		901178C6274A8AC300A0868E /* UserSessionRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178C5274A8AC300A0868E /* UserSessionRepositoryProtocol.swift */; };
 		B8591375BB16EAAC3ED4812A /* Pods_ShortenLinkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */; };
 		DE09E76917B074D87CEA401A /* Pods_ShortenLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B33B7A932A2DE961E534AEC /* Pods_ShortenLink.framework */; };
 /* End PBXBuildFile section */
@@ -120,6 +122,8 @@
 		901178BB274A7AEF00A0868E /* UserRequestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequestConfiguration.swift; sourceTree = "<group>"; };
 		901178BE274A7C2600A0868E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		901178C1274A7FEB00A0868E /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
+		901178C3274A8A8D00A0868E /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
+		901178C5274A8AC300A0868E /* UserSessionRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepositoryProtocol.swift; sourceTree = "<group>"; };
 		B836F492CB4DFFA87F959FFA /* Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCAD9BD5A0BB193B3BE3C297 /* Pods-ShortenLink-ShortenLinkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink-ShortenLinkUITests.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D4375B7EBBBE7AF216DF3B5C /* Pods_ShortenLink_ShortenLinkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLink_ShortenLinkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,6 +325,7 @@
 			children = (
 				09A81F162746143B008CBEBD /* CreateShortenLinkRepositoryProtocol.swift */,
 				901178B3274A798600A0868E /* LoginRepositoryProtocol.swift */,
+				901178C5274A8AC300A0868E /* UserSessionRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				901178B9274A7AA100A0868E /* LoginRepository.swift */,
+				901178C3274A8A8D00A0868E /* UserSessionRepository.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -822,6 +828,7 @@
 				901178B4274A798600A0868E /* LoginRepositoryProtocol.swift in Sources */,
 				09A81F2927461901008CBEBD /* APIRequestConfiguration.swift in Sources */,
 				096C3142273E7C50009497A5 /* ShortenLinkViewController.swift in Sources */,
+				901178C4274A8A8D00A0868E /* UserSessionRepository.swift in Sources */,
 				09A81F21274615A0008CBEBD /* CreateShortenLinkUseCase.swift in Sources */,
 				096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */,
 				3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */,
@@ -842,6 +849,7 @@
 				09A81F23274616C5008CBEBD /* CreateShortenLinkRepository.swift in Sources */,
 				901178AB274A750400A0868E /* KeychainKey.swift in Sources */,
 				09A81F3827468FFA008CBEBD /* DateFormatter+Formats.swift in Sources */,
+				901178C6274A8AC300A0868E /* UserSessionRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
