@@ -5,8 +5,16 @@
   Created by Bliss on 12/11/21.
   
 */
+"common.aSecondAgo" = "a second ago";
+"common.secondsAgo" = "seconds ago";
+"common.aMinuteAgo" = "a minute ago";
+"common.minutesAgo" = "minutes ago";
+"common.anHourAgo" = "an hour ago";
+"common.hoursAgo" = "hours ago";
+
 "shortenlink.urltextfield.placeholder" = "Type your link here";
 "shortenlink.instructiontext.title" = "Or use ⇧+⌘+L to shorten your copied link";
 "shortenlink.shortenbutton.title" = "Shorten";
 
 "linksPopOver.titletext.title" = "Nimble Link";
+

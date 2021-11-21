@@ -11,9 +11,9 @@ import RxCocoa
 
 final class ShortenLinkCellView: NSTableCellView {
 
-    private let fullLinkText = NSText()
-    private let shortenLinkText = NSText()
-    private let timeStampText = NSText()
+    private let fullLinkField = NSTextField()
+    private let shortenLinkField = NSTextField()
+    private let createdDateField = NSTextField()
     private let editLinkButton = NSButton()
     private let deleteLinkButton = NSButton()
     private var disposeBag = DisposeBag()
@@ -42,9 +42,9 @@ final class ShortenLinkCellView: NSTableCellView {
             .bind(to: viewModel.input.deleteLinkTapped)
             .disposed(by: disposeBag)
 
-        fullLinkText.string = viewModel.output.fullLink
-        shortenLinkText.string = viewModel.output.shortenLink
-
+        shortenLinkField.stringValue = viewModel.output.shortenLink
+        fullLinkField.stringValue = viewModel.output.fullLink
+        createdDateField.stringValue = viewModel.output.createdAt
     }
 }
 
@@ -54,38 +54,80 @@ extension ShortenLinkCellView {
 
     private func setUpLayout() {
         addSubviews(
-            fullLinkText,
-            shortenLinkText,
-            timeStampText,
+            fullLinkField,
+            shortenLinkField,
+            createdDateField,
             editLinkButton,
             deleteLinkButton
         )
         LayoutUtility.disableTranslateAutoresizingMaskIntoConstraints(
-            for: fullLinkText,
-            shortenLinkText,
-            timeStampText,
+            for: fullLinkField,
+            shortenLinkField,
+            createdDateField,
             editLinkButton,
             deleteLinkButton
         )
 
-        shortenLinkText.snp.makeConstraints {
-            $0.leading.equalTo(self).inset(9.0)
-            $0.top.equalTo(self).inset(10.0)
+        deleteLinkButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(10.0)
+            $0.size.equalTo(CGSize(width: 18.0, height: 18.0))
+            $0.centerY.equalToSuperview()
         }
 
-        fullLinkText.snp.makeConstraints {
-            $0.leading.equalTo(self).inset(9.0)
-            $0.top.equalTo(shortenLinkText.snp.bottom).inset(3.0)
+        editLinkButton.snp.makeConstraints {
+            $0.trailing.equalTo(deleteLinkButton.snp.leading).inset(-15.0)
+            $0.size.equalTo(CGSize(width: 18.0, height: 18.0))
+            $0.centerY.equalToSuperview()
         }
 
-        timeStampText.snp.makeConstraints {
-            $0.leading.equalTo(self).inset(9.0)
-            $0.top.equalTo(fullLinkText.snp.bottom).inset(3.0)
+        shortenLinkField.snp.contentHuggingHorizontalPriority = 1_000
+        shortenLinkField.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.lessThanOrEqualTo(editLinkButton.snp.leading).inset(-15.0)
+            $0.top.equalToSuperview().inset(10.0)
+        }
+
+        fullLinkField.snp.makeConstraints {
+            $0.leading.equalTo(shortenLinkField)
+            $0.width.equalTo(shortenLinkField.snp.width)
+            $0.top.equalTo(shortenLinkField.snp.bottom).inset(-3.0)
+        }
+
+        createdDateField.snp.makeConstraints {
+            $0.leading.equalTo(shortenLinkField)
+            $0.width.equalTo(shortenLinkField)
+            $0.top.equalTo(fullLinkField.snp.bottom).inset(-3.0)
+            $0.bottom.equalToSuperview().inset(9.0)
         }
     }
 
     private func setUpViews() {
+        shortenLinkField.backgroundColor = .clear
+        shortenLinkField.font = .systemFont(ofSize: 11.0)
+        shortenLinkField.isEditable = false
+        shortenLinkField.isBezeled = false
+        shortenLinkField.lineBreakMode = .byTruncatingTail
 
+        fullLinkField.backgroundColor = .clear
+        fullLinkField.font = .systemFont(ofSize: 9.0)
+        fullLinkField.isEditable = false
+        fullLinkField.isBezeled = false
+        fullLinkField.lineBreakMode = .byTruncatingTail
+
+        createdDateField.backgroundColor = .clear
+        createdDateField.font = .systemFont(ofSize: 9.0)
+        createdDateField.isEditable = false
+        createdDateField.isBezeled = false
+        createdDateField.lineBreakMode = .byTruncatingTail
+
+        deleteLinkButton.image = Asset.deleteIc.image
+        deleteLinkButton.bezelStyle = .shadowlessSquare
+        deleteLinkButton.isBordered = false
+        deleteLinkButton.imagePosition = .imageOnly
+
+        editLinkButton.image = Asset.editIc.image
+        editLinkButton.bezelStyle = .shadowlessSquare
+        editLinkButton.isBordered = false
+        editLinkButton.imagePosition = .imageOnly
     }
-
 }
