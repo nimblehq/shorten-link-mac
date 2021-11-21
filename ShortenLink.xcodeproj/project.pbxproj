@@ -36,6 +36,17 @@
 		31EDD46927455660002C4148 /* LinksPopOverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EDD46827455660002C4148 /* LinksPopOverViewModel.swift */; };
 		31EDD46C274556FA002C4148 /* NSView+AddSubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EDD46B274556FA002C4148 /* NSView+AddSubViews.swift */; };
 		423284F150FD316B1BED5D1D /* Pods_ShortenLink_ShortenLinkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4375B7EBBBE7AF216DF3B5C /* Pods_ShortenLink_ShortenLinkUITests.framework */; };
+		901178A9274A74EA00A0868E /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178A8274A74EA00A0868E /* Keychain.swift */; };
+		901178AB274A750400A0868E /* KeychainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178AA274A750400A0868E /* KeychainKey.swift */; };
+		901178AE274A754200A0868E /* KeychainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178AD274A754200A0868E /* KeychainUser.swift */; };
+		901178B0274A757600A0868E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178AF274A757600A0868E /* User.swift */; };
+		901178B2274A769E00A0868E /* APIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178B1274A769E00A0868E /* APIUser.swift */; };
+		901178B4274A798600A0868E /* LoginRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178B3274A798600A0868E /* LoginRepositoryProtocol.swift */; };
+		901178B7274A79D300A0868E /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178B6274A79D300A0868E /* UserUseCase.swift */; };
+		901178BA274A7AA100A0868E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178B9274A7AA100A0868E /* LoginRepository.swift */; };
+		901178BC274A7AEF00A0868E /* UserRequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178BB274A7AEF00A0868E /* UserRequestConfiguration.swift */; };
+		901178BF274A7C2600A0868E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178BE274A7C2600A0868E /* Constants.swift */; };
+		901178C2274A7FEB00A0868E /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178C1274A7FEB00A0868E /* DependencyFactory.swift */; };
 		B8591375BB16EAAC3ED4812A /* Pods_ShortenLinkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */; };
 		DE09E76917B074D87CEA401A /* Pods_ShortenLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B33B7A932A2DE961E534AEC /* Pods_ShortenLink.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +109,17 @@
 		31EDD46B274556FA002C4148 /* NSView+AddSubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+AddSubViews.swift"; sourceTree = "<group>"; };
 		573E0765A4F8EF40EC6432BB /* Pods-ShortenLinkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.release.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B33B7A932A2DE961E534AEC /* Pods_ShortenLink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		901178A8274A74EA00A0868E /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		901178AA274A750400A0868E /* KeychainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKey.swift; sourceTree = "<group>"; };
+		901178AD274A754200A0868E /* KeychainUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUser.swift; sourceTree = "<group>"; };
+		901178AF274A757600A0868E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		901178B1274A769E00A0868E /* APIUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUser.swift; sourceTree = "<group>"; };
+		901178B3274A798600A0868E /* LoginRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryProtocol.swift; sourceTree = "<group>"; };
+		901178B6274A79D300A0868E /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
+		901178B9274A7AA100A0868E /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		901178BB274A7AEF00A0868E /* UserRequestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequestConfiguration.swift; sourceTree = "<group>"; };
+		901178BE274A7C2600A0868E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		901178C1274A7FEB00A0868E /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
 		B836F492CB4DFFA87F959FFA /* Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCAD9BD5A0BB193B3BE3C297 /* Pods-ShortenLink-ShortenLinkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink-ShortenLinkUITests.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D4375B7EBBBE7AF216DF3B5C /* Pods_ShortenLink_ShortenLinkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLink_ShortenLinkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +216,7 @@
 		09A81EFE27460FF2008CBEBD /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				901178A7274A74DB00A0868E /* Keychain */,
 				09A81EFF27460FF2008CBEBD /* NetworkAPI */,
 				09A81F0B27460FF2008CBEBD /* Repositories */,
 			);
@@ -203,11 +226,11 @@
 		09A81EFF27460FF2008CBEBD /* NetworkAPI */ = {
 			isa = PBXGroup;
 			children = (
-				09A81F0027460FF2008CBEBD /* Interceptors */,
 				09A81F0227460FF2008CBEBD /* Core */,
+				09A81F0027460FF2008CBEBD /* Interceptors */,
 				09A81F0627460FF2008CBEBD /* Models */,
-				09A81F0827460FF2008CBEBD /* RequestConfigurations */,
 				09A81F0A27460FF2008CBEBD /* NetworkAPI.swift */,
+				09A81F0827460FF2008CBEBD /* RequestConfigurations */,
 			);
 			path = NetworkAPI;
 			sourceTree = "<group>";
@@ -234,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				09A81F262746177D008CBEBD /* APIShortenLink.swift */,
+				901178B1274A769E00A0868E /* APIUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				09A81F242746173A008CBEBD /* LinksRequestConfiguration.swift */,
+				901178BB274A7AEF00A0868E /* UserRequestConfiguration.swift */,
 			);
 			path = RequestConfigurations;
 			sourceTree = "<group>";
@@ -250,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				09A81F1527461400008CBEBD /* CreateShortenLink */,
+				901178B8274A7A9300A0868E /* User */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -266,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				09A81F192746149B008CBEBD /* Entities */,
+				901178C0274A7FD900A0868E /* Factories */,
 				09A81F1C27461527008CBEBD /* Interfaces */,
 				09A81F1E27461562008CBEBD /* UseCases */,
 			);
@@ -276,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				09A81F1A274614BC008CBEBD /* ShortenLink.swift */,
+				901178AF274A757600A0868E /* User.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -292,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				09A81F162746143B008CBEBD /* CreateShortenLinkRepositoryProtocol.swift */,
+				901178B3274A798600A0868E /* LoginRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -300,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				09A81F1F2746157B008CBEBD /* CreateShortenLink */,
+				901178B5274A79C000A0868E /* User */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -372,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				3173B6CA273E48F0005A0A8B /* Application */,
+				901178BD274A7C1100A0868E /* Constants */,
 				09A81EFE27460FF2008CBEBD /* Data */,
 				09A81F182746148F008CBEBD /* Domain */,
 				096C3143273E7C7B009497A5 /* Resources */,
@@ -468,6 +499,56 @@
 				2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		901178A7274A74DB00A0868E /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				901178AC274A752C00A0868E /* Models */,
+				901178A8274A74EA00A0868E /* Keychain.swift */,
+				901178AA274A750400A0868E /* KeychainKey.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		901178AC274A752C00A0868E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				901178AD274A754200A0868E /* KeychainUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		901178B5274A79C000A0868E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				901178B6274A79D300A0868E /* UserUseCase.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		901178B8274A7A9300A0868E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				901178B9274A7AA100A0868E /* LoginRepository.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		901178BD274A7C1100A0868E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				901178BE274A7C2600A0868E /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		901178C0274A7FD900A0868E /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				901178C1274A7FEB00A0868E /* DependencyFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -727,14 +808,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901178BA274A7AA100A0868E /* LoginRepository.swift in Sources */,
 				31EDD46727455623002C4148 /* LinksPopOverViewController.swift in Sources */,
 				096C315D273E83B1009497A5 /* Strings+Generated.swift in Sources */,
 				09A81F1027460FF3008CBEBD /* NetworkAPIError.swift in Sources */,
 				096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */,
 				09A81F272746177D008CBEBD /* APIShortenLink.swift in Sources */,
+				901178B0274A757600A0868E /* User.swift in Sources */,
+				901178A9274A74EA00A0868E /* Keychain.swift in Sources */,
 				09A81F2B2746249C008CBEBD /* JSONDecoder+Default.swift in Sources */,
 				09A81F0F27460FF3008CBEBD /* RequestConfiguration.swift in Sources */,
 				09A81F0E27460FF3008CBEBD /* NetworkAPIProtocol.swift in Sources */,
+				901178B4274A798600A0868E /* LoginRepositoryProtocol.swift in Sources */,
 				09A81F2927461901008CBEBD /* APIRequestConfiguration.swift in Sources */,
 				096C3142273E7C50009497A5 /* ShortenLinkViewController.swift in Sources */,
 				09A81F21274615A0008CBEBD /* CreateShortenLinkUseCase.swift in Sources */,
@@ -743,12 +828,19 @@
 				09A81F1B274614BC008CBEBD /* ShortenLink.swift in Sources */,
 				09A81F172746143B008CBEBD /* CreateShortenLinkRepositoryProtocol.swift in Sources */,
 				09A81F252746173A008CBEBD /* LinksRequestConfiguration.swift in Sources */,
+				901178BC274A7AEF00A0868E /* UserRequestConfiguration.swift in Sources */,
 				31EDD46927455660002C4148 /* LinksPopOverViewModel.swift in Sources */,
+				901178B7274A79D300A0868E /* UserUseCase.swift in Sources */,
+				901178C2274A7FEB00A0868E /* DependencyFactory.swift in Sources */,
+				901178BF274A7C2600A0868E /* Constants.swift in Sources */,
 				3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */,
+				901178AE274A754200A0868E /* KeychainUser.swift in Sources */,
+				901178B2274A769E00A0868E /* APIUser.swift in Sources */,
 				31EDD46C274556FA002C4148 /* NSView+AddSubViews.swift in Sources */,
 				09A81F1327460FF3008CBEBD /* NetworkAPI.swift in Sources */,
 				09A81F3C2746911C008CBEBD /* String+Date.swift in Sources */,
 				09A81F23274616C5008CBEBD /* CreateShortenLinkRepository.swift in Sources */,
+				901178AB274A750400A0868E /* KeychainKey.swift in Sources */,
 				09A81F3827468FFA008CBEBD /* DateFormatter+Formats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -935,7 +1027,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.ShortenLink;
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.shorten.link.ios.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -957,7 +1049,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.ShortenLink;
+				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.shorten.link.ios.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
