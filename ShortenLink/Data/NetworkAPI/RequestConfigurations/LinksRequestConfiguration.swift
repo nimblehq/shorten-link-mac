@@ -10,7 +10,7 @@ import Alamofire
 enum LinksRequestConfiguration {
 
     case getLinks
-    case create(String, String, String)
+    case create(String, String?, String)
     case verify(Int, String)
     case edit(Int, String, String)
     case delete(Int)
@@ -46,11 +46,14 @@ extension LinksRequestConfiguration: RequestConfiguration {
         switch self {
         case .getLinks, .delete: return nil
         case let .create(originalLink, alias, password):
-            return [
+            var params = [
                 "original_url": originalLink,
-                "alias": alias,
                 "password": password
             ]
+            if let alias = alias {
+                params["alias"] = alias
+            }
+            return params
         case .verify(_, let password):
             return ["password": password]
         case let .edit(_, alias, password):

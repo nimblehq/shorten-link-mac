@@ -28,7 +28,7 @@ class ShortenLinkViewController: NSViewController {
     }
 
     override func loadView() {
-        self.view = NSView(frame: NSRect(x: 0.0, y: 0.0, width: 340.0, height: 370.0))
+        view = NSView(frame: NSRect(x: 0.0, y: 0.0, width: 340.0, height: 100.0))
     }
     
     override func viewDidLoad() {

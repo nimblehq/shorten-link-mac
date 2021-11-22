@@ -40,14 +40,15 @@ final class ShortenLinkViewModel: ShortenLinkViewModelType {
 
         linkShortenSuccess = shortenLinkTrigger
             .flatMapLatest { input -> Driver<Bool> in
+                // TODO: Add alias and password
                 createShortenLinkUseCase
-                    .createShortenLink(input)
+                    .createLink(input, alias: nil, password: "")
                     .asObservable().materialize()
                     .filter { $0.element != nil }
                     .map {
                         let pasteboard = NSPasteboard.general
                         // TODO: Use Constant for link prefix
-                        pasteboard.setGeneralString("https://l.nimblehq.co/\($0.element?.alias ?? "")")
+                        pasteboard.setGeneralString("\(Constants.API.shortenedLinkBaseURL)\($0.element?.alias ?? "")")
                         return true
                     }
                     .asDriver(onErrorJustReturn: false)
