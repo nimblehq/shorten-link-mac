@@ -12,6 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     private let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     private let popOver = NSPopover()
+    private var eventMonitor: EventMonitor?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setUpStatusBarIcon()
@@ -36,6 +37,12 @@ extension AppDelegate {
         let viewModel = LinksPopOverViewModel()
         let controller = LinksPopOverViewController(viewModel: viewModel)
         popOver.contentViewController = controller
+        // Handle click outside to close popover
+        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] in
+            if self?.popOver.isShown ?? false {
+                self?.closePopOver(sender: $0)
+            }
+        }
     }
 
     @objc private func togglePopover(_ sender: Any?) {
@@ -49,10 +56,12 @@ extension AppDelegate {
     private func showPopOver(sender: Any?) {
         if let button = statusItem.button {
             popOver.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+            eventMonitor?.start()
         }
     }
 
     private func closePopOver(sender: Any?) {
         popOver.performClose(sender)
+        eventMonitor?.stop()
     }
 }

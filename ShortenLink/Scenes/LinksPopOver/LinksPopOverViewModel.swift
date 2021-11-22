@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 protocol LinksPopOverViewModelType {
 
@@ -15,10 +17,13 @@ protocol LinksPopOverViewModelType {
 
 protocol LinksPopOverViewModelOutput {
 
+    var shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]> { get }
+    var reloadList: Signal<Void> { get }
 }
 
 protocol LinksPopOverViewModelInput {
 
+    var viewWillAppear: PublishRelay<Void> { get }
 }
 
 final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewModelInput, LinksPopOverViewModelOutput {
@@ -26,7 +31,41 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
     var input: LinksPopOverViewModelInput { self }
     var output: LinksPopOverViewModelOutput { self }
 
-    init() {
+    // Input
+    let viewWillAppear = PublishRelay<Void>()
 
+    // Output
+    let shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]>
+    let reloadList: Signal<Void>
+
+    init() {
+        let dummyShortenLinks = [
+            ShortenLinkCellViewModel(
+                fullLink: "http://alonglink.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                shortenLink: "https://nimble.link/my-url-12345678",
+                createdAt: Date()
+            ),
+            ShortenLinkCellViewModel(
+                fullLink: "http://alonglink.com/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                shortenLink: "https://nimble.link/my-url-12345678",
+                createdAt: Date().addingTimeInterval(TimeInterval(-60.0))
+            ),
+            ShortenLinkCellViewModel(
+                fullLink: "http://alonglink.com/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                shortenLink: "https://nimble.link/my-url-12345678",
+                createdAt: Date().addingTimeInterval(TimeInterval(-120.0))
+            ),
+            ShortenLinkCellViewModel(
+                fullLink: "http://alonglink.com/cccccccccccccccccccccccccccccccccccccccc",
+                shortenLink: "https://nimble.link/my-url-12345678",
+                createdAt: Date().addingTimeInterval(TimeInterval(-3_600.0))
+            )
+        ]
+
+        shortenLinks = BehaviorRelay<[ShortenLinkCellViewModel]>(value: dummyShortenLinks)
+
+        reloadList = viewWillAppear
+            .skip(1) // skip 1st
+            .asSignal(onErrorSignalWith: .empty())
     }
 }
