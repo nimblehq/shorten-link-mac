@@ -34,7 +34,10 @@ extension AppDelegate {
     }
 
     private func setUpPopOver() {
-        let viewModel = LinksPopOverViewModel()
+        let viewModel = LinksPopOverViewModel(
+            gSignInUseCase: DependencyFactory.shared.gSignInUseCase(),
+            userUsecase: DependencyFactory.shared.userUseCase()
+        )
         let controller = LinksPopOverViewController(viewModel: viewModel)
         popOver.contentViewController = controller
         // Handle click outside to close popover

@@ -56,6 +56,10 @@ extension DependencyFactory {
     func deleteShortenLinkUseCase() -> DeleteShortenLinkUseCaseProtocol {
         DeleteShortenLinkUseCase(shortenedLinkRepository: shortenedLinkRepository())
     }
+
+    func gSignInUseCase() -> GSignInUseCaseProtocol {
+        GSignInUseCase()
+    }
 }
 
 // MARK: - Make Repository

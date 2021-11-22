@@ -60,6 +60,7 @@
 		901178DA274B414800A0868E /* ObservableType+Void.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178D9274B414800A0868E /* ObservableType+Void.swift */; };
 		901178DE274B441B00A0868E /* DeleteShortenLinkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178DD274B441B00A0868E /* DeleteShortenLinkUseCase.swift */; };
 		901178E0274B446400A0868E /* EditShortenLinkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178DF274B446400A0868E /* EditShortenLinkUseCase.swift */; };
+		901178E3274BC72B00A0868E /* GSignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901178E2274BC72B00A0868E /* GSignInUseCase.swift */; };
 		B8591375BB16EAAC3ED4812A /* Pods_ShortenLinkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */; };
 		DE09E76917B074D87CEA401A /* Pods_ShortenLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B33B7A932A2DE961E534AEC /* Pods_ShortenLink.framework */; };
 /* End PBXBuildFile section */
@@ -146,6 +147,7 @@
 		901178D9274B414800A0868E /* ObservableType+Void.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Void.swift"; sourceTree = "<group>"; };
 		901178DD274B441B00A0868E /* DeleteShortenLinkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShortenLinkUseCase.swift; sourceTree = "<group>"; };
 		901178DF274B446400A0868E /* EditShortenLinkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShortenLinkUseCase.swift; sourceTree = "<group>"; };
+		901178E2274BC72B00A0868E /* GSignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSignInUseCase.swift; sourceTree = "<group>"; };
 		B836F492CB4DFFA87F959FFA /* Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCAD9BD5A0BB193B3BE3C297 /* Pods-ShortenLink-ShortenLinkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink-ShortenLinkUITests.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink-ShortenLinkUITests/Pods-ShortenLink-ShortenLinkUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D4375B7EBBBE7AF216DF3B5C /* Pods_ShortenLink_ShortenLinkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLink_ShortenLinkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,6 +360,7 @@
 		09A81F1E27461562008CBEBD /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				901178E1274BC71900A0868E /* GoogleSignIn */,
 				901178CD274B3C0600A0868E /* ShortenedLink */,
 				901178B5274A79C000A0868E /* User */,
 			);
@@ -628,6 +631,14 @@
 				901178D9274B414800A0868E /* ObservableType+Void.swift */,
 			);
 			path = Rx;
+			sourceTree = "<group>";
+		};
+		901178E1274BC71900A0868E /* GoogleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				901178E2274BC72B00A0868E /* GSignInUseCase.swift */,
+			);
+			path = GoogleSignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -920,6 +931,7 @@
 				901178C2274A7FEB00A0868E /* DependencyFactory.swift in Sources */,
 				901178BF274A7C2600A0868E /* Constants.swift in Sources */,
 				901178DA274B414800A0868E /* ObservableType+Void.swift in Sources */,
+				901178E3274BC72B00A0868E /* GSignInUseCase.swift in Sources */,
 				3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */,
 				901178AE274A754200A0868E /* KeychainUser.swift in Sources */,
 				901178B2274A769E00A0868E /* APIUser.swift in Sources */,
@@ -927,7 +939,7 @@
 				09A81F1327460FF3008CBEBD /* NetworkAPI.swift in Sources */,
 				31522782274B95D8009FD0B5 /* CustomTableRowView.swift in Sources */,
 				09A81F3C2746911C008CBEBD /* String+Date.swift in Sources */,
-				09A81F23274616C5008CBEBD /* CreateShortenLinkRepository.swift in Sources */,
+				09A81F23274616C5008CBEBD /* ShortenedLinkRepository.swift in Sources */,
 				31522785274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift in Sources */,
 				09A81F23274616C5008CBEBD /* ShortenedLinkRepository.swift in Sources */,
 				901178AB274A750400A0868E /* KeychainKey.swift in Sources */,
