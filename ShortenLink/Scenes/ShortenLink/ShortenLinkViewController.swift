@@ -107,9 +107,11 @@ extension ShortenLinkViewController {
 
     private func bindKeyboardShortcut() {
         hotKey.keyDownHandler = { [weak self] in
+            let clipboardString = NSPasteboard.general.readString()
             guard let self = self,
-                  self.urlTextField.stringValue.count > 0 else { return }
-            self.viewModel.input.shortenLink(link: self.urlTextField.stringValue)
+                  let clipboardString = clipboardString,
+                  clipboardString.count > 0 else { return }
+            self.viewModel.input.shortenLink(link: clipboardString)
         }
     }
 }
