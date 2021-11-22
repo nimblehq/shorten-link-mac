@@ -9,6 +9,7 @@ import RxSwift
 protocol NetworkAPIProtocol {
 
     func performRequest<T: Decodable>(_ configuration: RequestConfiguration, for type: T.Type) -> Single<T>
+    func performRequestWithEmptyResponse(_ configuration: RequestConfiguration) -> Single<Void>
 }
 
 extension NetworkAPIProtocol {
@@ -40,5 +41,22 @@ extension NetworkAPIProtocol {
             }
         }
         .asSingle()
+    }
+
+    func requestWithEmptyResponse(
+        session: Session,
+        configuration: RequestConfiguration
+    ) -> Single<Void> {
+        session.rx.request(
+            configuration.method,
+            configuration.url,
+            parameters: configuration.parameters,
+            encoding: configuration.encoding,
+            headers: configuration.headers,
+            interceptor: configuration.interceptor
+        )
+        .responseData()
+        .asSingle()
+        .mapToVoid()
     }
 }
