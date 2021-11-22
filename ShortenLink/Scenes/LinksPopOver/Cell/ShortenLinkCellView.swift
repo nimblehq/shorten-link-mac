@@ -18,6 +18,8 @@ final class ShortenLinkCellView: NSTableCellView {
     private let deleteLinkButton = NSButton()
     private var disposeBag = DisposeBag()
 
+    static let identifier = "ShortenLinkCellView"
+
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         setUpLayout()
@@ -55,13 +57,6 @@ extension ShortenLinkCellView {
     private func setUpLayout() {
         addSubviews(
             fullLinkField,
-            shortenLinkField,
-            createdDateField,
-            editLinkButton,
-            deleteLinkButton
-        )
-        LayoutUtility.disableTranslateAutoresizingMaskIntoConstraints(
-            for: fullLinkField,
             shortenLinkField,
             createdDateField,
             editLinkButton,

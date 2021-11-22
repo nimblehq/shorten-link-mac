@@ -55,10 +55,6 @@ extension LinksPopOverViewController {
     private func setUpLayout() {
         view.addSubviews(titleField, settingButton, scrollView)
 
-        LayoutUtility.disableTranslateAutoresizingMaskIntoConstraints(
-            for: titleField, settingButton, scrollView
-        )
-
         titleField.snp.makeConstraints {
             $0.centerX.equalTo(view.snp.centerX)
             $0.top.equalToSuperview().inset(8.0)
@@ -131,14 +127,14 @@ extension LinksPopOverViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cellViewModel = viewModel.output.shortenLinks.value[row]
         if let cell = tableView.makeView(
-            withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ShortenLinkCell"),
+            withIdentifier: NSUserInterfaceItemIdentifier(rawValue: ShortenLinkCellView.identifier),
             owner: self
         ) as? ShortenLinkCellView {
             cell.configure(with: cellViewModel)
             return cell
         }
         let cell = ShortenLinkCellView()
-        cell.identifier = NSUserInterfaceItemIdentifier(rawValue: "ShortenLinkCell")
+        cell.identifier = NSUserInterfaceItemIdentifier(rawValue: ShortenLinkCellView.identifier)
         cell.configure(with: cellViewModel)
         return cell
     }
