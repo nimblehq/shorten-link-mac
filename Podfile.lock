@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.4)
   - KeychainAccess (4.2.2)
+  - HotKey (0.1.2)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
   - RxAlamofire/Core (6.1.1):
@@ -17,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - KeychainAccess
+  - HotKey
   - RxAlamofire
   - RxCocoa
   - RxSwift
@@ -27,6 +29,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - KeychainAccess
+    - HotKey
     - RxAlamofire
     - RxCocoa
     - RxRelay
@@ -37,6 +40,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  HotKey: ad59450195936c10992438c4210f673de5aee43e
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f

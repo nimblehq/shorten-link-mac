@@ -980,6 +980,7 @@
 				31522780274B95A4009FD0B5 /* ShortenLinkCellView.swift in Sources */,
 				09A81F21274615A0008CBEBD /* CreateShortenLinkUseCase.swift in Sources */,
 				096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */,
+				09A81F54274B54E8008CBEBD /* DependencyFactory.swift in Sources */,
 				3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */,
 				901178D5274B3EDD00A0868E /* GetShortenLinkUseCase.swift in Sources */,
 				901178E0274B446400A0868E /* EditShortenLinkUseCase.swift in Sources */,

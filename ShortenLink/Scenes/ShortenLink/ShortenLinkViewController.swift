@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import HotKey
 import RxCocoa
 import RxSwift
 import SnapKit
@@ -16,6 +17,9 @@ class ShortenLinkViewController: NSViewController {
     private let shortenButton = NSButton()
     private let instructionText = NSText()
     private let viewModel: ShortenLinkViewModelType!
+
+    private let hotKey = HotKey(key: .l, modifiers: [.command, .shift])
+
     private let disposeBag = DisposeBag()
 
     init(viewModel: ShortenLinkViewModelType) {
@@ -38,6 +42,7 @@ class ShortenLinkViewController: NSViewController {
         setUpViews()
         bindInput()
         bindOutput()
+        bindKeyboardShortcut()
     }
 }
 
@@ -87,7 +92,7 @@ extension ShortenLinkViewController {
         shortenButton.rx.tap.bind {
             self.viewModel.input.shortenLink(link: self.urlTextField.stringValue)
         }
-        .disposed(by: disposeBag)
+        .disposed(by: disposeBag)//https://google.com
     }
     
     private func bindOutput() {
@@ -97,6 +102,13 @@ extension ShortenLinkViewController {
                 owner.urlTextField.stringValue = ""
             })
             .disposed(by: disposeBag)
+    }
+    private func bindKeyboardShortcut() {
+        hotKey.keyDownHandler = { [weak self] in
+            guard let self = self,
+                  self.urlTextField.stringValue.count > 0 else { return }
+            self.viewModel.input.shortenLink(link: self.urlTextField.stringValue)
+        }
     }
 }
 
