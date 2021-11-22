@@ -36,6 +36,8 @@ extension AppDelegate {
     private func setUpPopOver() {
         let viewModel = LinksPopOverViewModel()
         let controller = LinksPopOverViewController(viewModel: viewModel)
+        let shortenLinkViewModel = DependencyFactory.shared.shortenLinkViewModel()
+        let shortenLinkController = ShortenLinkViewController(viewModel: shortenLinkViewModel)
         popOver.contentViewController = controller
         // Handle click outside to close popover
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] in
@@ -43,6 +45,7 @@ extension AppDelegate {
                 self?.closePopOver(sender: $0)
             }
         }
+        controller.insertShortenLinkViewController(shortenLinkController)
     }
 
     @objc private func togglePopover(_ sender: Any?) {

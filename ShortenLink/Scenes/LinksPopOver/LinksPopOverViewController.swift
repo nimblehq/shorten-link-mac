@@ -150,3 +150,15 @@ extension LinksPopOverViewController: NSTableViewDataSource {
         viewModel.output.shortenLinks.value.count
     }
 }
+
+extension LinksPopOverViewController {
+
+    func insertShortenLinkViewController(_ viewController: ShortenLinkViewController) {
+        addChild(viewController)
+        view.addSubview(viewController.view)
+        viewController.view.snp.makeConstraints {
+            $0.top.equalTo(titleField.snp.bottom).offset(8.0)
+            $0.leading.trailing.bottom.equalToSuperview().inset(8.0)
+        }
+    }
+}
