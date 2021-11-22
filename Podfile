@@ -10,7 +10,8 @@ target 'ShortenLink' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxAlamofire'
-  pod 'SwiftGen' 
+  pod 'SwiftGen'
+  pod 'KeychainAccess'
 
   target 'ShortenLinkTests' do
     inherit! :search_paths
