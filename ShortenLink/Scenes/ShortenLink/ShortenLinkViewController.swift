@@ -92,7 +92,7 @@ extension ShortenLinkViewController {
         shortenButton.rx.tap.bind {
             self.viewModel.input.shortenLink(link: self.urlTextField.stringValue)
         }
-        .disposed(by: disposeBag)//https://google.com
+        .disposed(by: disposeBag)
     }
     
     private func bindOutput() {
@@ -100,9 +100,11 @@ extension ShortenLinkViewController {
             .drive(with: self, onNext: { owner, value in
                 guard value else { return }
                 owner.urlTextField.stringValue = ""
+                owner.toast(message: L10n.Shortenlink.Toast.message)
             })
             .disposed(by: disposeBag)
     }
+
     private func bindKeyboardShortcut() {
         hotKey.keyDownHandler = { [weak self] in
             guard let self = self,
