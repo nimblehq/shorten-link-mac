@@ -12,5 +12,5 @@ protocol UserSessionRepositoryProtocol: AnyObject {
 
     func getIsLoggedIn() -> Single<Bool>
     func saveIsLoggedIn() -> Completable
-    func saveToken(_ token: KeychainUser) -> Completable
+    func saveUser(_ user: KeychainUser) -> Completable
 }

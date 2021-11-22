@@ -39,7 +39,7 @@ final class UserSessionRepository: UserSessionRepositoryProtocol {
         }
     }
 
-    func saveToken(_ user: KeychainUser) -> Completable {
+    func saveUser(_ user: KeychainUser) -> Completable {
         Completable.create { [weak self] observer in
             do {
                 try self?.keychain.set(user, for: .user)

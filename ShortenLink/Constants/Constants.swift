@@ -16,6 +16,7 @@ enum Constants {
 extension Constants.API {
 
     static let baseURL: String = "https://nimble-link.herokuapp.com/"
+    static let shortenedLinkBaseURL: String = "https://l.nimblehq.co/"
 }
 
 extension Constants.Google {

@@ -911,8 +911,12 @@
 				901178D5274B3EDD00A0868E /* GetShortenLinkUseCase.swift in Sources */,
 				901178E0274B446400A0868E /* EditShortenLinkUseCase.swift in Sources */,
 				09A81F1B274614BC008CBEBD /* ShortenLink.swift in Sources */,
+<<<<<<< HEAD
+				09A81F172746143B008CBEBD /* CreateShortenLinkRepositoryProtocol.swift in Sources */,
 				31089F49274A9441002AEF1D /* EventMonitor.swift in Sources */,
+=======
 				09A81F172746143B008CBEBD /* ShortenedLinkRepositoryProtocol.swift in Sources */,
+>>>>>>> 02fba07... [9] Implement backend for shorten link
 				09A81F252746173A008CBEBD /* LinksRequestConfiguration.swift in Sources */,
 				901178BC274A7AEF00A0868E /* UserRequestConfiguration.swift in Sources */,
 				31EDD46927455660002C4148 /* LinksPopOverViewModel.swift in Sources */,
@@ -927,9 +931,12 @@
 				09A81F1327460FF3008CBEBD /* NetworkAPI.swift in Sources */,
 				31522782274B95D8009FD0B5 /* CustomTableRowView.swift in Sources */,
 				09A81F3C2746911C008CBEBD /* String+Date.swift in Sources */,
+<<<<<<< HEAD
 				09A81F23274616C5008CBEBD /* CreateShortenLinkRepository.swift in Sources */,
 				31522785274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift in Sources */,
+=======
 				09A81F23274616C5008CBEBD /* ShortenedLinkRepository.swift in Sources */,
+>>>>>>> 02fba07... [9] Implement backend for shorten link
 				901178AB274A750400A0868E /* KeychainKey.swift in Sources */,
 				901178DE274B441B00A0868E /* DeleteShortenLinkUseCase.swift in Sources */,
 				09A81F3827468FFA008CBEBD /* DateFormatter+Formats.swift in Sources */,

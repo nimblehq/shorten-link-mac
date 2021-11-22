@@ -28,11 +28,17 @@ final class UserUseCase: UserUseCaseProtocol {
 
     func login(with idToken: String) -> Completable {
         loginRepository.login(with: idToken)
+            .do(onSuccess: {
+                print("User: \($0)")
+            }, onError: {
+                print("Login repository error:: \($0)")
+            })
             .asObservable()
             .withUnretained(self)
             .flatMapLatest { owner, user -> Completable in
+                print("Flatmap after login")
                 let saveIsLoggedIn = owner.userSessionRepository.saveIsLoggedIn()
-                let saveUser = owner.userSessionRepository.saveToken(.init(user: user))
+                let saveUser = owner.userSessionRepository.saveUser(.init(user: user))
                 return saveIsLoggedIn.andThen(saveUser)
             }
             .asCompletable()
