@@ -14,7 +14,8 @@ extension DependencyFactory: ViewModelFactoryProtocol {
     func linksPopOverViewModel() -> LinksPopOverViewModelType {
         LinksPopOverViewModel(
             userUseCase: userUseCase(),
-            getShortenLinkUseCase: getShortenLinksUseCase()
+            getShortenLinkUseCase: getShortenLinksUseCase(),
+            deleteShortenLinkUseCase: deleteShortenLinkUseCase()
         )
     }
 

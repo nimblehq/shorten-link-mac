@@ -53,7 +53,8 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
 
     init(
         userUseCase: UserUseCaseProtocol,
-        getShortenLinkUseCase: GetShortenLinkUseCaseProtocol
+        getShortenLinkUseCase: GetShortenLinkUseCaseProtocol,
+        deleteShortenLinkUseCase: DeleteShortenLinkUseCaseProtocol
     ) {
         shortenLinkViewModel = DependencyFactory.shared.shortenLinkViewModel()
         logInViewModel = DependencyFactory.shared.loginViewModel()
@@ -88,8 +89,18 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
             }
             .bind(to: onLogout)
             
+        shortenLinkViewModel
+            .output
+            .linkShortenSuccess
+            .drive(onNext: { value in
+                guard value else { return }
+                self.viewWillAppear.accept(())
+            })
+            .disposed(by: disposeBag)
+
+
         viewWillAppear
-            .flatMapLatest {
+            .flatMapLatest { [weak self] in
                 getShortenLinkUseCase
                     .getLinks()
                     .asObservable()
@@ -104,11 +115,31 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
                                 return lhsDate > rhsDate
                             })
                             .map {
-                                ShortenLinkCellViewModel(
+                                let viewModel = ShortenLinkCellViewModel(
+                                    id: $0.id,
                                     fullLink: $0.originalUrl,
                                     shortenLink: "\(Constants.API.shortenedLinkBaseURL)\($0.alias)",
                                     createdAt: $0.createdAtDate ?? Date()
                                 )
+                                guard let self = self else { return viewModel }
+                                viewModel
+                                    .input
+                                    .deleteLinkTapped
+                                    .subscribe(
+                                        with: self,
+                                        onNext: { owner, _ in
+                                            deleteShortenLinkUseCase
+                                                .deleteLink(viewModel.output.id)
+                                                .subscribe {
+                                                    owner.viewWillAppear.accept(())
+                                                } onFailure: {
+                                                    // TODO: Show Error when delete
+                                                    print($0)
+                                                }
+                                                .disposed(by: owner.disposeBag)
+                                        })
+                                    .disposed(by: self.disposeBag)
+                                return viewModel
                             }
                     }
             }

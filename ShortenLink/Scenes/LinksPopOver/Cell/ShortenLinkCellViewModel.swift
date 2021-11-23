@@ -22,6 +22,7 @@ protocol ShortenLinkCellViewModelInput {
 
 protocol ShortenLinkCellViewModelOutput {
 
+    var id: Int { get }
     var fullLink: String { get }
     var shortenLink: String { get }
     var createdAt: String { get }
@@ -37,6 +38,7 @@ final class ShortenLinkCellViewModel: ShortenLinkCellViewModelType,
     let editLinkTapped = PublishRelay<Void>()
     let deleteLinkTapped = PublishRelay<Void>()
 
+    let id: Int
     let fullLink: String
     let shortenLink: String
     var createdAt: String {
@@ -45,10 +47,12 @@ final class ShortenLinkCellViewModel: ShortenLinkCellViewModelType,
     private let createdDate: Date
 
     init(
+        id: Int,
         fullLink: String,
         shortenLink: String,
         createdAt: Date
     ) {
+        self.id = id
         self.fullLink = fullLink
         self.shortenLink = shortenLink
         createdDate = createdAt
