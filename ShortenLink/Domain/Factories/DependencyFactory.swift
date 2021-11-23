@@ -7,6 +7,8 @@
 
 import Foundation
 
+protocol ModuleFactoryProtocol: ViewModelFactoryProtocol, UseCaseFactoryProtocol {}
+
 final class DependencyFactory {
 
     static let shared = DependencyFactory(
@@ -30,31 +32,12 @@ final class DependencyFactory {
     }
 }
 
-// MARK: - Make UseCase
+// MARK: - RepositoryFactoryProtocol
 
-extension DependencyFactory {
+extension DependencyFactory: RepositoryFactoryProtocol {
 
-    func userUseCase() -> UserUseCaseProtocol {
-        UserUseCase(
-            loginRepository: loginRepository(),
-            userSessionRepository: userSessionRepository()
-        )
-    }
-
-    func createShortenLinkUseCase() -> CreateShortenLinkUseCaseProtocol {
-        CreateShortenLinkUseCase(shortenedLinkRepository: shortenedLinkRepository())
-    }
-
-    func getShortenLinksUseCase() -> GetShortenLinkUseCaseProtocol {
-        GetShortenLinkUseCase(shortenedLinkRepository: shortenedLinkRepository())
-    }
-
-    func editShortenLinkUseCase() -> EditShortenLinkUseCaseProtocol {
-        EditShortenLinkUseCase(shortenedLinkRepository: shortenedLinkRepository())
-    }
-
-    func deleteShortenLinkUseCase() -> DeleteShortenLinkUseCaseProtocol {
-        DeleteShortenLinkUseCase(shortenedLinkRepository: shortenedLinkRepository())
+    func shortenLinkRepository() -> ShortenedLinkRepositoryProtocol {
+        ShortenedLinkRepository(networkAPI: networkAPI)
     }
 }
 
@@ -74,3 +57,7 @@ extension DependencyFactory {
         ShortenedLinkRepository(networkAPI: authenticatedNetworkAPI)
     }
 }
+
+// MARK: - ModuleFactoryProtocol
+
+extension DependencyFactory: ModuleFactoryProtocol {}

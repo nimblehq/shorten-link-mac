@@ -12,7 +12,7 @@ protocol CreateShortenLinkUseCaseProtocol: AnyObject {
 
     func createLink(
         _ link: String,
-        alias: String,
+        alias: String?,
         password: String
     ) -> Single<ShortenLink>
 }
@@ -27,7 +27,7 @@ final class CreateShortenLinkUseCase: CreateShortenLinkUseCaseProtocol {
 
     func createLink(
         _ link: String,
-        alias: String,
+        alias: String?,
         password: String = ""
     ) -> Single<ShortenLink> {
         shortenedLinkRepository.create(link, alias: alias, password: password)
