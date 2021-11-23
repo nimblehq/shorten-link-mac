@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import AppAuth
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -14,6 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private let popOver = NSPopover()
     private var eventMonitor: EventMonitor?
 
+    var currentUserSession: OIDExternalUserAgentSession?
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setUpStatusBarIcon()
         setUpPopOver()
@@ -21,6 +24,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+    }
+
+    func application(_ application: NSApplication, open urls: [URL]) {
+        guard let url = urls.first else { return }
+        currentUserSession?.resumeExternalUserAgentFlow(with: url)
+        print(urls)
     }
 }
 

@@ -62,6 +62,8 @@ final class GSignInUseCase: NSObject, GSignInUseCaseProtocol {
                     print("After login: \(state?.lastTokenResponse?.idToken ?? "")")
                     observer(.success(state?.lastTokenResponse?.idToken ?? ""))
                 }
+
+                (NSApplication.shared.delegate as? AppDelegate)?.currentUserSession = self.currentUserSession
             }
             return Disposables.create()
         }
