@@ -39,11 +39,6 @@ extension DependencyFactory: RepositoryFactoryProtocol {
     func shortenLinkRepository() -> ShortenedLinkRepositoryProtocol {
         ShortenedLinkRepository(networkAPI: networkAPI)
     }
-}
-
-// MARK: - Make Repository
-
-extension DependencyFactory {
 
     func loginRepository() -> LoginRepositoryProtocol {
         LoginRepository(networkAPI: networkAPI)

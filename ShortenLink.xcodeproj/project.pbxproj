@@ -38,6 +38,8 @@
 		31522781274B95CE009FD0B5 /* ShortenLinkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F44274A92F4002AEF1D /* ShortenLinkCellViewModel.swift */; };
 		31522782274B95D8009FD0B5 /* CustomTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F41274A8FDF002AEF1D /* CustomTableRowView.swift */; };
 		31522785274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31522784274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift */; };
+		09A81F60274B8E38008CBEBD /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F5F274B8E38008CBEBD /* Toast.swift */; };
+		09A81F62274B94DF008CBEBD /* NSPasteboard+ReadString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */; };
 		3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69B273E44DE005A0A8B /* AppDelegate.swift */; };
 		3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69D273E44DE005A0A8B /* ViewController.swift */; };
 		3173B6A0273E44E0005A0A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3173B69F273E44E0005A0A8B /* Assets.xcassets */; };
@@ -115,6 +117,8 @@
 		09A81F4C274B54E7008CBEBD /* DependencyFactory+UseCaseFactoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DependencyFactory+UseCaseFactoryProtocol.swift"; sourceTree = "<group>"; };
 		09A81F4F274B54E7008CBEBD /* UseCaseFactoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseFactoryProtocol.swift; sourceTree = "<group>"; };
 		09A81F57274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+SetGeneralString.swift"; sourceTree = "<group>"; };
+		09A81F5F274B8E38008CBEBD /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+ReadString.swift"; sourceTree = "<group>"; };
 		1BEBB435D8200CA5998242A6 /* Pods-ShortenLink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink/Pods-ShortenLink.release.xcconfig"; sourceTree = "<group>"; };
 		227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLinkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -452,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				09A81F57274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift */,
+				09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */,
 			);
 			path = NSPasteboard;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 		31EDD46A274556D9002C4148 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				09A81F5F274B8E38008CBEBD /* Toast.swift */,
 				09A81F59274B5C38008CBEBD /* AppKit */,
 				09A81F2C27468FED008CBEBD /* Foundation */,
 				31EDD46B274556FA002C4148 /* NSView+AddSubViews.swift */,
@@ -980,9 +986,11 @@
 				31522780274B95A4009FD0B5 /* ShortenLinkCellView.swift in Sources */,
 				09A81F21274615A0008CBEBD /* CreateShortenLinkUseCase.swift in Sources */,
 				096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */,
+				09A81F54274B54E8008CBEBD /* DependencyFactory.swift in Sources */,
 				3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */,
 				901178D5274B3EDD00A0868E /* GetShortenLinkUseCase.swift in Sources */,
 				901178E0274B446400A0868E /* EditShortenLinkUseCase.swift in Sources */,
+				09A81F60274B8E38008CBEBD /* Toast.swift in Sources */,
 				09A81F50274B54E7008CBEBD /* ViewModelFactoryProtocol.swift in Sources */,
 				09A81F1B274614BC008CBEBD /* ShortenLink.swift in Sources */,
 				31089F49274A9441002AEF1D /* EventMonitor.swift in Sources */,
@@ -1010,6 +1018,7 @@
 				09A81F3827468FFA008CBEBD /* DateFormatter+Formats.swift in Sources */,
 				31522781274B95CE009FD0B5 /* ShortenLinkCellViewModel.swift in Sources */,
 				901178C6274A8AC300A0868E /* UserSessionRepositoryProtocol.swift in Sources */,
+				09A81F62274B94DF008CBEBD /* NSPasteboard+ReadString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

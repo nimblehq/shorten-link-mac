@@ -47,7 +47,6 @@ final class ShortenLinkViewModel: ShortenLinkViewModelType {
                     .filter { $0.element != nil }
                     .map {
                         let pasteboard = NSPasteboard.general
-                        // TODO: Use Constant for link prefix
                         pasteboard.setGeneralString("\(Constants.API.shortenedLinkBaseURL)\($0.element?.alias ?? "")")
                         return true
                     }
