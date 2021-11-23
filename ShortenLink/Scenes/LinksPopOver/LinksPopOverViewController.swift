@@ -16,6 +16,7 @@ final class LinksPopOverViewController: NSViewController {
     private let settingButton = NSButton()
     private let tableView = NSTableView()
     private let scrollView = NSScrollView()
+    private let topSeparator = NSBox()
     private let disposeBag = DisposeBag()
     private let viewModel: LinksPopOverViewModelType!
 
@@ -56,11 +57,18 @@ final class LinksPopOverViewController: NSViewController {
 extension LinksPopOverViewController {
 
     private func setUpLayout() {
-        view.addSubviews(titleField, settingButton, scrollView)
+        view.addSubviews(titleField, settingButton, scrollView, topSeparator)
 
         titleField.snp.makeConstraints {
             $0.centerX.equalTo(view.snp.centerX)
             $0.top.equalToSuperview().inset(8.0)
+        }
+
+        topSeparator.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(1.0)
+            $0.top.equalTo(titleField.snp.bottom).inset(-8.0)
         }
 
         settingButton.snp.makeConstraints {
@@ -86,6 +94,11 @@ extension LinksPopOverViewController {
         titleField.isEditable = false
         titleField.isBezeled = false
 
+        topSeparator.boxType = .custom
+        topSeparator.borderColor = .clear
+        topSeparator.borderWidth = 0.0
+        topSeparator.fillColor = NSColor.textColor.withAlphaComponent(0.3)
+
         settingButton.image = Asset.settingIc.image
         settingButton.bezelStyle = .shadowlessSquare
         settingButton.isBordered = false
@@ -109,6 +122,8 @@ extension LinksPopOverViewController {
         scrollView.hasHorizontalScroller = false
         scrollView.hasVerticalScroller = false
         scrollView.automaticallyAdjustsContentInsets = false
+
+        addLoginController()
     }
 
     private func bindOutput() {
@@ -124,6 +139,20 @@ extension LinksPopOverViewController {
                 owner.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+
+        viewModel.output.isLoggedIn
+            .drive(with: self, onNext: { owner, isLoggedIn in
+                owner.scrollView.isHidden = !isLoggedIn
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func addLoginController() {
+        let loginViewModel = DependencyFactory.shared.loginViewModel()
+        let loginViewController = LoginViewController(viewModel: loginViewModel)
+        addChild(loginViewController)
+        loginViewController.view.frame = view.frame
+        view.addSubview(loginViewController.view)
     }
 
     private func layoutChildControllers() {

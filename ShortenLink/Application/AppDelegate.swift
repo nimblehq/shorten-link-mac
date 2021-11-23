@@ -42,8 +42,8 @@ extension AppDelegate {
     }
 
     private func setUpPopOver() {
-        let viewModel = LinksPopOverViewModel()
-        let controller = LinksPopOverViewController(viewModel: viewModel)
+        let linksPopOverViewModel = DependencyFactory.shared.linksPopOverViewModel()
+        let controller = LinksPopOverViewController(viewModel: linksPopOverViewModel)
         let shortenLinkViewModel = DependencyFactory.shared.shortenLinkViewModel()
         let shortenLinkController = ShortenLinkViewController(viewModel: shortenLinkViewModel)
         popOver.contentViewController = controller

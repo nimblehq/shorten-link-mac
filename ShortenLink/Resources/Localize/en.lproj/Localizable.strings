@@ -18,6 +18,7 @@
 
 "linksPopOver.titletext.title" = "Nimble Link";
 
+"login.signInWithGoogleAccount"  = "Sign in with Google Account";
 "shortenLinkCell.deleteAlert.title" = "Are you sure to delete this Nimble Link “%@”?";
 "shortenLinkCell.deleteAlert.message" = "This action cannot be undone.";
 "shortenLinkCell.deleteAlert.deleteButton.title" = "Delete";

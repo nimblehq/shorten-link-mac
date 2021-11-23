@@ -19,6 +19,7 @@ protocol LinksPopOverViewModelOutput {
 
     var shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]> { get }
     var reloadList: Signal<Void> { get }
+    var isLoggedIn: Driver<Bool> { get }
 }
 
 protocol LinksPopOverViewModelInput {
@@ -37,6 +38,8 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
     // Output
     let shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]>
     let reloadList: Signal<Void>
+    let isLoggedIn: Driver<Bool>
+    private let _isLoggedIn = BehaviorRelay<Bool>(value: false)
 
     init() {
         let dummyShortenLinks = [
@@ -67,5 +70,7 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
         reloadList = viewWillAppear
             .skip(1) // skip 1st
             .asSignal(onErrorSignalWith: .empty())
+
+        isLoggedIn = _isLoggedIn.asDriver()
     }
 }
