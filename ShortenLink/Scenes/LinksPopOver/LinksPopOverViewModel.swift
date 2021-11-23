@@ -76,14 +76,9 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
             .asSignal(onErrorSignalWith: .empty())
 
         settingButtonTapped
-            .do(onNext: {
-                print("settingButtonTapped")
-            })
             .flatMap(gSignInUseCase.signIn)
             .flatMap(userUsecase.login)
-            .subscribe(onDisposed: {
-                print("settingButtonTapped on dispose")
-            })
+            .subscribe()
             .disposed(by: disposeBag)
     }
 }

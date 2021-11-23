@@ -22,7 +22,6 @@ final class GSignInUseCase: NSObject, GSignInUseCaseProtocol {
     private let kClientSecret = "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"
     private let kRedirectURI = "com.googleusercontent.apps.659972231175-v1d19sfqfp25sr9a2sv629uioq1pu466:/oauthredirect"
     private let disposeBag = DisposeBag()
-    private var currentUserSession: OIDExternalUserAgentSession?
 
     func signIn() -> Single<String> {
         guard let issuerURL = URL(string: kIssuer),
@@ -34,8 +33,7 @@ final class GSignInUseCase: NSObject, GSignInUseCaseProtocol {
                     observer(.failure(error))
                     return
                 }
-                guard let self = self,
-                      let config = config
+                guard let self = self, let config = config
                 else {
                     observer(.failure(NetworkAPIError.generic))
                     return
@@ -50,16 +48,16 @@ final class GSignInUseCase: NSObject, GSignInUseCaseProtocol {
                     additionalParameters: nil
                 )
 
-                self.currentUserSession = OIDAuthState.authState(
+                let appDelegate = NSApplication.shared.delegate as? AppDelegate
+
+                appDelegate?.currentUserSession = OIDAuthState.authState(
                     byPresenting: request,
                     externalUserAgent: self
                 ) { state, error in
                     if let error = error {
-                        print("After login with error: \(error)")
                         observer(.failure(error))
                         return
                     }
-                    print("After login: \(state?.lastTokenResponse?.idToken ?? "")")
                     observer(.success(state?.lastTokenResponse?.idToken ?? ""))
                 }
             }
