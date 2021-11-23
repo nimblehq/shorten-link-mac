@@ -24,7 +24,6 @@ protocol LinksPopOverViewModelOutput {
 protocol LinksPopOverViewModelInput {
 
     var viewWillAppear: PublishRelay<Void> { get }
-    var settingButtonTapped: PublishRelay<Void> { get }
 }
 
 final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewModelInput, LinksPopOverViewModelOutput {
@@ -34,18 +33,12 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
 
     // Input
     let viewWillAppear = PublishRelay<Void>()
-    let settingButtonTapped = PublishRelay<Void>()
 
     // Output
     let shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]>
     let reloadList: Signal<Void>
 
-    private let disposeBag = DisposeBag()
-
-    init(
-        gSignInUseCase: GSignInUseCaseProtocol,
-        userUsecase: UserUseCaseProtocol
-    ) {
+    init() {
         let dummyShortenLinks = [
             ShortenLinkCellViewModel(
                 fullLink: "http://alonglink.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -74,11 +67,5 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
         reloadList = viewWillAppear
             .skip(1) // skip 1st
             .asSignal(onErrorSignalWith: .empty())
-
-        settingButtonTapped
-            .flatMap(gSignInUseCase.signIn)
-            .flatMap(userUsecase.login)
-            .subscribe()
-            .disposed(by: disposeBag)
     }
 }

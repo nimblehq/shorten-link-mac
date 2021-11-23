@@ -36,7 +36,6 @@ final class LinksPopOverViewController: NSViewController {
         super.viewDidLoad()
         setUpLayout()
         setUpViews()
-        bindInput() 
         bindOutput()
     }
 
@@ -119,12 +118,6 @@ extension LinksPopOverViewController {
             .emit(with: self, onNext: { owner, _ in
                 owner.tableView.reloadData()
             })
-            .disposed(by: disposeBag)
-    }
-
-    private func bindInput() {
-        settingButton.rx.tap
-            .bind(to: viewModel.input.settingButtonTapped)
             .disposed(by: disposeBag)
     }
 }

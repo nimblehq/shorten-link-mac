@@ -42,10 +42,7 @@ extension AppDelegate {
     }
 
     private func setUpPopOver() {
-        let viewModel = LinksPopOverViewModel(
-            gSignInUseCase: DependencyFactory.shared.gSignInUseCase(),
-            userUsecase: DependencyFactory.shared.userUseCase()
-        )
+        let viewModel = LinksPopOverViewModel()
         let controller = LinksPopOverViewController(viewModel: viewModel)
         let shortenLinkViewModel = DependencyFactory.shared.shortenLinkViewModel()
         let shortenLinkController = ShortenLinkViewController(viewModel: shortenLinkViewModel)
