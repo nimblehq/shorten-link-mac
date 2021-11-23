@@ -18,3 +18,8 @@
 
 "linksPopOver.titletext.title" = "Nimble Link";
 
+"shortenLinkCell.deleteAlert.title" = "Are you sure to delete this Nimble Link “%@”?";
+"shortenLinkCell.deleteAlert.message" = "This action cannot be undone.";
+"shortenLinkCell.deleteAlert.deleteButton.title" = "Delete";
+"shortenLinkCell.deleteAlert.cancelButton.title" = "Cancel";
+

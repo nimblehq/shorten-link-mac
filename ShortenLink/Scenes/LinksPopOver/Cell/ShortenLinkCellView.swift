@@ -135,19 +135,16 @@ extension ShortenLinkCellView {
         guard let window = self.window else { return }
         let alert = NSAlert()
         alert.icon = NSImage(named: NSImage.cautionName)
-        alert.messageText = """
-        "Are you sure to delete this Nimble Link “https://nimble-link/example-for-a-typing-alias-someID1234567890”?
-
-        This action cannot be undone.
-        """
-        alert.addButton(withTitle: "Delete")
-        alert.addButton(withTitle: "Cancel")
+        let shortenLink = viewModel?.output.shortenLink ?? ""
+        alert.messageText = L10n.ShortenLinkCell.DeleteAlert.title(shortenLink)
+        alert.informativeText = L10n.ShortenLinkCell.DeleteAlert.message
+        alert.addButton(withTitle: L10n.ShortenLinkCell.DeleteAlert.DeleteButton.title)
+        alert.addButton(withTitle: L10n.ShortenLinkCell.DeleteAlert.CancelButton.title)
         alert.buttons[0].highlight(true)
         alert.alertStyle = .warning
 
         alert.beginSheetModal(for: window, completionHandler: { [weak self] modalResponse -> Void in
             if modalResponse == .alertFirstButtonReturn {
-                print("Document deleted")
                 self?.viewModel?.input.deleteLinkTapped.accept(())
             }
         })
