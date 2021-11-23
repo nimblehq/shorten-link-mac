@@ -17,6 +17,7 @@ final class ShortenLinkCellView: NSTableCellView {
     private let editLinkButton = NSButton()
     private let deleteLinkButton = NSButton()
     private var disposeBag = DisposeBag()
+    private var viewModel: ShortenLinkCellViewModelType?
 
     static let identifier = "ShortenLinkCellView"
 
@@ -32,16 +33,20 @@ final class ShortenLinkCellView: NSTableCellView {
 
     override func prepareForReuse() {
         disposeBag = DisposeBag()
+        viewModel = nil
         super.prepareForReuse()
     }
 
     func configure(with viewModel: ShortenLinkCellViewModelType) {
+        self.viewModel = viewModel
         editLinkButton.rx.tap
             .bind(to: viewModel.input.editLinkTapped)
             .disposed(by: disposeBag)
 
         deleteLinkButton.rx.tap
-            .bind(to: viewModel.input.deleteLinkTapped)
+            .subscribe { [weak self] _ in
+                self?.showDeleteAlert()
+            }
             .disposed(by: disposeBag)
 
         shortenLinkField.stringValue = viewModel.output.shortenLink
@@ -124,5 +129,27 @@ extension ShortenLinkCellView {
         editLinkButton.bezelStyle = .shadowlessSquare
         editLinkButton.isBordered = false
         editLinkButton.imagePosition = .imageOnly
+    }
+
+    private func showDeleteAlert() {
+        guard let window = self.window else { return }
+        let alert = NSAlert()
+        alert.icon = NSImage(named: NSImage.cautionName)
+        alert.messageText = """
+        "Are you sure to delete this Nimble Link “https://nimble-link/example-for-a-typing-alias-someID1234567890”?
+
+        This action cannot be undone.
+        """
+        alert.addButton(withTitle: "Delete")
+        alert.addButton(withTitle: "Cancel")
+        alert.buttons[0].highlight(true)
+        alert.alertStyle = .warning
+
+        alert.beginSheetModal(for: window, completionHandler: { [weak self] modalResponse -> Void in
+            if modalResponse == .alertFirstButtonReturn {
+                print("Document deleted")
+                self?.viewModel?.input.deleteLinkTapped.accept(())
+            }
+        })
     }
 }
