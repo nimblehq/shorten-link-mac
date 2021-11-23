@@ -100,7 +100,9 @@ extension ShortenLinkViewController {
             .drive(with: self, onNext: { owner, value in
                 guard value else { return }
                 owner.urlTextField.stringValue = ""
-                owner.toast(message: L10n.Shortenlink.Toast.message)
+                owner.view.window?.contentViewController?.toast(
+                    message: L10n.Shortenlink.Toast.message
+                )
             })
             .disposed(by: disposeBag)
     }
