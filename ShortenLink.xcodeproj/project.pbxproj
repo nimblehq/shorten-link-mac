@@ -19,18 +19,27 @@
 		09A81F172746143B008CBEBD /* ShortenedLinkRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F162746143B008CBEBD /* ShortenedLinkRepositoryProtocol.swift */; };
 		09A81F1B274614BC008CBEBD /* ShortenLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F1A274614BC008CBEBD /* ShortenLink.swift */; };
 		09A81F21274615A0008CBEBD /* CreateShortenLinkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F20274615A0008CBEBD /* CreateShortenLinkUseCase.swift */; };
-		09A81F23274616C5008CBEBD /* ShortenedLinkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F22274616C5008CBEBD /* ShortenedLinkRepository.swift */; };
 		09A81F252746173A008CBEBD /* LinksRequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F242746173A008CBEBD /* LinksRequestConfiguration.swift */; };
 		09A81F272746177D008CBEBD /* APIShortenLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F262746177D008CBEBD /* APIShortenLink.swift */; };
 		09A81F2927461901008CBEBD /* APIRequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F2827461901008CBEBD /* APIRequestConfiguration.swift */; };
 		09A81F2B2746249C008CBEBD /* JSONDecoder+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F2A2746249C008CBEBD /* JSONDecoder+Default.swift */; };
 		09A81F3827468FFA008CBEBD /* DateFormatter+Formats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F3327468FFA008CBEBD /* DateFormatter+Formats.swift */; };
 		09A81F3C2746911C008CBEBD /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F3B2746911C008CBEBD /* String+Date.swift */; };
+		09A81F40274B48E0008CBEBD /* ShortenLinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F3F274B48DF008CBEBD /* ShortenLinkViewModel.swift */; };
+		09A81F50274B54E7008CBEBD /* ViewModelFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F47274B54E7008CBEBD /* ViewModelFactoryProtocol.swift */; };
+		09A81F51274B54E8008CBEBD /* RepositoryFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F49274B54E7008CBEBD /* RepositoryFactoryProtocol.swift */; };
+		09A81F52274B54E8008CBEBD /* DependencyFactory+ViewModelFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F4B274B54E7008CBEBD /* DependencyFactory+ViewModelFactoryProtocol.swift */; };
+		09A81F53274B54E8008CBEBD /* DependencyFactory+UseCaseFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F4C274B54E7008CBEBD /* DependencyFactory+UseCaseFactoryProtocol.swift */; };
+		09A81F55274B54E8008CBEBD /* UseCaseFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F4F274B54E7008CBEBD /* UseCaseFactoryProtocol.swift */; };
+		09A81F58274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F57274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift */; };
+		09E61DA3274CA59000187135 /* ShortenedLinkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F22274616C5008CBEBD /* ShortenedLinkRepository.swift */; };
 		31089F49274A9441002AEF1D /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F3F274A7E5D002AEF1D /* EventMonitor.swift */; };
 		31522780274B95A4009FD0B5 /* ShortenLinkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F45274A92F4002AEF1D /* ShortenLinkCellView.swift */; };
 		31522781274B95CE009FD0B5 /* ShortenLinkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F44274A92F4002AEF1D /* ShortenLinkCellViewModel.swift */; };
 		31522782274B95D8009FD0B5 /* CustomTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F41274A8FDF002AEF1D /* CustomTableRowView.swift */; };
 		31522785274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31522784274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift */; };
+		09A81F60274B8E38008CBEBD /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F5F274B8E38008CBEBD /* Toast.swift */; };
+		09A81F62274B94DF008CBEBD /* NSPasteboard+ReadString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */; };
 		3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69B273E44DE005A0A8B /* AppDelegate.swift */; };
 		3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69D273E44DE005A0A8B /* ViewController.swift */; };
 		3173B6A0273E44E0005A0A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3173B69F273E44E0005A0A8B /* Assets.xcassets */; };
@@ -101,6 +110,15 @@
 		09A81F2A2746249C008CBEBD /* JSONDecoder+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Default.swift"; sourceTree = "<group>"; };
 		09A81F3327468FFA008CBEBD /* DateFormatter+Formats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Formats.swift"; sourceTree = "<group>"; };
 		09A81F3B2746911C008CBEBD /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
+		09A81F3F274B48DF008CBEBD /* ShortenLinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenLinkViewModel.swift; sourceTree = "<group>"; };
+		09A81F47274B54E7008CBEBD /* ViewModelFactoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelFactoryProtocol.swift; sourceTree = "<group>"; };
+		09A81F49274B54E7008CBEBD /* RepositoryFactoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryFactoryProtocol.swift; sourceTree = "<group>"; };
+		09A81F4B274B54E7008CBEBD /* DependencyFactory+ViewModelFactoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DependencyFactory+ViewModelFactoryProtocol.swift"; sourceTree = "<group>"; };
+		09A81F4C274B54E7008CBEBD /* DependencyFactory+UseCaseFactoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DependencyFactory+UseCaseFactoryProtocol.swift"; sourceTree = "<group>"; };
+		09A81F4F274B54E7008CBEBD /* UseCaseFactoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseFactoryProtocol.swift; sourceTree = "<group>"; };
+		09A81F57274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+SetGeneralString.swift"; sourceTree = "<group>"; };
+		09A81F5F274B8E38008CBEBD /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+ReadString.swift"; sourceTree = "<group>"; };
 		1BEBB435D8200CA5998242A6 /* Pods-ShortenLink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink/Pods-ShortenLink.release.xcconfig"; sourceTree = "<group>"; };
 		227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLinkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				096C3141273E7C50009497A5 /* ShortenLinkViewController.swift */,
+				09A81F3F274B48DF008CBEBD /* ShortenLinkViewModel.swift */,
 			);
 			path = ShortenLink;
 			sourceTree = "<group>";
@@ -399,6 +418,57 @@
 			path = String;
 			sourceTree = "<group>";
 		};
+		09A81F41274B547D008CBEBD /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F48274B54E7008CBEBD /* Data */,
+				09A81F4E274B54E7008CBEBD /* Domain */,
+				09A81F46274B54E7008CBEBD /* Presentation */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		09A81F46274B54E7008CBEBD /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F47274B54E7008CBEBD /* ViewModelFactoryProtocol.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		09A81F48274B54E7008CBEBD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F49274B54E7008CBEBD /* RepositoryFactoryProtocol.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		09A81F4E274B54E7008CBEBD /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F4F274B54E7008CBEBD /* UseCaseFactoryProtocol.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		09A81F56274B5BF7008CBEBD /* NSPasteboard */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F57274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift */,
+				09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */,
+			);
+			path = NSPasteboard;
+			sourceTree = "<group>";
+		};
+		09A81F59274B5C38008CBEBD /* AppKit */ = {
+			isa = PBXGroup;
+			children = (
+				09A81F56274B5BF7008CBEBD /* NSPasteboard */,
+			);
+			path = AppKit;
+			sourceTree = "<group>";
+		};
 		31089F43274A92F4002AEF1D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,11 +490,11 @@
 			isa = PBXGroup;
 			children = (
 				3173B69A273E44DE005A0A8B /* ShortenLink */,
+				800D2D4B68913478F84DF372 /* Frameworks */,
+				6DEDF76E5F620A11BA714ACE /* Pods */,
+				3173B699273E44DE005A0A8B /* Products */,
 				3173B6AD273E44E0005A0A8B /* ShortenLinkTests */,
 				3173B6B8273E44E0005A0A8B /* ShortenLinkUITests */,
-				3173B699273E44DE005A0A8B /* Products */,
-				6DEDF76E5F620A11BA714ACE /* Pods */,
-				800D2D4B68913478F84DF372 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -445,6 +515,7 @@
 				901178BD274A7C1100A0868E /* Constants */,
 				09A81EFE27460FF2008CBEBD /* Data */,
 				09A81F182746148F008CBEBD /* Domain */,
+				09A81F41274B547D008CBEBD /* Factories */,
 				096C3143273E7C7B009497A5 /* Resources */,
 				3173B6C7273E48D2005A0A8B /* Scenes */,
 				096C3159273E83B0009497A5 /* Supports */,
@@ -513,8 +584,10 @@
 		31EDD46A274556D9002C4148 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				31EDD46B274556FA002C4148 /* NSView+AddSubViews.swift */,
+				09A81F5F274B8E38008CBEBD /* Toast.swift */,
+				09A81F59274B5C38008CBEBD /* AppKit */,
 				09A81F2C27468FED008CBEBD /* Foundation */,
+				31EDD46B274556FA002C4148 /* NSView+AddSubViews.swift */,
 				901178D8274B414000A0868E /* Rx */,
 			);
 			path = Extensions;
@@ -589,6 +662,8 @@
 		901178C0274A7FD900A0868E /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				09A81F4C274B54E7008CBEBD /* DependencyFactory+UseCaseFactoryProtocol.swift */,
+				09A81F4B274B54E7008CBEBD /* DependencyFactory+ViewModelFactoryProtocol.swift */,
 				901178C1274A7FEB00A0868E /* DependencyFactory.swift */,
 			);
 			path = Factories;
@@ -887,10 +962,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09E61DA3274CA59000187135 /* ShortenedLinkRepository.swift in Sources */,
 				901178BA274A7AA100A0868E /* LoginRepository.swift in Sources */,
 				901178C8274B2CB900A0868E /* AuthenticationInterceptor.swift in Sources */,
 				31EDD46727455623002C4148 /* LinksPopOverViewController.swift in Sources */,
 				096C315D273E83B1009497A5 /* Strings+Generated.swift in Sources */,
+				09A81F40274B48E0008CBEBD /* ShortenLinkViewModel.swift in Sources */,
 				09A81F1027460FF3008CBEBD /* NetworkAPIError.swift in Sources */,
 				096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */,
 				09A81F272746177D008CBEBD /* APIShortenLink.swift in Sources */,
@@ -898,18 +975,23 @@
 				901178B0274A757600A0868E /* User.swift in Sources */,
 				901178A9274A74EA00A0868E /* Keychain.swift in Sources */,
 				09A81F2B2746249C008CBEBD /* JSONDecoder+Default.swift in Sources */,
+				09A81F52274B54E8008CBEBD /* DependencyFactory+ViewModelFactoryProtocol.swift in Sources */,
 				09A81F0F27460FF3008CBEBD /* RequestConfiguration.swift in Sources */,
 				09A81F0E27460FF3008CBEBD /* NetworkAPIProtocol.swift in Sources */,
 				901178B4274A798600A0868E /* LoginRepositoryProtocol.swift in Sources */,
+				09A81F53274B54E8008CBEBD /* DependencyFactory+UseCaseFactoryProtocol.swift in Sources */,
 				09A81F2927461901008CBEBD /* APIRequestConfiguration.swift in Sources */,
 				096C3142273E7C50009497A5 /* ShortenLinkViewController.swift in Sources */,
 				901178C4274A8A8D00A0868E /* UserSessionRepository.swift in Sources */,
 				31522780274B95A4009FD0B5 /* ShortenLinkCellView.swift in Sources */,
 				09A81F21274615A0008CBEBD /* CreateShortenLinkUseCase.swift in Sources */,
 				096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */,
+				09A81F54274B54E8008CBEBD /* DependencyFactory.swift in Sources */,
 				3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */,
 				901178D5274B3EDD00A0868E /* GetShortenLinkUseCase.swift in Sources */,
 				901178E0274B446400A0868E /* EditShortenLinkUseCase.swift in Sources */,
+				09A81F60274B8E38008CBEBD /* Toast.swift in Sources */,
+				09A81F50274B54E7008CBEBD /* ViewModelFactoryProtocol.swift in Sources */,
 				09A81F1B274614BC008CBEBD /* ShortenLink.swift in Sources */,
 				31089F49274A9441002AEF1D /* EventMonitor.swift in Sources */,
 				09A81F172746143B008CBEBD /* ShortenedLinkRepositoryProtocol.swift in Sources */,
@@ -926,15 +1008,17 @@
 				31EDD46C274556FA002C4148 /* NSView+AddSubViews.swift in Sources */,
 				09A81F1327460FF3008CBEBD /* NetworkAPI.swift in Sources */,
 				31522782274B95D8009FD0B5 /* CustomTableRowView.swift in Sources */,
+				09A81F51274B54E8008CBEBD /* RepositoryFactoryProtocol.swift in Sources */,
 				09A81F3C2746911C008CBEBD /* String+Date.swift in Sources */,
-				09A81F23274616C5008CBEBD /* CreateShortenLinkRepository.swift in Sources */,
 				31522785274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift in Sources */,
-				09A81F23274616C5008CBEBD /* ShortenedLinkRepository.swift in Sources */,
 				901178AB274A750400A0868E /* KeychainKey.swift in Sources */,
 				901178DE274B441B00A0868E /* DeleteShortenLinkUseCase.swift in Sources */,
+				09A81F58274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift in Sources */,
+				09A81F55274B54E8008CBEBD /* UseCaseFactoryProtocol.swift in Sources */,
 				09A81F3827468FFA008CBEBD /* DateFormatter+Formats.swift in Sources */,
 				31522781274B95CE009FD0B5 /* ShortenLinkCellViewModel.swift in Sources */,
 				901178C6274A8AC300A0868E /* UserSessionRepositoryProtocol.swift in Sources */,
+				09A81F62274B94DF008CBEBD /* NSPasteboard+ReadString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

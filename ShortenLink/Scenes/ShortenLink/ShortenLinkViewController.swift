@@ -6,6 +6,9 @@
 //
 
 import Cocoa
+import HotKey
+import RxCocoa
+import RxSwift
 import SnapKit
 
 class ShortenLinkViewController: NSViewController {
@@ -13,12 +16,33 @@ class ShortenLinkViewController: NSViewController {
     private let urlTextField = ClearableTextField()
     private let shortenButton = NSButton()
     private let instructionText = NSText()
+    private let viewModel: ShortenLinkViewModelType!
 
+    private let hotKey = HotKey(key: .l, modifiers: [.command, .shift])
+
+    private let disposeBag = DisposeBag()
+
+    init(viewModel: ShortenLinkViewModelType) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func loadView() {
+        view = NSView(frame: NSRect(x: 0.0, y: 0.0, width: 340.0, height: 100.0))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpLayout()
         setUpViews()
+        bindInput()
+        bindOutput()
+        bindKeyboardShortcut()
     }
 }
 
@@ -52,6 +76,7 @@ extension ShortenLinkViewController {
 
     private func setUpViews() {
         urlTextField.placeholderString = L10n.Shortenlink.Urltextfield.placeholder
+        urlTextField.delegate = self
 
         shortenButton.bezelStyle = .rounded
         shortenButton.setButtonType(.momentaryPushIn)
@@ -61,5 +86,46 @@ extension ShortenLinkViewController {
         instructionText.backgroundColor = .clear
         instructionText.isEditable = false
         instructionText.sizeToFit()
+    }
+
+    private func bindInput() {
+        shortenButton.rx.tap.bind {
+            self.viewModel.input.shortenLink(link: self.urlTextField.stringValue)
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    private func bindOutput() {
+        viewModel.output.linkShortenSuccess
+            .drive(with: self, onNext: { owner, value in
+                guard value else { return }
+                owner.urlTextField.stringValue = ""
+                owner.view.window?.contentViewController?.toast(
+                    message: L10n.Shortenlink.Toast.message
+                )
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func bindKeyboardShortcut() {
+        hotKey.keyDownHandler = { [weak self] in
+            let clipboardString = NSPasteboard.general.readString()
+            guard let self = self,
+                  let clipboardString = clipboardString,
+                  clipboardString.count > 0 else { return }
+            self.viewModel.input.shortenLink(link: clipboardString)
+        }
+    }
+}
+
+extension ShortenLinkViewController: NSTextFieldDelegate {
+
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
+            viewModel.input.shortenLink(link: urlTextField.stringValue)
+            return true
+        } else {
+            return false
+        }
     }
 }

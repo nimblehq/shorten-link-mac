@@ -17,7 +17,7 @@ final class ShortenedLinkRepository: ShortenedLinkRepositoryProtocol {
 
     func create(
         _ link: String,
-        alias: String,
+        alias: String?,
         password: String
     ) -> Single<ShortenLink> {
         networkAPI
