@@ -40,6 +40,10 @@ extension DependencyFactory: RepositoryFactoryProtocol {
         LoginRepository(networkAPI: networkAPI)
     }
 
+    func logOutRepository() -> LogOutRepositoryProtocol {
+        LogOutRepository(networkAPI: authenticatedNetworkAPI)
+    }
+
     func userSessionRepository() -> UserSessionRepositoryProtocol {
         UserSessionRepository(keychain: keychain)
     }

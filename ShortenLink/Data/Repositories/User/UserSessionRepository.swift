@@ -18,23 +18,10 @@ final class UserSessionRepository: UserSessionRepositoryProtocol {
     func getIsLoggedIn() -> Single<Bool> {
         Single.create { [weak self] observer in
             do {
-                let value = try self?.keychain.get(.isLoggedIn) ?? false
-                observer(.success(value))
+                observer(try self?.keychain.get(.user) != nil ?.success(true) : .success(false))
             } catch {
                 observer(.failure(error))
             }
-            return Disposables.create()
-        }
-    }
-
-    func saveIsLoggedIn() -> Completable {
-        Completable.create { [weak self] observer in
-            do {
-                try self?.keychain.set(true, for: .isLoggedIn)
-            } catch {
-                observer(.error(error))
-            }
-            observer(.completed)
             return Disposables.create()
         }
     }
@@ -43,6 +30,18 @@ final class UserSessionRepository: UserSessionRepositoryProtocol {
         Completable.create { [weak self] observer in
             do {
                 try self?.keychain.set(user, for: .user)
+            } catch {
+                observer(.error(error))
+            }
+            observer(.completed)
+            return Disposables.create()
+        }
+    }
+
+    func clear() -> Completable {
+        Completable.create { [weak self] observer in
+            do {
+                try self?.keychain.remove(.user)
             } catch {
                 observer(.error(error))
             }

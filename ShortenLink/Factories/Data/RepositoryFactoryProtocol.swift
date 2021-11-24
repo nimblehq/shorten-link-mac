@@ -9,5 +9,6 @@ protocol RepositoryFactoryProtocol {
 
     func shortenedLinkRepository() -> ShortenedLinkRepositoryProtocol
     func loginRepository() -> LoginRepositoryProtocol
+    func logOutRepository() -> LogOutRepositoryProtocol
     func userSessionRepository() -> UserSessionRepositoryProtocol
 }

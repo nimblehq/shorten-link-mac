@@ -17,7 +17,7 @@ final class LoginRepository: LoginRepositoryProtocol {
 
     func login(with idToken: String) -> Single<User> {
         networkAPI
-            .performRequest(LoginRequestConfiguration.login(idToken), for: APIUser.self)
+            .performRequest(AuthRequestConfiguration.logIn(idToken), for: APIUser.self)
             .map { $0 as User }
     }
 }
