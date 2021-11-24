@@ -19,6 +19,9 @@ final class LinksPopOverViewController: NSViewController {
     private let disposeBag = DisposeBag()
     private let viewModel: LinksPopOverViewModelType!
 
+    weak private var shortenLinkView: NSView?
+    weak private var moreOptionView: NSView?
+
     init(viewModel: LinksPopOverViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -72,6 +75,8 @@ extension LinksPopOverViewController {
         }
 
         tableView.frame = scrollView.bounds
+
+        insertMoreOptionViewController()
     }
 
     private func setUpViews() {
@@ -120,6 +125,17 @@ extension LinksPopOverViewController {
             })
             .disposed(by: disposeBag)
     }
+
+    private func layoutChildControllers() {
+        let topAnchor = shortenLinkView?.snp.bottom ?? view.snp.top
+        let bottomAnchor = moreOptionView?.snp.top ?? view.snp.bottom
+
+        scrollView.snp.remakeConstraints {
+            $0.top.equalTo(topAnchor)
+            $0.trailing.leading.equalToSuperview()
+            $0.bottom.equalTo(bottomAnchor)
+        }
+    }
 }
 
 extension LinksPopOverViewController: NSTableViewDelegate {
@@ -161,10 +177,18 @@ extension LinksPopOverViewController {
             $0.leading.trailing.equalToSuperview().inset(8.0)
             $0.height.equalTo(60.0)
         }
+        shortenLinkView = viewController.view
+        layoutChildControllers()
+    }
 
-        scrollView.snp.remakeConstraints {
-            $0.top.equalTo(viewController.view.snp.bottom).offset(4.0)
-            $0.trailing.leading.bottom.equalToSuperview()
+    func insertMoreOptionViewController() {
+        let viewController = MoreOptionViewController()
+        addChild(viewController)
+        view.addSubview(viewController.view)
+        viewController.view.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
         }
+        moreOptionView = viewController.view
+        layoutChildControllers()
     }
 }
