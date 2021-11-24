@@ -32,14 +32,16 @@
 		09A81F53274B54E8008CBEBD /* DependencyFactory+UseCaseFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F4C274B54E7008CBEBD /* DependencyFactory+UseCaseFactoryProtocol.swift */; };
 		09A81F55274B54E8008CBEBD /* UseCaseFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F4F274B54E7008CBEBD /* UseCaseFactoryProtocol.swift */; };
 		09A81F58274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F57274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift */; };
+		09A81F60274B8E38008CBEBD /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F5F274B8E38008CBEBD /* Toast.swift */; };
+		09A81F62274B94DF008CBEBD /* NSPasteboard+ReadString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */; };
 		09E61DA3274CA59000187135 /* ShortenedLinkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F22274616C5008CBEBD /* ShortenedLinkRepository.swift */; };
+		09E61DD1274E33BD00187135 /* MoreOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E61DD0274E33BD00187135 /* MoreOptionViewController.swift */; };
+		09E61DD4274E38D400187135 /* NSButton+ImageOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E61DD3274E38D400187135 /* NSButton+ImageOnly.swift */; };
 		31089F49274A9441002AEF1D /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F3F274A7E5D002AEF1D /* EventMonitor.swift */; };
 		31522780274B95A4009FD0B5 /* ShortenLinkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F45274A92F4002AEF1D /* ShortenLinkCellView.swift */; };
 		31522781274B95CE009FD0B5 /* ShortenLinkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F44274A92F4002AEF1D /* ShortenLinkCellViewModel.swift */; };
 		31522782274B95D8009FD0B5 /* CustomTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F41274A8FDF002AEF1D /* CustomTableRowView.swift */; };
 		31522785274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31522784274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift */; };
-		09A81F60274B8E38008CBEBD /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F5F274B8E38008CBEBD /* Toast.swift */; };
-		09A81F62274B94DF008CBEBD /* NSPasteboard+ReadString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */; };
 		3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69B273E44DE005A0A8B /* AppDelegate.swift */; };
 		3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69D273E44DE005A0A8B /* ViewController.swift */; };
 		3173B6A0273E44E0005A0A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3173B69F273E44E0005A0A8B /* Assets.xcassets */; };
@@ -120,6 +122,8 @@
 		09A81F57274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+SetGeneralString.swift"; sourceTree = "<group>"; };
 		09A81F5F274B8E38008CBEBD /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+ReadString.swift"; sourceTree = "<group>"; };
+		09E61DD0274E33BD00187135 /* MoreOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionViewController.swift; sourceTree = "<group>"; };
+		09E61DD3274E38D400187135 /* NSButton+ImageOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+ImageOnly.swift"; sourceTree = "<group>"; };
 		1BEBB435D8200CA5998242A6 /* Pods-ShortenLink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink/Pods-ShortenLink.release.xcconfig"; sourceTree = "<group>"; };
 		227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLinkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -467,9 +471,26 @@
 		09A81F59274B5C38008CBEBD /* AppKit */ = {
 			isa = PBXGroup;
 			children = (
+				09E61DD2274E38BF00187135 /* NSButton */,
 				09A81F56274B5BF7008CBEBD /* NSPasteboard */,
 			);
 			path = AppKit;
+			sourceTree = "<group>";
+		};
+		09E61DCF274E33AF00187135 /* MoreOption */ = {
+			isa = PBXGroup;
+			children = (
+				09E61DD0274E33BD00187135 /* MoreOptionViewController.swift */,
+			);
+			path = MoreOption;
+			sourceTree = "<group>";
+		};
+		09E61DD2274E38BF00187135 /* NSButton */ = {
+			isa = PBXGroup;
+			children = (
+				09E61DD3274E38D400187135 /* NSButton+ImageOnly.swift */,
+			);
+			path = NSButton;
 			sourceTree = "<group>";
 		};
 		31089F43274A92F4002AEF1D /* Cell */ = {
@@ -548,6 +569,7 @@
 		3173B6C7273E48D2005A0A8B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				09E61DCF274E33AF00187135 /* MoreOption */,
 				31EDD465274555F0002C4148 /* LinksPopOver */,
 				3173B6CB273E4912005A0A8B /* Home */,
 				096C3140273E7C3F009497A5 /* ShortenLink */,
@@ -983,6 +1005,7 @@
 				096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */,
 				09A81F272746177D008CBEBD /* APIShortenLink.swift in Sources */,
 				901178CA274B2D5300A0868E /* AuthenticatedNetworkAPI.swift in Sources */,
+				09E61DD1274E33BD00187135 /* MoreOptionViewController.swift in Sources */,
 				901178B0274A757600A0868E /* User.swift in Sources */,
 				901178A9274A74EA00A0868E /* Keychain.swift in Sources */,
 				09A81F2B2746249C008CBEBD /* JSONDecoder+Default.swift in Sources */,
@@ -997,9 +1020,9 @@
 				31522780274B95A4009FD0B5 /* ShortenLinkCellView.swift in Sources */,
 				09A81F21274615A0008CBEBD /* CreateShortenLinkUseCase.swift in Sources */,
 				096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */,
-				09A81F54274B54E8008CBEBD /* DependencyFactory.swift in Sources */,
 				3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */,
 				901178D5274B3EDD00A0868E /* GetShortenLinkUseCase.swift in Sources */,
+				09E61DD4274E38D400187135 /* NSButton+ImageOnly.swift in Sources */,
 				901178E0274B446400A0868E /* EditShortenLinkUseCase.swift in Sources */,
 				09A81F60274B8E38008CBEBD /* Toast.swift in Sources */,
 				09A81F50274B54E7008CBEBD /* ViewModelFactoryProtocol.swift in Sources */,
@@ -1022,7 +1045,6 @@
 				31522782274B95D8009FD0B5 /* CustomTableRowView.swift in Sources */,
 				09A81F51274B54E8008CBEBD /* RepositoryFactoryProtocol.swift in Sources */,
 				09A81F3C2746911C008CBEBD /* String+Date.swift in Sources */,
-				09A81F23274616C5008CBEBD /* ShortenedLinkRepository.swift in Sources */,
 				31522785274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift in Sources */,
 				901178AB274A750400A0868E /* KeychainKey.swift in Sources */,
 				901178DE274B441B00A0868E /* DeleteShortenLinkUseCase.swift in Sources */,
