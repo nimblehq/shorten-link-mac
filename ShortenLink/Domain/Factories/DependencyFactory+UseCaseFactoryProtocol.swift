@@ -29,4 +29,8 @@ extension DependencyFactory: UseCaseFactoryProtocol {
             userSessionRepository: userSessionRepository()
         )
     }
+
+    func gSignInUseCase() -> GSignInUseCaseProtocol {
+        GSignInUseCase()
+    }
 }

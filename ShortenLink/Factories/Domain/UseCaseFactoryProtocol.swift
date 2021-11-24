@@ -9,4 +9,5 @@ protocol UseCaseFactoryProtocol: AnyObject {
 
     func createShortenLinkUseCase() -> CreateShortenLinkUseCaseProtocol
     func userUseCase() -> UserUseCaseProtocol
+    func gSignInUseCase() -> GSignInUseCaseProtocol
 }

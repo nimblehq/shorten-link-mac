@@ -36,10 +36,6 @@ final class DependencyFactory {
 
 extension DependencyFactory: RepositoryFactoryProtocol {
 
-    func shortenLinkRepository() -> ShortenedLinkRepositoryProtocol {
-        ShortenedLinkRepository(networkAPI: networkAPI)
-    }
-
     func loginRepository() -> LoginRepositoryProtocol {
         LoginRepository(networkAPI: networkAPI)
     }

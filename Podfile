@@ -13,6 +13,7 @@ target 'ShortenLink' do
   pod 'SwiftGen'
   pod 'KeychainAccess'
   pod 'HotKey'
+  pod 'GTMAppAuth'
 
   target 'ShortenLinkTests' do
     inherit! :search_paths
