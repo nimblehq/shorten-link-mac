@@ -24,3 +24,6 @@
 "shortenLinkCell.deleteAlert.cancelButton.title" = "Cancel";
 
 "shortenlink.toast.message" = "Link copied to clipboard 📋";
+
+"option.quitMenu.title" = "Quit";
+"option.signOutMenu.title" = "Sign out";

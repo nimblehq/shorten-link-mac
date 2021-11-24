@@ -46,9 +46,55 @@ extension MoreOptionViewController {
     private func setUpViews() {
         buttonStackView.spacing = 8.0
         buttonStackView.orientation = .horizontal
+
         bubbleButton.imageOnly(image: Asset.about.image)
+        bubbleButton.target = self
+
         moreButton.imageOnly(image: Asset.more.image)
+        moreButton.target = self
+        moreButton.action = #selector(tapMoreButton)
+
         lineView.wantsLayer = true
         lineView.layer?.backgroundColor = .init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+    }
+
+    private func showQuitMenu(_ view: NSView) {
+        let menu = NSMenu()
+        let signOutItem = NSMenuItem(
+            title: L10n.Option.SignOutMenu.title,
+            action: #selector(tapSignOut),
+            keyEquivalent: ""
+        )
+
+        let quitItem = NSMenuItem(
+            title: L10n.Option.QuitMenu.title,
+            action: #selector(tapQuit),
+            keyEquivalent: ""
+        )
+
+        signOutItem.target = self
+        quitItem.target = self
+
+        menu.addItem(signOutItem)
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(quitItem)
+
+        menu.popUp(
+            positioning: signOutItem,
+            at: view.frame.origin,
+            in: view
+        )
+    }
+
+    @objc func tapMoreButton(_ sender: Any?) {
+        showQuitMenu(sender as? NSView ?? view)
+    }
+
+    @objc func tapSignOut(_ sender: Any?) {
+
+    }
+
+    @objc func tapQuit(_ sender: Any?) {
+
     }
 }
