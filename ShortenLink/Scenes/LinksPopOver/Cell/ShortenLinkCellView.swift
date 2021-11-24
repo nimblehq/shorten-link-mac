@@ -17,6 +17,7 @@ final class ShortenLinkCellView: NSTableCellView {
     private let editLinkButton = NSButton()
     private let deleteLinkButton = NSButton()
     private var disposeBag = DisposeBag()
+    private var viewModel: ShortenLinkCellViewModelType?
 
     static let identifier = "ShortenLinkCellView"
 
@@ -32,16 +33,20 @@ final class ShortenLinkCellView: NSTableCellView {
 
     override func prepareForReuse() {
         disposeBag = DisposeBag()
+        viewModel = nil
         super.prepareForReuse()
     }
 
     func configure(with viewModel: ShortenLinkCellViewModelType) {
+        self.viewModel = viewModel
         editLinkButton.rx.tap
             .bind(to: viewModel.input.editLinkTapped)
             .disposed(by: disposeBag)
 
         deleteLinkButton.rx.tap
-            .bind(to: viewModel.input.deleteLinkTapped)
+            .subscribe { [weak self] _ in
+                self?.showDeleteAlert()
+            }
             .disposed(by: disposeBag)
 
         shortenLinkField.stringValue = viewModel.output.shortenLink
@@ -124,5 +129,24 @@ extension ShortenLinkCellView {
         editLinkButton.bezelStyle = .shadowlessSquare
         editLinkButton.isBordered = false
         editLinkButton.imagePosition = .imageOnly
+    }
+
+    private func showDeleteAlert() {
+        guard let window = self.window else { return }
+        let alert = NSAlert()
+        alert.icon = NSImage(named: NSImage.cautionName)
+        let shortenLink = viewModel?.output.shortenLink ?? ""
+        alert.messageText = L10n.ShortenLinkCell.DeleteAlert.title(shortenLink)
+        alert.informativeText = L10n.ShortenLinkCell.DeleteAlert.message
+        alert.addButton(withTitle: L10n.ShortenLinkCell.DeleteAlert.DeleteButton.title)
+        alert.addButton(withTitle: L10n.ShortenLinkCell.DeleteAlert.CancelButton.title)
+        alert.buttons[0].highlight(true)
+        alert.alertStyle = .warning
+
+        alert.beginSheetModal(for: window, completionHandler: { [weak self] modalResponse -> Void in
+            if modalResponse == .alertFirstButtonReturn {
+                self?.viewModel?.input.deleteLinkTapped.accept(())
+            }
+        })
     }
 }
