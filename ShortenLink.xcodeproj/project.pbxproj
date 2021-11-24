@@ -42,6 +42,10 @@
 		31522781274B95CE009FD0B5 /* ShortenLinkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F44274A92F4002AEF1D /* ShortenLinkCellViewModel.swift */; };
 		31522782274B95D8009FD0B5 /* CustomTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F41274A8FDF002AEF1D /* CustomTableRowView.swift */; };
 		31522785274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31522784274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift */; };
+		31522788274BE63B009FD0B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31522787274BE63B009FD0B5 /* LoginViewController.swift */; };
+		3152278A274BE64C009FD0B5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31522789274BE64C009FD0B5 /* LoginViewModel.swift */; };
+		09A81F62274B94DF008CBEBD /* NSPasteboard+ReadString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */; };
+		09A81F60274B8E38008CBEBD /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F5F274B8E38008CBEBD /* Toast.swift */; };
 		3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69B273E44DE005A0A8B /* AppDelegate.swift */; };
 		3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69D273E44DE005A0A8B /* ViewController.swift */; };
 		3173B6A0273E44E0005A0A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3173B69F273E44E0005A0A8B /* Assets.xcassets */; };
@@ -134,6 +138,8 @@
 		31089F44274A92F4002AEF1D /* ShortenLinkCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortenLinkCellViewModel.swift; sourceTree = "<group>"; };
 		31089F45274A92F4002AEF1D /* ShortenLinkCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortenLinkCellView.swift; sourceTree = "<group>"; };
 		31522784274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+MakeCreatedAtText.swift"; sourceTree = "<group>"; };
+		31522787274BE63B009FD0B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		31522789274BE64C009FD0B5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3173B698273E44DE005A0A8B /* ShortenLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortenLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3173B69B273E44DE005A0A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3173B69D273E44DE005A0A8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -514,6 +520,15 @@
 			path = Date;
 			sourceTree = "<group>";
 		};
+		31522786274BE61B009FD0B5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				31522787274BE63B009FD0B5 /* LoginViewController.swift */,
+				31522789274BE64C009FD0B5 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		3173B68F273E44DE005A0A8B = {
 			isa = PBXGroup;
 			children = (
@@ -573,6 +588,7 @@
 		3173B6C7273E48D2005A0A8B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				31522786274BE61B009FD0B5 /* Login */,
 				09E61DCF274E33AF00187135 /* MoreOption */,
 				31EDD465274555F0002C4148 /* LinksPopOver */,
 				3173B6CB273E4912005A0A8B /* Home */,
@@ -1020,6 +1036,7 @@
 				09A81F0F27460FF3008CBEBD /* RequestConfiguration.swift in Sources */,
 				09A81F0E27460FF3008CBEBD /* NetworkAPIProtocol.swift in Sources */,
 				901178B4274A798600A0868E /* LoginRepositoryProtocol.swift in Sources */,
+				31522788274BE63B009FD0B5 /* LoginViewController.swift in Sources */,
 				09A81F53274B54E8008CBEBD /* DependencyFactory+UseCaseFactoryProtocol.swift in Sources */,
 				09A81F2927461901008CBEBD /* APIRequestConfiguration.swift in Sources */,
 				096C3142273E7C50009497A5 /* ShortenLinkViewController.swift in Sources */,
@@ -1049,6 +1066,7 @@
 				901178AE274A754200A0868E /* KeychainUser.swift in Sources */,
 				901178B2274A769E00A0868E /* APIUser.swift in Sources */,
 				31EDD46C274556FA002C4148 /* NSView+AddSubViews.swift in Sources */,
+				3152278A274BE64C009FD0B5 /* LoginViewModel.swift in Sources */,
 				09A81F1327460FF3008CBEBD /* NetworkAPI.swift in Sources */,
 				31522782274B95D8009FD0B5 /* CustomTableRowView.swift in Sources */,
 				09A81F51274B54E8008CBEBD /* RepositoryFactoryProtocol.swift in Sources */,

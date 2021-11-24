@@ -19,6 +19,10 @@ protocol LinksPopOverViewModelOutput {
 
     var shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]> { get }
     var reloadList: Signal<Void> { get }
+
+    var shouldShowLogin: Signal<Bool> { get }
+    var shortenLinkViewModel: ShortenLinkViewModelType { get }
+    var logInViewModel: LoginViewModelType { get }
 }
 
 protocol LinksPopOverViewModelInput {
@@ -37,8 +41,16 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
     // Output
     let shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]>
     let reloadList: Signal<Void>
+    var shouldShowLogin: Signal<Bool>
+    let shortenLinkViewModel: ShortenLinkViewModelType
+    let logInViewModel: LoginViewModelType
 
-    init() {
+    private let disposeBag = DisposeBag()
+
+    init(userUseCase: UserUseCaseProtocol) {
+        shortenLinkViewModel = DependencyFactory.shared.shortenLinkViewModel()
+        logInViewModel = DependencyFactory.shared.loginViewModel()
+
         let dummyShortenLinks = [
             ShortenLinkCellViewModel(
                 fullLink: "http://alonglink.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -66,6 +78,12 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
 
         reloadList = viewWillAppear
             .skip(1) // skip 1st
+            .asSignal(onErrorSignalWith: .empty())
+
+        shouldShowLogin = viewWillAppear.asObservable()
+            .flatMap { userUseCase.checkUserLoggedIn() }
+            .distinctUntilChanged()
+            .map { !$0 } 
             .asSignal(onErrorSignalWith: .empty())
     }
 }
