@@ -26,7 +26,8 @@ extension DependencyFactory: UseCaseFactoryProtocol {
     func userUseCase() -> UserUseCaseProtocol {
         UserUseCase(
             loginRepository: loginRepository(),
-            userSessionRepository: userSessionRepository()
+            userSessionRepository: userSessionRepository(),
+            logOutRepository: logOutRepository()
         )
     }
 

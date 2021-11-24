@@ -7,39 +7,34 @@
 
 import Alamofire
 
-enum LoginRequestConfiguration {
+enum AuthRequestConfiguration {
 
-    case login(String)
+    case logIn(String)
+    case logOut
 }
 
-extension LoginRequestConfiguration: RequestConfiguration {
+extension AuthRequestConfiguration: RequestConfiguration {
 
-    var baseURL: String {
-        switch self {
-        case .login: return Constants.API.baseURL
-        }
-    }
+    var baseURL: String { Constants.API.baseURL }
 
     var endpoint: String {
         switch self {
-        case .login: return "auth/verify_token"
+        case .logIn: return "auth/verify_token"
+        case .logOut: return "auth/logout"
         }
     }
 
-    var method: HTTPMethod {
-        switch self {
-        case .login: return .post
-        }
-    }
+    var method: HTTPMethod { .post }
 
     var encoding: ParameterEncoding { JSONEncoding.default }
 
     var parameters: Parameters? {
         switch self {
-        case .login(let idToken):
+        case .logIn(let idToken):
             return [
                 "idToken": idToken
             ]
+        case .logOut: return nil
         }
     }
 }

@@ -11,10 +11,6 @@ protocol KeychainKey {}
 
 extension KeychainKey {
 
-    static var isLoggedIn: Keychain.Key<Bool> {
-        Keychain.Key(key: "isLoggedIn")
-    }
-
     static var user: Keychain.Key<KeychainUser> {
         Keychain.Key(key: "KeychainUser")
     }

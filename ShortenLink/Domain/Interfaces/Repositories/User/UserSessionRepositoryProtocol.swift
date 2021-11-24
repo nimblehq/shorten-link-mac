@@ -11,6 +11,6 @@ import RxSwift
 protocol UserSessionRepositoryProtocol: AnyObject {
 
     func getIsLoggedIn() -> Single<Bool>
-    func saveIsLoggedIn() -> Completable
     func saveUser(_ user: KeychainUser) -> Completable
+    func clear() -> Completable
 }

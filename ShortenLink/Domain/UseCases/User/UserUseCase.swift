@@ -11,30 +11,42 @@ import RxSwift
 protocol UserUseCaseProtocol: AnyObject {
 
     func login(with idToken: String) -> Completable
+    func logOut() -> Completable
+    func checkUserLoggedIn() -> Single<Bool>
 }
 
 final class UserUseCase: UserUseCaseProtocol {
 
     private let loginRepository: LoginRepositoryProtocol
     private let userSessionRepository: UserSessionRepositoryProtocol
+    private let logOutRepository: LogOutRepositoryProtocol
 
     init(
         loginRepository: LoginRepositoryProtocol,
-        userSessionRepository: UserSessionRepositoryProtocol
+        userSessionRepository: UserSessionRepositoryProtocol,
+        logOutRepository: LogOutRepositoryProtocol
     ) {
         self.loginRepository = loginRepository
         self.userSessionRepository = userSessionRepository
+        self.logOutRepository = logOutRepository
     }
 
     func login(with idToken: String) -> Completable {
         loginRepository.login(with: idToken)
             .asObservable()
             .withUnretained(self)
-            .flatMapLatest { owner, user -> Completable in
-                let saveIsLoggedIn = owner.userSessionRepository.saveIsLoggedIn()
-                let saveUser = owner.userSessionRepository.saveUser(.init(user: user))
-                return saveIsLoggedIn.andThen(saveUser)
+            .flatMapLatest { owner, user in
+                owner.userSessionRepository.saveUser(.init(user: user))
             }
             .asCompletable()
+    }
+
+    func checkUserLoggedIn() -> Single<Bool> {
+        userSessionRepository.getIsLoggedIn()
+    }
+
+    func logOut() -> Completable {
+        logOutRepository.logOut()
+            .andThen(userSessionRepository.clear())
     }
 }
