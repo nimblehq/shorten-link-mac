@@ -19,7 +19,10 @@ protocol LinksPopOverViewModelOutput {
 
     var shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]> { get }
     var reloadList: Signal<Void> { get }
-    var isLoggedIn: Driver<Bool> { get }
+
+    var shouldShowLogin: Signal<Bool> { get }
+    var shortenLinkViewModel: ShortenLinkViewModelType { get }
+    var logInViewModel: LoginViewModelType { get }
 }
 
 protocol LinksPopOverViewModelInput {
@@ -38,10 +41,16 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
     // Output
     let shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]>
     let reloadList: Signal<Void>
-    let isLoggedIn: Driver<Bool>
-    private let _isLoggedIn = BehaviorRelay<Bool>(value: false)
+    var shouldShowLogin: Signal<Bool>
+    let shortenLinkViewModel: ShortenLinkViewModelType
+    let logInViewModel: LoginViewModelType
 
-    init() {
+    private let disposeBag = DisposeBag()
+
+    init(userUseCase: UserUseCaseProtocol) {
+        shortenLinkViewModel = DependencyFactory.shared.shortenLinkViewModel()
+        logInViewModel = DependencyFactory.shared.loginViewModel()
+
         let dummyShortenLinks = [
             ShortenLinkCellViewModel(
                 fullLink: "http://alonglink.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -71,6 +80,9 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
             .skip(1) // skip 1st
             .asSignal(onErrorSignalWith: .empty())
 
-        isLoggedIn = _isLoggedIn.asDriver()
+        shouldShowLogin = viewWillAppear.asObservable()
+            .flatMap { userUseCase.checkUserLoggedIn() }
+            .map { !$0 } 
+            .asSignal(onErrorSignalWith: .empty())
     }
 }

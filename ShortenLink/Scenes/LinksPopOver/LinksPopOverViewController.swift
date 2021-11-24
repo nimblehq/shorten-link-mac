@@ -16,15 +16,22 @@ final class LinksPopOverViewController: NSViewController {
     private let settingButton = NSButton()
     private let tableView = NSTableView()
     private let scrollView = NSScrollView()
-    private let topSeparator = NSBox()
     private let disposeBag = DisposeBag()
     private let viewModel: LinksPopOverViewModelType!
 
+    private let shortenLinkViewController: ShortenLinkViewController
+    private let shortenLinkViewModel: ShortenLinkViewModelType
+
+    private var loginViewController: LoginViewController? = nil
     weak private var shortenLinkView: NSView?
     weak private var moreOptionView: NSView?
 
     init(viewModel: LinksPopOverViewModelType) {
         self.viewModel = viewModel
+
+        shortenLinkViewModel = DependencyFactory.shared.shortenLinkViewModel()
+        shortenLinkViewController = ShortenLinkViewController(viewModel: shortenLinkViewModel)
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -39,6 +46,7 @@ final class LinksPopOverViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLayout()
+        insertShortenLinkViewController()
         setUpViews()
         bindOutput()
     }
@@ -54,21 +62,53 @@ final class LinksPopOverViewController: NSViewController {
     }
 }
 
+// MARK: - Private functions
+
 extension LinksPopOverViewController {
 
+    private func insertLoginViewController() {
+        let loginViewController = LoginViewController(viewModel: viewModel.output.logInViewModel)
+
+        addChild(loginViewController)
+        loginViewController.view.frame = view.frame
+        view.addSubview(loginViewController.view)
+
+        loginViewController.view.snp.makeConstraints {
+            $0.top.equalTo(titleField.snp.bottom).offset(8.0)
+            $0.trailing.leading.bottom.equalToSuperview()
+        }
+
+        self.loginViewController = loginViewController
+    }
+
+    private func removeLoginViewController() {
+        loginViewController?.view.removeFromSuperview()
+        loginViewController?.removeFromParent()
+        loginViewController = nil
+    }
+
+    private func insertShortenLinkViewController() {
+        addChild(shortenLinkViewController)
+        view.addSubview(shortenLinkViewController.view)
+
+        shortenLinkViewController.view.snp.makeConstraints {
+            $0.top.equalTo(titleField.snp.bottom).offset(8.0)
+            $0.leading.trailing.equalToSuperview().inset(8.0)
+            $0.height.equalTo(60.0)
+        }
+
+        scrollView.snp.remakeConstraints {
+            $0.top.equalTo(shortenLinkViewController.view.snp.bottom).offset(4.0)
+            $0.trailing.leading.bottom.equalToSuperview()
+        }
+    }
+
     private func setUpLayout() {
-        view.addSubviews(titleField, settingButton, scrollView, topSeparator)
+        view.addSubviews(titleField, settingButton, scrollView)
 
         titleField.snp.makeConstraints {
             $0.centerX.equalTo(view.snp.centerX)
             $0.top.equalToSuperview().inset(8.0)
-        }
-
-        topSeparator.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.width.equalToSuperview()
-            $0.height.equalTo(1.0)
-            $0.top.equalTo(titleField.snp.bottom).inset(-8.0)
         }
 
         settingButton.snp.makeConstraints {
@@ -78,7 +118,7 @@ extension LinksPopOverViewController {
         }
 
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(titleField.snp.bottom).inset(-10.0)
+            $0.top.equalTo(titleField.snp.bottom).offset(8.0)
             $0.trailing.leading.bottom.equalToSuperview()
         }
 
@@ -93,11 +133,6 @@ extension LinksPopOverViewController {
         titleField.font = .systemFont(ofSize: 14.0)
         titleField.isEditable = false
         titleField.isBezeled = false
-
-        topSeparator.boxType = .custom
-        topSeparator.borderColor = .clear
-        topSeparator.borderWidth = 0.0
-        topSeparator.fillColor = NSColor.textColor.withAlphaComponent(0.3)
 
         settingButton.image = Asset.settingIc.image
         settingButton.bezelStyle = .shadowlessSquare
@@ -122,8 +157,6 @@ extension LinksPopOverViewController {
         scrollView.hasHorizontalScroller = false
         scrollView.hasVerticalScroller = false
         scrollView.automaticallyAdjustsContentInsets = false
-
-        addLoginController()
     }
 
     private func bindOutput() {
@@ -140,9 +173,15 @@ extension LinksPopOverViewController {
             })
             .disposed(by: disposeBag)
 
-        viewModel.output.isLoggedIn
-            .drive(with: self, onNext: { owner, isLoggedIn in
-                owner.scrollView.isHidden = !isLoggedIn
+        viewModel.output.shouldShowLogin
+            .emit(with: self, onNext: { owner, shouldShowLogin in
+                owner.scrollView.isHidden = shouldShowLogin
+                owner.shortenLinkViewController.view.isHidden = shouldShowLogin
+                if shouldShowLogin {
+                    owner.insertLoginViewController()
+                } else {
+                    owner.removeLoginViewController()
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -167,6 +206,8 @@ extension LinksPopOverViewController {
     }
 }
 
+// MARK: - NSTableViewDelegate
+
 extension LinksPopOverViewController: NSTableViewDelegate {
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -188,6 +229,8 @@ extension LinksPopOverViewController: NSTableViewDelegate {
         return CustomTableRowView()
     }
 }
+
+// MARK: - NSTableViewDataSource
 
 extension LinksPopOverViewController: NSTableViewDataSource {
 

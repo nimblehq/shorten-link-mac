@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 protocol LoginViewModelType {
 
@@ -15,10 +17,12 @@ protocol LoginViewModelType {
 
 protocol LoginViewModelInput {
 
+    var logInWithGoogleTapped: PublishRelay<Void> { get }
 }
 
 protocol LoginViewModelOutput {
 
+    var userDidLogin: Signal<Void> { get }
 }
 
 final class LoginViewModel: LoginViewModelType,
@@ -28,7 +32,23 @@ final class LoginViewModel: LoginViewModelType,
     var input: LoginViewModelInput { self }
     var output: LoginViewModelOutput { self }
 
-    init() {
-        
+    // Input
+    var logInWithGoogleTapped = PublishRelay<Void>()
+
+    // Output
+    var userDidLogin: Signal<Void>
+
+    private let disposeBag = DisposeBag()
+    private let _userDidLogin = PublishRelay<Void>()
+
+    init(gSignInUseCase: GSignInUseCaseProtocol, userUseCase: UserUseCaseProtocol) {
+        userDidLogin = _userDidLogin.asSignal(onErrorSignalWith: .empty())
+
+        logInWithGoogleTapped
+            .flatMapLatest(gSignInUseCase.signIn)
+            .flatMapLatest(userUseCase.login)
+            .mapToVoid()
+            .subscribe(with: self, onCompleted: { owner in owner._userDidLogin.accept(()) })
+            .disposed(by: disposeBag)
     }
 }

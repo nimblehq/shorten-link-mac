@@ -12,10 +12,13 @@ import RxCocoa
 final class LoginViewController: NSViewController {
 
     private let signInWithGoogleButton = NSButton()
+    private let topSeparator = NSBox()
     private let signInContainerBox = NSBox()
     private let googleImageView = NSImageView()
     private let signInGoogleTextField = NSTextField()
+    
     private let viewModel: LoginViewModelType!
+    private let disposeBag = DisposeBag()
 
     init(viewModel: LoginViewModelType) {
         self.viewModel = viewModel
@@ -34,6 +37,7 @@ final class LoginViewController: NSViewController {
         super.viewDidLoad()
         setUpLayout()
         setUpViews()
+        bindInput()
     }
 }
 
@@ -42,9 +46,14 @@ final class LoginViewController: NSViewController {
 extension LoginViewController {
 
     private func setUpLayout() {
-        view.addSubviews(signInContainerBox, signInWithGoogleButton)
+        view.addSubviews(topSeparator, signInContainerBox, signInWithGoogleButton)
 
         signInContainerBox.addSubviews(googleImageView, signInGoogleTextField)
+
+        topSeparator.snp.makeConstraints {
+            $0.centerX.width.top.equalToSuperview()
+            $0.height.equalTo(1.0)
+        }
 
         signInWithGoogleButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -73,6 +82,11 @@ extension LoginViewController {
         signInWithGoogleButton.isBordered = false
         signInWithGoogleButton.title = ""
 
+        topSeparator.boxType = .custom
+        topSeparator.borderColor = .clear
+        topSeparator.borderWidth = 0.0
+        topSeparator.fillColor = NSColor.textColor.withAlphaComponent(0.3)
+
         signInContainerBox.boxType = .custom
         signInContainerBox.borderColor = NSColor.textColor.withAlphaComponent(0.3)
         signInContainerBox.fillColor = .clear
@@ -85,5 +99,11 @@ extension LoginViewController {
         signInGoogleTextField.backgroundColor = .clear
 
         googleImageView.image = Asset.googleIc.image
+    }
+
+    private func bindInput() {
+        signInWithGoogleButton.rx.tap
+            .bind(to: viewModel.input.logInWithGoogleTapped)
+            .disposed(by: disposeBag)
     }
 }
