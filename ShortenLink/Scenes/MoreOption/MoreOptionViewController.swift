@@ -95,6 +95,6 @@ extension MoreOptionViewController {
     }
 
     @objc func tapQuit(_ sender: Any?) {
-
+        NSApplication.shared.terminate(self)
     }
 }
