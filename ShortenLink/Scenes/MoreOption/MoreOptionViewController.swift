@@ -55,7 +55,7 @@ extension MoreOptionViewController {
         moreButton.action = #selector(tapMoreButton)
 
         lineView.wantsLayer = true
-        lineView.layer?.backgroundColor = .init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+        lineView.layer?.backgroundColor = NSColor.textColor.withAlphaComponent(0.3).cgColor
     }
 
     private func showQuitMenu(_ view: NSView) {

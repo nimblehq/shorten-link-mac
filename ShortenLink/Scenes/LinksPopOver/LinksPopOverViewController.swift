@@ -19,19 +19,13 @@ final class LinksPopOverViewController: NSViewController {
     private let disposeBag = DisposeBag()
     private let viewModel: LinksPopOverViewModelType!
 
-    private let shortenLinkViewController: ShortenLinkViewController
-    private let shortenLinkViewModel: ShortenLinkViewModelType
-
     private var loginViewController: LoginViewController? = nil
-    weak private var shortenLinkView: NSView?
+    private var shortenLinkViewController: ShortenLinkViewController? = nil
+
     weak private var moreOptionView: NSView?
 
     init(viewModel: LinksPopOverViewModelType) {
         self.viewModel = viewModel
-
-        shortenLinkViewModel = DependencyFactory.shared.shortenLinkViewModel()
-        shortenLinkViewController = ShortenLinkViewController(viewModel: shortenLinkViewModel)
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -46,7 +40,6 @@ final class LinksPopOverViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLayout()
-        insertShortenLinkViewController()
         setUpViews()
         bindOutput()
     }
@@ -66,45 +59,8 @@ final class LinksPopOverViewController: NSViewController {
 
 extension LinksPopOverViewController {
 
-    private func insertLoginViewController() {
-        let loginViewController = LoginViewController(viewModel: viewModel.output.logInViewModel)
-
-        addChild(loginViewController)
-        loginViewController.view.frame = view.frame
-        view.addSubview(loginViewController.view)
-
-        loginViewController.view.snp.makeConstraints {
-            $0.top.equalTo(titleField.snp.bottom).offset(8.0)
-            $0.trailing.leading.bottom.equalToSuperview()
-        }
-
-        self.loginViewController = loginViewController
-    }
-
-    private func removeLoginViewController() {
-        loginViewController?.view.removeFromSuperview()
-        loginViewController?.removeFromParent()
-        loginViewController = nil
-    }
-
-    private func insertShortenLinkViewController() {
-        addChild(shortenLinkViewController)
-        view.addSubview(shortenLinkViewController.view)
-
-        shortenLinkViewController.view.snp.makeConstraints {
-            $0.top.equalTo(titleField.snp.bottom).offset(8.0)
-            $0.leading.trailing.equalToSuperview().inset(8.0)
-            $0.height.equalTo(60.0)
-        }
-
-        scrollView.snp.remakeConstraints {
-            $0.top.equalTo(shortenLinkViewController.view.snp.bottom).offset(4.0)
-            $0.trailing.leading.bottom.equalToSuperview()
-        }
-    }
-
     private func setUpLayout() {
-        view.addSubviews(titleField, settingButton, scrollView)
+        view.addSubviews(titleField, settingButton)
 
         titleField.snp.makeConstraints {
             $0.centerX.equalTo(view.snp.centerX)
@@ -116,13 +72,6 @@ extension LinksPopOverViewController {
             $0.trailing.equalToSuperview().inset(8.5)
             $0.size.equalTo(CGSize(width: 20.0, height: 20.0))
         }
-
-        scrollView.snp.makeConstraints {
-            $0.top.equalTo(titleField.snp.bottom).offset(8.0)
-            $0.trailing.leading.bottom.equalToSuperview()
-        }
-
-        tableView.frame = scrollView.bounds
 
         insertMoreOptionViewController()
     }
@@ -159,6 +108,16 @@ extension LinksPopOverViewController {
         scrollView.automaticallyAdjustsContentInsets = false
     }
 
+    private func insertMoreOptionViewController() {
+        let viewController = MoreOptionViewController()
+        addChild(viewController)
+        view.addSubview(viewController.view)
+        viewController.view.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+        moreOptionView = viewController.view
+    }
+
     private func bindOutput() {
         viewModel.output.shortenLinks
             .asDriver()
@@ -175,34 +134,68 @@ extension LinksPopOverViewController {
 
         viewModel.output.shouldShowLogin
             .emit(with: self, onNext: { owner, shouldShowLogin in
-                owner.scrollView.isHidden = shouldShowLogin
-                owner.shortenLinkViewController.view.isHidden = shouldShowLogin
                 if shouldShowLogin {
+                    owner.removeShortenLinkViews()
                     owner.insertLoginViewController()
                 } else {
                     owner.removeLoginViewController()
+                    owner.insertShortenLinkViews()
                 }
             })
             .disposed(by: disposeBag)
     }
 
-    private func addLoginController() {
-        let loginViewModel = DependencyFactory.shared.loginViewModel()
-        let loginViewController = LoginViewController(viewModel: loginViewModel)
+    private func insertLoginViewController() {
+        let loginViewController = LoginViewController(viewModel: viewModel.output.logInViewModel)
+
         addChild(loginViewController)
         loginViewController.view.frame = view.frame
         view.addSubview(loginViewController.view)
+
+        loginViewController.view.snp.makeConstraints {
+            $0.top.equalTo(titleField.snp.bottom).offset(8.0)
+            $0.trailing.leading.bottom.equalToSuperview()
+        }
+
+        self.loginViewController = loginViewController
     }
 
-    private func layoutChildControllers() {
-        let topAnchor = shortenLinkView?.snp.bottom ?? view.snp.top
+    private func removeLoginViewController() {
+        loginViewController?.view.removeFromSuperview()
+        loginViewController?.removeFromParent()
+        loginViewController = nil
+    }
+
+    private func insertShortenLinkViews() {
+        let shortenLinkViewController = ShortenLinkViewController(viewModel: viewModel.output.shortenLinkViewModel)
+        addChild(shortenLinkViewController)
+        view.addSubviews(shortenLinkViewController.view, scrollView)
+
+        shortenLinkViewController.view.snp.makeConstraints {
+            $0.top.equalTo(titleField.snp.bottom).offset(8.0)
+            $0.leading.trailing.equalToSuperview().inset(8.0)
+            $0.height.equalTo(60.0)
+        }
+
         let bottomAnchor = moreOptionView?.snp.top ?? view.snp.bottom
 
-        scrollView.snp.remakeConstraints {
-            $0.top.equalTo(topAnchor)
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(shortenLinkViewController.view.snp.bottom).offset(4.0)
             $0.trailing.leading.equalToSuperview()
             $0.bottom.equalTo(bottomAnchor)
         }
+
+        tableView.frame = scrollView.bounds
+
+        self.shortenLinkViewController = shortenLinkViewController
+    }
+
+    private func removeShortenLinkViews() {
+        shortenLinkViewController?.view.removeFromSuperview()
+        shortenLinkViewController?.removeFromParent()
+        shortenLinkViewController = nil
+
+        scrollView.removeFromSuperview()
     }
 }
 
@@ -236,31 +229,5 @@ extension LinksPopOverViewController: NSTableViewDataSource {
 
     func numberOfRows(in tableView: NSTableView) -> Int {
         viewModel.output.shortenLinks.value.count
-    }
-}
-
-extension LinksPopOverViewController {
-
-    func insertShortenLinkViewController(_ viewController: ShortenLinkViewController) {
-        addChild(viewController)
-        view.addSubview(viewController.view)
-        viewController.view.snp.makeConstraints {
-            $0.top.equalTo(titleField.snp.bottom).offset(8.0)
-            $0.leading.trailing.equalToSuperview().inset(8.0)
-            $0.height.equalTo(60.0)
-        }
-        shortenLinkView = viewController.view
-        layoutChildControllers()
-    }
-
-    func insertMoreOptionViewController() {
-        let viewController = MoreOptionViewController()
-        addChild(viewController)
-        view.addSubview(viewController.view)
-        viewController.view.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
-        moreOptionView = viewController.view
-        layoutChildControllers()
     }
 }

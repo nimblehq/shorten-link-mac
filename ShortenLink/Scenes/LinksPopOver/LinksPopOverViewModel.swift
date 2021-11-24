@@ -82,6 +82,7 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
 
         shouldShowLogin = viewWillAppear.asObservable()
             .flatMap { userUseCase.checkUserLoggedIn() }
+            .distinctUntilChanged()
             .map { !$0 } 
             .asSignal(onErrorSignalWith: .empty())
     }
