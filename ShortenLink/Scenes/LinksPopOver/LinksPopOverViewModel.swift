@@ -28,6 +28,8 @@ protocol LinksPopOverViewModelOutput {
 protocol LinksPopOverViewModelInput {
 
     var viewWillAppear: PublishRelay<Void> { get }
+    var logOutTapped: PublishRelay<Void> { get }
+
 }
 
 final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewModelInput, LinksPopOverViewModelOutput {
@@ -37,6 +39,7 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
 
     // Input
     let viewWillAppear = PublishRelay<Void>()
+    let logOutTapped = PublishRelay<Void>()
 
     // Output
     let shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]>
@@ -45,6 +48,7 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
     let shortenLinkViewModel: ShortenLinkViewModelType
     let logInViewModel: LoginViewModelType
 
+    private let onLogout = PublishRelay<Void>()
     private let disposeBag = DisposeBag()
 
     init(userUseCase: UserUseCaseProtocol) {
@@ -80,10 +84,29 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
             .skip(1) // skip 1st
             .asSignal(onErrorSignalWith: .empty())
 
-        shouldShowLogin = viewWillAppear.asObservable()
+        shouldShowLogin = Observable
+            .merge(
+                viewWillAppear.asObservable(),
+                onLogout.asObservable()
+            )
             .flatMap { userUseCase.checkUserLoggedIn() }
             .distinctUntilChanged()
             .map { !$0 } 
             .asSignal(onErrorSignalWith: .empty())
+
+        logOutTapped
+            .flatMapLatest { _ -> Observable<Void> in
+                return .create { [weak self] observer in
+                    guard let self = self else { return Disposables.create() }
+                    userUseCase.logOut()
+                        .subscribe(onCompleted: {
+                            observer.onNext(())
+                        })
+                        .disposed(by: self.disposeBag)
+                    return Disposables.create()
+                }
+            }
+            .bind(to: onLogout)
+            .disposed(by: disposeBag)
     }
 }

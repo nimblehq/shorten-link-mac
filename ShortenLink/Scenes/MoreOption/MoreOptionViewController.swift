@@ -6,6 +6,7 @@
 //
 
 import AppKit
+import RxCocoa
 
 final class MoreOptionViewController: NSViewController {
 
@@ -13,6 +14,8 @@ final class MoreOptionViewController: NSViewController {
     private let moreButton = NSButton()
     private let bubbleButton = NSButton()
     private let lineView = NSView()
+
+    let logOutTapped = PublishRelay<Void>()
 
     override func loadView() {
         view = NSView(frame: NSRect(x: 0.0, y: 0.0, width: 340.0, height: 35.0))
@@ -91,7 +94,7 @@ extension MoreOptionViewController {
     }
 
     @objc func tapSignOut(_ sender: Any?) {
-
+        logOutTapped.accept(())
     }
 
     @objc func tapQuit(_ sender: Any?) {

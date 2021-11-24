@@ -116,6 +116,9 @@ extension LinksPopOverViewController {
             $0.leading.trailing.bottom.equalToSuperview()
         }
         moreOptionView = viewController.view
+        viewController.logOutTapped
+            .bind(to: viewModel.input.logOutTapped)
+            .disposed(by: disposeBag)
     }
 
     private func bindOutput() {
