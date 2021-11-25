@@ -206,6 +206,13 @@ extension LinksPopOverViewController {
 
 extension LinksPopOverViewController: NSTableViewDelegate {
 
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        let cellViewModel = viewModel.output.shortenLinks.value[tableView.selectedRow]
+        let pasteboard = NSPasteboard.general
+        pasteboard.setGeneralString(cellViewModel.output.shortenLink)
+        toast(message: L10n.Shortenlink.Toast.message)
+    }
+
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cellViewModel = viewModel.output.shortenLinks.value[row]
         if let cell = tableView.makeView(

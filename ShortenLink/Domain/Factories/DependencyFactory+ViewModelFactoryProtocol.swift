@@ -12,7 +12,10 @@ extension DependencyFactory: ViewModelFactoryProtocol {
     }
 
     func linksPopOverViewModel() -> LinksPopOverViewModelType {
-        LinksPopOverViewModel(userUseCase: userUseCase())
+        LinksPopOverViewModel(
+            userUseCase: userUseCase(),
+            getShortenLinkUseCase: getShortenLinksUseCase()
+        )
     }
 
     func loginViewModel() -> LoginViewModelType {

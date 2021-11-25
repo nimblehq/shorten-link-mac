@@ -51,34 +51,14 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
     private let onLogout = PublishRelay<Void>()
     private let disposeBag = DisposeBag()
 
-    init(userUseCase: UserUseCaseProtocol) {
+    init(
+        userUseCase: UserUseCaseProtocol,
+        getShortenLinkUseCase: GetShortenLinkUseCaseProtocol
+    ) {
         shortenLinkViewModel = DependencyFactory.shared.shortenLinkViewModel()
         logInViewModel = DependencyFactory.shared.loginViewModel()
 
-        let dummyShortenLinks = [
-            ShortenLinkCellViewModel(
-                fullLink: "http://alonglink.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                shortenLink: "https://nimble.link/my-url-12345678",
-                createdAt: Date()
-            ),
-            ShortenLinkCellViewModel(
-                fullLink: "http://alonglink.com/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-                shortenLink: "https://nimble.link/my-url-12345678",
-                createdAt: Date().addingTimeInterval(TimeInterval(-60.0))
-            ),
-            ShortenLinkCellViewModel(
-                fullLink: "http://alonglink.com/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-                shortenLink: "https://nimble.link/my-url-12345678",
-                createdAt: Date().addingTimeInterval(TimeInterval(-120.0))
-            ),
-            ShortenLinkCellViewModel(
-                fullLink: "http://alonglink.com/cccccccccccccccccccccccccccccccccccccccc",
-                shortenLink: "https://nimble.link/my-url-12345678",
-                createdAt: Date().addingTimeInterval(TimeInterval(-3_600.0))
-            )
-        ]
-
-        shortenLinks = BehaviorRelay<[ShortenLinkCellViewModel]>(value: dummyShortenLinks)
+        shortenLinks = BehaviorRelay<[ShortenLinkCellViewModel]>(value: [])
 
         reloadList = viewWillAppear
             .skip(1) // skip 1st
@@ -91,7 +71,7 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
             )
             .flatMap { userUseCase.checkUserLoggedIn() }
             .distinctUntilChanged()
-            .map { !$0 } 
+            .map { !$0 }
             .asSignal(onErrorSignalWith: .empty())
 
         logOutTapped
@@ -107,6 +87,34 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
                 }
             }
             .bind(to: onLogout)
+            
+        viewWillAppear
+            .flatMapLatest {
+                getShortenLinkUseCase
+                    .getLinks()
+                    .asObservable()
+                    .materialize()
+                    .filter { $0.element != nil }
+                    .map {
+                        ($0.element ?? [])
+                            .sorted(by: {
+                                guard let lhsDate = $0.createdAtDate,
+                                      let rhsDate = $1.createdAtDate
+                                else { return false }
+                                return lhsDate > rhsDate
+                            })
+                            .map {
+                                ShortenLinkCellViewModel(
+                                    fullLink: $0.originalUrl,
+                                    shortenLink: "\(Constants.API.shortenedLinkBaseURL)\($0.alias)",
+                                    createdAt: $0.createdAtDate ?? Date()
+                                )
+                            }
+                    }
+            }
+            .subscribe(with: self, onNext: { owner, event in
+                owner.shortenLinks.accept(event)
+            })
             .disposed(by: disposeBag)
     }
 }
