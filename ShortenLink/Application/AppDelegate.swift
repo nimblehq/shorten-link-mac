@@ -27,6 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+    func applicationWillUnhide(_ notification: Notification) {
+        NSApp.hide(self)
+    }
+
     func application(_ application: NSApplication, open urls: [URL]) {
         guard let url = urls.first else { return }
         currentUserSession?.resumeExternalUserAgentFlow(with: url)
