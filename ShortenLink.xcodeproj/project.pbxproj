@@ -1279,14 +1279,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4TWS7E2EPE;
+				DEVELOPMENT_TEAM = T3T4E84BM7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ShortenLink/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.shorten.link.ios.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phong.vhd.shortenlink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1302,14 +1302,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4TWS7E2EPE;
+				DEVELOPMENT_TEAM = T3T4E84BM7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ShortenLink/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.shorten.link.ios.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phong.vhd.shortenlink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
