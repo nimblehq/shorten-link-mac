@@ -16,7 +16,7 @@ class ShortenLinkViewController: NSViewController {
     private let urlTextField = ClearableTextField()
     private let shortenButton = NSButton()
     private let instructionText = NSText()
-    private let viewModel: ShortenLinkViewModelType!
+    private let viewModel: ShortenLinkViewModelType
 
     private let hotKey = HotKey(key: .l, modifiers: [.command, .shift])
 
