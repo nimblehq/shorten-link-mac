@@ -146,6 +146,20 @@ extension LinksPopOverViewController {
                 }
             })
             .disposed(by: disposeBag)
+
+        viewModel.output.editViewModel
+            .subscribe(with: self) { owner, value in
+                guard let value = value else { return }
+                owner.showEditWindow(viewModel: value)
+            }
+            .disposed(by: disposeBag)
+
+        viewModel.output.didCopyLink
+            .withUnretained(self)
+            .emit(with: self, onNext: { owner, _ in
+                owner.toast(message: L10n.Shortenlink.Toast.message)
+            })
+            .disposed(by: disposeBag)
     }
 
     private func insertLoginViewController() {
@@ -200,6 +214,16 @@ extension LinksPopOverViewController {
 
         scrollView.removeFromSuperview()
     }
+
+    private func showEditWindow(viewModel: EditLinkViewModelType) {
+        let viewController = EditLinkViewController(viewModel: viewModel)
+        let window = NSWindow(contentViewController: viewController)
+        let windowController = NSWindowController(window: window)
+        windowController.loadWindow()
+        windowController.showWindow(nil)
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.windows.first?.orderFrontRegardless()
+    }
 }
 
 // MARK: - NSTableViewDelegate
@@ -208,9 +232,7 @@ extension LinksPopOverViewController: NSTableViewDelegate {
 
     func tableViewSelectionDidChange(_ notification: Notification) {
         let cellViewModel = viewModel.output.shortenLinks.value[tableView.selectedRow]
-        let pasteboard = NSPasteboard.general
-        pasteboard.setGeneralString(cellViewModel.output.shortenLink)
-        toast(message: L10n.Shortenlink.Toast.message)
+        viewModel.input.copyLink.accept(cellViewModel.output.shortenLink)
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {

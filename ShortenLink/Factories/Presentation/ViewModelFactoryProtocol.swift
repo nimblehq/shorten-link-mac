@@ -10,4 +10,5 @@ protocol ViewModelFactoryProtocol {
     func shortenLinkViewModel() -> ShortenLinkViewModelType
     func linksPopOverViewModel() -> LinksPopOverViewModelType
     func loginViewModel() -> LoginViewModelType
+    func editLinkViewModel(link: EditingShortenLink) -> EditLinkViewModelType
 }

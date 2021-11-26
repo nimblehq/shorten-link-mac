@@ -21,14 +21,17 @@ protocol LinksPopOverViewModelOutput {
     var reloadList: Signal<Void> { get }
 
     var shouldShowLogin: Signal<Bool> { get }
+    var editViewModel: BehaviorRelay<EditLinkViewModelType?> { get }
     var shortenLinkViewModel: ShortenLinkViewModelType { get }
     var logInViewModel: LoginViewModelType { get }
+    var didCopyLink: Signal<Void> { get }
 }
 
 protocol LinksPopOverViewModelInput {
 
     var viewWillAppear: PublishRelay<Void> { get }
     var logOutTapped: PublishRelay<Void> { get }
+    var copyLink: PublishRelay<String> { get }
 
 }
 
@@ -40,13 +43,16 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
     // Input
     let viewWillAppear = PublishRelay<Void>()
     let logOutTapped = PublishRelay<Void>()
-
+    let copyLink = PublishRelay<String>()
+    
     // Output
     let shortenLinks: BehaviorRelay<[ShortenLinkCellViewModel]>
     let reloadList: Signal<Void>
     var shouldShowLogin: Signal<Bool>
+    let editViewModel: BehaviorRelay<EditLinkViewModelType?>
     let shortenLinkViewModel: ShortenLinkViewModelType
     let logInViewModel: LoginViewModelType
+    var didCopyLink: Signal<Void>
 
     private let onLogout = PublishRelay<Void>()
     private let disposeBag = DisposeBag()
@@ -60,6 +66,7 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
         logInViewModel = DependencyFactory.shared.loginViewModel()
 
         shortenLinks = BehaviorRelay<[ShortenLinkCellViewModel]>(value: [])
+        editViewModel = BehaviorRelay<EditLinkViewModelType?>(value: nil)
 
         reloadList = viewWillAppear
             .skip(1) // skip 1st
@@ -73,6 +80,14 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
             .flatMap { userUseCase.checkUserLoggedIn() }
             .distinctUntilChanged()
             .map { !$0 }
+            .asSignal(onErrorSignalWith: .empty())
+
+        didCopyLink = copyLink
+            .map { value in
+                let pasteboard = NSPasteboard.general
+                pasteboard.setGeneralString(value)
+                return
+            }
             .asSignal(onErrorSignalWith: .empty())
 
         logOutTapped
@@ -148,6 +163,29 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
                                                     print($0)
                                                 }
                                                 .disposed(by: owner.disposeBag)
+                                        })
+                                    .disposed(by: self.disposeBag)
+
+                                viewModel
+                                    .input
+                                    .editLinkTapped
+                                    .subscribe(
+                                        with: self,
+                                        onNext: { owner, _ in
+                                            let viewModel = DependencyFactory.shared.editLinkViewModel(
+                                                link: EditingShortenLink(
+                                                    id: viewModel.output.id,
+                                                    originalUrl: viewModel.output.fullLink
+                                                )
+                                            )
+                                            viewModel.output.editLinkShortenSuccess.drive(onNext: {
+                                                value in
+                                                guard let link = value else { return }
+                                                owner.viewWillAppear.accept(())
+                                                owner.copyLink.accept(link)
+                                            })
+                                                .disposed(by: owner.disposeBag)
+                                            owner.editViewModel.accept(viewModel)
                                         })
                                     .disposed(by: self.disposeBag)
                                 return viewModel
