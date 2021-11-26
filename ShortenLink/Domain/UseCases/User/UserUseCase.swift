@@ -13,6 +13,7 @@ protocol UserUseCaseProtocol: AnyObject {
     func login(with idToken: String) -> Completable
     func logOut() -> Completable
     func checkUserLoggedIn() -> Single<Bool>
+    func clearUserSession() -> Completable
 }
 
 final class UserUseCase: UserUseCaseProtocol {
@@ -47,6 +48,9 @@ final class UserUseCase: UserUseCaseProtocol {
 
     func logOut() -> Completable {
         logOutRepository.logOut()
-            .andThen(userSessionRepository.clear())
+    }
+
+    func clearUserSession() -> Completable {
+        userSessionRepository.clear()
     }
 }
