@@ -10,8 +10,6 @@
 		096C3142273E7C50009497A5 /* ShortenLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C3141273E7C50009497A5 /* ShortenLinkViewController.swift */; };
 		096C3146273E7C8B009497A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 096C3148273E7C8B009497A5 /* Localizable.strings */; };
 		096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C314B273E7CBF009497A5 /* ClearableTextField.swift */; };
-		096C315D273E83B1009497A5 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C315C273E83B0009497A5 /* Strings+Generated.swift */; };
-		096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C315E273E84FF009497A5 /* XCAssets+Generated.swift */; };
 		09A81F0E27460FF3008CBEBD /* NetworkAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F0327460FF2008CBEBD /* NetworkAPIProtocol.swift */; };
 		09A81F0F27460FF3008CBEBD /* RequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F0427460FF2008CBEBD /* RequestConfiguration.swift */; };
 		09A81F1027460FF3008CBEBD /* NetworkAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F0527460FF2008CBEBD /* NetworkAPIError.swift */; };
@@ -44,8 +42,8 @@
 		31522785274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31522784274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift */; };
 		31522788274BE63B009FD0B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31522787274BE63B009FD0B5 /* LoginViewController.swift */; };
 		3152278A274BE64C009FD0B5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31522789274BE64C009FD0B5 /* LoginViewModel.swift */; };
-		09A81F62274B94DF008CBEBD /* NSPasteboard+ReadString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */; };
-		09A81F60274B8E38008CBEBD /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F5F274B8E38008CBEBD /* Toast.swift */; };
+		316A10B227507E08006C8E00 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A10B027507E08006C8E00 /* Strings+Generated.swift */; };
+		316A10B327507E08006C8E00 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A10B127507E08006C8E00 /* XCAssets+Generated.swift */; };
 		3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69B273E44DE005A0A8B /* AppDelegate.swift */; };
 		3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173B69D273E44DE005A0A8B /* ViewController.swift */; };
 		3173B6A0273E44E0005A0A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3173B69F273E44E0005A0A8B /* Assets.xcassets */; };
@@ -103,8 +101,6 @@
 		096C3141273E7C50009497A5 /* ShortenLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortenLinkViewController.swift; sourceTree = "<group>"; };
 		096C3147273E7C8B009497A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		096C314B273E7CBF009497A5 /* ClearableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearableTextField.swift; sourceTree = "<group>"; };
-		096C315C273E83B0009497A5 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
-		096C315E273E84FF009497A5 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		09A81F0327460FF2008CBEBD /* NetworkAPIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAPIProtocol.swift; sourceTree = "<group>"; };
 		09A81F0427460FF2008CBEBD /* RequestConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConfiguration.swift; sourceTree = "<group>"; };
 		09A81F0527460FF2008CBEBD /* NetworkAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAPIError.swift; sourceTree = "<group>"; };
@@ -140,6 +136,8 @@
 		31522784274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+MakeCreatedAtText.swift"; sourceTree = "<group>"; };
 		31522787274BE63B009FD0B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		31522789274BE64C009FD0B5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		316A10B027507E08006C8E00 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		316A10B127507E08006C8E00 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		3173B698273E44DE005A0A8B /* ShortenLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortenLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3173B69B273E44DE005A0A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3173B69D273E44DE005A0A8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -270,8 +268,8 @@
 		096C315B273E83B0009497A5 /* Swiftgen */ = {
 			isa = PBXGroup;
 			children = (
-				096C315E273E84FF009497A5 /* XCAssets+Generated.swift */,
-				096C315C273E83B0009497A5 /* Strings+Generated.swift */,
+				316A10B027507E08006C8E00 /* Strings+Generated.swift */,
+				316A10B127507E08006C8E00 /* XCAssets+Generated.swift */,
 			);
 			path = Swiftgen;
 			sourceTree = "<group>";
@@ -905,10 +903,12 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${SRCROOT}/ShortenLink/Supports/Helpers/Swiftgen/XCAssets+Generated.swift",
+				"${SRCROOT}/ShortenLink/Supports/Helpers/Swiftgen/Strings+Generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  if [[ ! -d \"${SRCROOT}/ShortenLink/Supports/Helpers/Swiftgen\" ]]; then\n    mkdir -p \"${SRCROOT}/ShortenLink/Supports/Helpers/Swiftgen\"\n  fi\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
 		};
 		102B8CD24CEED98D86506120 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1021,7 +1021,6 @@
 				901178BA274A7AA100A0868E /* LoginRepository.swift in Sources */,
 				901178C8274B2CB900A0868E /* AuthenticationInterceptor.swift in Sources */,
 				31EDD46727455623002C4148 /* LinksPopOverViewController.swift in Sources */,
-				096C315D273E83B1009497A5 /* Strings+Generated.swift in Sources */,
 				09A81F40274B48E0008CBEBD /* ShortenLinkViewModel.swift in Sources */,
 				09A81F1027460FF3008CBEBD /* NetworkAPIError.swift in Sources */,
 				096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */,
@@ -1043,7 +1042,6 @@
 				901178C4274A8A8D00A0868E /* UserSessionRepository.swift in Sources */,
 				31522780274B95A4009FD0B5 /* ShortenLinkCellView.swift in Sources */,
 				09A81F21274615A0008CBEBD /* CreateShortenLinkUseCase.swift in Sources */,
-				096C315F273E84FF009497A5 /* XCAssets+Generated.swift in Sources */,
 				3173B69E273E44DE005A0A8B /* ViewController.swift in Sources */,
 				901178D5274B3EDD00A0868E /* GetShortenLinkUseCase.swift in Sources */,
 				09E61DD4274E38D400187135 /* NSButton+ImageOnly.swift in Sources */,
@@ -1059,6 +1057,7 @@
 				901178B7274A79D300A0868E /* UserUseCase.swift in Sources */,
 				901178C2274A7FEB00A0868E /* DependencyFactory.swift in Sources */,
 				901178BF274A7C2600A0868E /* Constants.swift in Sources */,
+				316A10B227507E08006C8E00 /* Strings+Generated.swift in Sources */,
 				901178DA274B414800A0868E /* ObservableType+Void.swift in Sources */,
 				901178E3274BC72B00A0868E /* GSignInUseCase.swift in Sources */,
 				3173B69C273E44DE005A0A8B /* AppDelegate.swift in Sources */,
@@ -1072,6 +1071,7 @@
 				09A81F51274B54E8008CBEBD /* RepositoryFactoryProtocol.swift in Sources */,
 				09A81F3C2746911C008CBEBD /* String+Date.swift in Sources */,
 				31522785274B9D55009FD0B5 /* Date+MakeCreatedAtText.swift in Sources */,
+				316A10B327507E08006C8E00 /* XCAssets+Generated.swift in Sources */,
 				901178AB274A750400A0868E /* KeychainKey.swift in Sources */,
 				901178DE274B441B00A0868E /* DeleteShortenLinkUseCase.swift in Sources */,
 				09A81F58274B5C26008CBEBD /* NSPasteboard+SetGeneralString.swift in Sources */,
@@ -1256,6 +1256,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShortenLink/Application/ShortenLink.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4TWS7E2EPE;
@@ -1278,6 +1279,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShortenLink/Application/ShortenLink.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4TWS7E2EPE;
