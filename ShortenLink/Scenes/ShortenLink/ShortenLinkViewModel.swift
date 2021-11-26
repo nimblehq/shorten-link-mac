@@ -40,7 +40,6 @@ final class ShortenLinkViewModel: ShortenLinkViewModelType {
 
         linkShortenSuccess = shortenLinkTrigger
             .flatMapLatest { input -> Driver<Bool> in
-                // TODO: Add alias and password
                 createShortenLinkUseCase
                     .createLink(input, alias: nil, password: "")
                     .asObservable().materialize()

@@ -22,4 +22,8 @@ extension DependencyFactory: ViewModelFactoryProtocol {
     func loginViewModel() -> LoginViewModelType {
         LoginViewModel(gSignInUseCase: gSignInUseCase(), userUseCase: userUseCase())
     }
+
+    func editLinkViewModel(link: EditingShortenLink) -> EditLinkViewModelType {
+        EditLinkViewModel(link: link, editShortenLinkUseCase: editShortenLinkUseCase())
+    }
 }

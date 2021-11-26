@@ -6,6 +6,8 @@
 //
 
 import AppKit
+import RxCocoa
+import RxSwift
 
 final class EditLinkViewController: NSViewController {
 
@@ -21,10 +23,29 @@ final class EditLinkViewController: NSViewController {
     private let cancelButton = NSButton()
     private let contentStackView = NSStackView()
 
+    private let viewModel: EditLinkViewModelType
+
+    private let disposeBag = DisposeBag()
+
+    init(viewModel: EditLinkViewModelType) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func loadView() {
+        view = NSView()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLayout()
         setUpViews()
+        bindViewModelOutput()
+        bindViewModelInput()
     }
 
     override func viewDidAppear() {
@@ -134,13 +155,49 @@ extension EditLinkViewController {
 
         cancelButton.bezelStyle = .rounded
         cancelButton.setButtonType(.momentaryPushIn)
-
-        privateCheckbox.target = self
-        privateCheckbox.action = #selector(passwordTextFieldPress(_:))
+        cancelButton.target = self
+        cancelButton.action = #selector(cancelPress(_:))
     }
 
-    @objc func passwordTextFieldPress(_ sender: Any?) {
-        view.window?.endEditing(for: passwordTextField)
-        passwordTextField.setEnable(privateCheckbox.state == .on)
+    @objc private func cancelPress(_ sender: Any?) {
+        closeWindow()
+    }
+
+    private func bindViewModelOutput() {
+        viewModel.output.linkFullURL.drive(titleText.rx.string).disposed(by: disposeBag)
+        viewModel.output.shouldEnableSaveButton.drive(saveButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.output.editLinkShortenSuccess.drive(
+            with: self,
+            onNext: { owner, value in
+                guard let _ = value else { return }
+                owner.closeWindow()
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func bindViewModelInput() {
+        passwordTextField.rx.text
+            .bind(to: viewModel.input.passwordText)
+            .disposed(by: disposeBag)
+        aliasTextField.rx.text
+            .bind(to: viewModel.input.aliasText)
+            .disposed(by: disposeBag)
+        privateCheckbox.rx.state
+            .bind(to: viewModel.input.isPasswordOn)
+            .disposed(by: disposeBag)
+        saveButton.rx.tap
+            .bind(to: viewModel.input.editShortLink)
+            .disposed(by: disposeBag)
+        privateCheckbox.rx.state
+            .subscribe(with: self) { owner, value in
+                owner.view.window?.endEditing(for: owner.view)
+                owner.passwordTextField.setEnable(value == .on)
+            }
+            .disposed(by: disposeBag)
+
+    }
+
+    private func closeWindow() {
+        view.window?.close()
     }
 }
