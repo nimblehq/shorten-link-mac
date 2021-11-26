@@ -42,7 +42,7 @@ final class GSignInUseCase: NSObject, GSignInUseCaseProtocol {
                     configuration: config,
                     clientId: self.kClientID,
                     clientSecret: self.kClientSecret,
-                    scopes: [OIDScopeOpenID],
+                    scopes: [OIDScopeOpenID, OIDScopeEmail, OIDScopeProfile],
                     redirectURL: redirectURL,
                     responseType: OIDResponseTypeCode,
                     additionalParameters: nil
