@@ -81,6 +81,7 @@ extension ShortenLinkViewController {
         shortenButton.bezelStyle = .rounded
         shortenButton.setButtonType(.momentaryPushIn)
         shortenButton.title = L10n.Shortenlink.Shortenbutton.title
+        shortenButton.isHighlighted = true
 
         instructionText.string = L10n.Shortenlink.Instructiontext.title
         instructionText.backgroundColor = .clear

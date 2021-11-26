@@ -35,6 +35,9 @@
 		09E61DA3274CA59000187135 /* ShortenedLinkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A81F22274616C5008CBEBD /* ShortenedLinkRepository.swift */; };
 		09E61DD1274E33BD00187135 /* MoreOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E61DD0274E33BD00187135 /* MoreOptionViewController.swift */; };
 		09E61DD4274E38D400187135 /* NSButton+ImageOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E61DD3274E38D400187135 /* NSButton+ImageOnly.swift */; };
+		09E61DEB274FA1CB00187135 /* EditLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E61DEA274FA1CA00187135 /* EditLinkViewController.swift */; };
+		09E61DED274FA45D00187135 /* NSStackView+AddArrangedSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E61DEC274FA45D00187135 /* NSStackView+AddArrangedSubviews.swift */; };
+		09E61DEF274FAD8800187135 /* DisableToggleableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E61DEE274FAD8700187135 /* DisableToggleableTextField.swift */; };
 		31089F49274A9441002AEF1D /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F3F274A7E5D002AEF1D /* EventMonitor.swift */; };
 		31522780274B95A4009FD0B5 /* ShortenLinkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F45274A92F4002AEF1D /* ShortenLinkCellView.swift */; };
 		31522781274B95CE009FD0B5 /* ShortenLinkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31089F44274A92F4002AEF1D /* ShortenLinkCellViewModel.swift */; };
@@ -126,6 +129,9 @@
 		09A81F61274B94DE008CBEBD /* NSPasteboard+ReadString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+ReadString.swift"; sourceTree = "<group>"; };
 		09E61DD0274E33BD00187135 /* MoreOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionViewController.swift; sourceTree = "<group>"; };
 		09E61DD3274E38D400187135 /* NSButton+ImageOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+ImageOnly.swift"; sourceTree = "<group>"; };
+		09E61DEA274FA1CA00187135 /* EditLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLinkViewController.swift; sourceTree = "<group>"; };
+		09E61DEC274FA45D00187135 /* NSStackView+AddArrangedSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSStackView+AddArrangedSubviews.swift"; sourceTree = "<group>"; };
+		09E61DEE274FAD8700187135 /* DisableToggleableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableToggleableTextField.swift; sourceTree = "<group>"; };
 		1BEBB435D8200CA5998242A6 /* Pods-ShortenLink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLink.release.xcconfig"; path = "Target Support Files/Pods-ShortenLink/Pods-ShortenLink.release.xcconfig"; sourceTree = "<group>"; };
 		227F40EAB69B39D36ECD86E3 /* Pods-ShortenLinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortenLinkTests.debug.xcconfig"; path = "Target Support Files/Pods-ShortenLinkTests/Pods-ShortenLinkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CE51092B02E7E8CFA5DABCA /* Pods_ShortenLinkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortenLinkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				096C314B273E7CBF009497A5 /* ClearableTextField.swift */,
+				09E61DEE274FAD8700187135 /* DisableToggleableTextField.swift */,
 				31089F41274A8FDF002AEF1D /* CustomTableRowView.swift */,
 			);
 			path = Views;
@@ -501,6 +508,14 @@
 			path = NSButton;
 			sourceTree = "<group>";
 		};
+		09E61DE9274FA1B500187135 /* EditLink */ = {
+			isa = PBXGroup;
+			children = (
+				09E61DEA274FA1CA00187135 /* EditLinkViewController.swift */,
+			);
+			path = EditLink;
+			sourceTree = "<group>";
+		};
 		31089F43274A92F4002AEF1D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +601,7 @@
 		3173B6C7273E48D2005A0A8B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				09E61DE9274FA1B500187135 /* EditLink */,
 				31522786274BE61B009FD0B5 /* Login */,
 				09E61DCF274E33AF00187135 /* MoreOption */,
 				31EDD465274555F0002C4148 /* LinksPopOver */,
@@ -631,6 +647,7 @@
 				09A81F59274B5C38008CBEBD /* AppKit */,
 				09A81F2C27468FED008CBEBD /* Foundation */,
 				31EDD46B274556FA002C4148 /* NSView+AddSubViews.swift */,
+				09E61DEC274FA45D00187135 /* NSStackView+AddArrangedSubviews.swift */,
 				901178D8274B414000A0868E /* Rx */,
 			);
 			path = Extensions;
@@ -1026,9 +1043,11 @@
 				096C314C273E7CBF009497A5 /* ClearableTextField.swift in Sources */,
 				09A81F272746177D008CBEBD /* APIShortenLink.swift in Sources */,
 				901178EC274E21AB00A0868E /* LogOutRepositoryProtocol.swift in Sources */,
+				09E61DEB274FA1CB00187135 /* EditLinkViewController.swift in Sources */,
 				901178CA274B2D5300A0868E /* AuthenticatedNetworkAPI.swift in Sources */,
 				09E61DD1274E33BD00187135 /* MoreOptionViewController.swift in Sources */,
 				901178B0274A757600A0868E /* User.swift in Sources */,
+				09E61DEF274FAD8800187135 /* DisableToggleableTextField.swift in Sources */,
 				901178A9274A74EA00A0868E /* Keychain.swift in Sources */,
 				09A81F2B2746249C008CBEBD /* JSONDecoder+Default.swift in Sources */,
 				09A81F52274B54E8008CBEBD /* DependencyFactory+ViewModelFactoryProtocol.swift in Sources */,
@@ -1053,6 +1072,7 @@
 				09A81F172746143B008CBEBD /* ShortenedLinkRepositoryProtocol.swift in Sources */,
 				09A81F252746173A008CBEBD /* LinksRequestConfiguration.swift in Sources */,
 				901178BC274A7AEF00A0868E /* UserRequestConfiguration.swift in Sources */,
+				09E61DED274FA45D00187135 /* NSStackView+AddArrangedSubviews.swift in Sources */,
 				31EDD46927455660002C4148 /* LinksPopOverViewModel.swift in Sources */,
 				901178B7274A79D300A0868E /* UserUseCase.swift in Sources */,
 				901178C2274A7FEB00A0868E /* DependencyFactory.swift in Sources */,
