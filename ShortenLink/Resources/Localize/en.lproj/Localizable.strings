@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  ShortenLink
+
+  Created by Bliss on 12/11/21.
+  
+*/
+"common.aSecondAgo" = "a second ago";
+"common.secondsAgo" = "seconds ago";
+"common.aMinuteAgo" = "a minute ago";
+"common.minutesAgo" = "minutes ago";
+"common.anHourAgo" = "an hour ago";
+"common.hoursAgo" = "hours ago";
+
+"shortenlink.urltextfield.placeholder" = "Type your link here";
+"shortenlink.instructiontext.title" = "Or use ⇧+⌘+L to shorten your copied link";
+"shortenlink.shortenbutton.title" = "Shorten";
+
+"linksPopOver.titletext.title" = "Nimble Link";
+
+"login.signInWithGoogleAccount"  = "Sign in with Google Account";
+"shortenLinkCell.deleteAlert.title" = "Are you sure to delete this Nimble Link “%@”?";
+"shortenLinkCell.deleteAlert.message" = "This action cannot be undone.";
+"shortenLinkCell.deleteAlert.deleteButton.title" = "Delete";
+"shortenLinkCell.deleteAlert.cancelButton.title" = "Cancel";
+
+"shortenlink.toast.message" = "Link copied to clipboard 📋";
+
+"option.quitMenu.title" = "Quit";
+"option.signOutMenu.title" = "Sign out";
+
+"editLink.titleLabel.title" = "Your Nimble Link";
+"editLink.aliasTextField.placeholder" = "type-your-alias-here";
+"editLink.privateButton.title" = "Protect your shorten link with password";
+"editLink.passwordTextField.placeholder" = "Type your password here";
+"editLink.cancelButton.title" = "Cancel";
+"editLink.saveButton.title" = "Save";
+"editLink.window.title" = "Edit Your Nimble Link";
