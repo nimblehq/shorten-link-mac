@@ -77,18 +77,30 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
 
         logOutTapped
             .flatMapLatest { _ -> Observable<Void> in
-                return .create { [weak self] observer in
+                .create { [weak self] observer in
                     guard let self = self else { return Disposables.create() }
                     userUseCase.logOut()
-                        .subscribe(onCompleted: {
+                        .subscribe { _ in
                             observer.onNext(())
-                        })
+                        }
+                        .disposed(by: self.disposeBag)
+                    return Disposables.create()
+                }
+            }
+            .flatMapLatest { _ -> Observable<Void> in
+                .create { [weak self] observer in
+                    guard let self = self else { return Disposables.create() }
+                    userUseCase.clearUserSession()
+                        .subscribe { _ in
+                            observer.onNext(())
+                        }
                         .disposed(by: self.disposeBag)
                     return Disposables.create()
                 }
             }
             .bind(to: onLogout)
-            
+            .disposed(by: disposeBag)
+
         shortenLinkViewModel
             .output
             .linkShortenSuccess
@@ -97,7 +109,6 @@ final class LinksPopOverViewModel: LinksPopOverViewModelType, LinksPopOverViewMo
                 self.viewWillAppear.accept(())
             })
             .disposed(by: disposeBag)
-
 
         viewWillAppear
             .flatMapLatest { [weak self] in

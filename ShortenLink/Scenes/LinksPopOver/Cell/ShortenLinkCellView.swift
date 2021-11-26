@@ -103,19 +103,19 @@ extension ShortenLinkCellView {
 
     private func setUpViews() {
         shortenLinkField.backgroundColor = .clear
-        shortenLinkField.font = .systemFont(ofSize: 11.0)
+        shortenLinkField.font = .systemFont(ofSize: 15.0)
         shortenLinkField.isEditable = false
         shortenLinkField.isBezeled = false
         shortenLinkField.lineBreakMode = .byTruncatingTail
 
         fullLinkField.backgroundColor = .clear
-        fullLinkField.font = .systemFont(ofSize: 9.0)
+        fullLinkField.font = .systemFont(ofSize: 11.0)
         fullLinkField.isEditable = false
         fullLinkField.isBezeled = false
         fullLinkField.lineBreakMode = .byTruncatingTail
 
         createdDateField.backgroundColor = .clear
-        createdDateField.font = .systemFont(ofSize: 9.0)
+        createdDateField.font = .systemFont(ofSize: 11.0)
         createdDateField.isEditable = false
         createdDateField.isBezeled = false
         createdDateField.lineBreakMode = .byTruncatingTail
